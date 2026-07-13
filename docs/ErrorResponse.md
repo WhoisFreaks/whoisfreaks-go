@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **bool** |  | [optional] 
+**Timestamp** | Pointer to **string** |  | [optional] 
+**Path** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to **int32** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **int32** |  | [optional] 
@@ -28,22 +30,72 @@ NewErrorResponseWithDefaults instantiates a new ErrorResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetTimestamp
+
+`func (o *ErrorResponse) GetTimestamp() string`
+
+GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
+
+### GetTimestampOk
+
+`func (o *ErrorResponse) GetTimestampOk() (*string, bool)`
+
+GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimestamp
+
+`func (o *ErrorResponse) SetTimestamp(v string)`
+
+SetTimestamp sets Timestamp field to given value.
+
+### HasTimestamp
+
+`func (o *ErrorResponse) HasTimestamp() bool`
+
+HasTimestamp returns a boolean if a field has been set.
+
+### GetPath
+
+`func (o *ErrorResponse) GetPath() string`
+
+GetPath returns the Path field if non-nil, zero value otherwise.
+
+### GetPathOk
+
+`func (o *ErrorResponse) GetPathOk() (*string, bool)`
+
+GetPathOk returns a tuple with the Path field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPath
+
+`func (o *ErrorResponse) SetPath(v string)`
+
+SetPath sets Path field to given value.
+
+### HasPath
+
+`func (o *ErrorResponse) HasPath() bool`
+
+HasPath returns a boolean if a field has been set.
+
 ### GetStatus
 
-`func (o *ErrorResponse) GetStatus() bool`
+`func (o *ErrorResponse) GetStatus() int32`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ErrorResponse) GetStatusOk() (*bool, bool)`
+`func (o *ErrorResponse) GetStatusOk() (*int32, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ErrorResponse) SetStatus(v bool)`
+`func (o *ErrorResponse) SetStatus(v int32)`
 
 SetStatus sets Status field to given value.
 

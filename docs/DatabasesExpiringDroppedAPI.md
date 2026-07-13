@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## DbDropped
 
-> string DbDropped(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+> *os.File DbDropped(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
 
 Dropped Domains
 
@@ -45,7 +45,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbDropped``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbDropped`: string
+	// response from `DbDropped`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesExpiringDroppedAPI.DbDropped`: %v\n", resp)
 }
 ```
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## DbDroppedBacklinks
 
-> string DbDroppedBacklinks(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+> *os.File DbDroppedBacklinks(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
 
 Dropped With Backlinks
 
@@ -116,7 +116,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbDroppedBacklinks``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbDroppedBacklinks`: string
+	// response from `DbDroppedBacklinks`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesExpiringDroppedAPI.DbDroppedBacklinks`: %v\n", resp)
 }
 ```
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -227,7 +227,7 @@ Name | Type | Description  | Notes
 
 ## DbExpired
 
-> string DbExpired(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+> *os.File DbExpired(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
 
 Expiring Domains
 
@@ -258,7 +258,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbExpired``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbExpired`: string
+	// response from `DbExpired`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesExpiringDroppedAPI.DbExpired`: %v\n", resp)
 }
 ```
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ## DbExpiredCleaned
 
-> string DbExpiredCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbExpiredCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
 
 Expiring Cleaned WHOIS
 
@@ -328,7 +328,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbExpiredCleaned``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbExpiredCleaned`: string
+	// response from `DbExpiredCleaned`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesExpiringDroppedAPI.DbExpiredCleaned`: %v\n", resp)
 }
 ```
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

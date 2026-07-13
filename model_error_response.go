@@ -20,7 +20,9 @@ var _ MappedNullable = &ErrorResponse{}
 
 // ErrorResponse struct for ErrorResponse
 type ErrorResponse struct {
-	Status *bool `json:"status,omitempty"`
+	Timestamp *string `json:"timestamp,omitempty"`
+	Path *string `json:"path,omitempty"`
+	Status *int32 `json:"status,omitempty"`
 	Error *string `json:"error,omitempty"`
 	Message *string `json:"message,omitempty"`
 	Code *int32 `json:"code,omitempty"`
@@ -46,10 +48,74 @@ func NewErrorResponseWithDefaults() *ErrorResponse {
 	return &this
 }
 
+// GetTimestamp returns the Timestamp field value if set, zero value otherwise.
+func (o *ErrorResponse) GetTimestamp() string {
+	if o == nil || IsNil(o.Timestamp) {
+		var ret string
+		return ret
+	}
+	return *o.Timestamp
+}
+
+// GetTimestampOk returns a tuple with the Timestamp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ErrorResponse) GetTimestampOk() (*string, bool) {
+	if o == nil || IsNil(o.Timestamp) {
+		return nil, false
+	}
+	return o.Timestamp, true
+}
+
+// HasTimestamp returns a boolean if a field has been set.
+func (o *ErrorResponse) HasTimestamp() bool {
+	if o != nil && !IsNil(o.Timestamp) {
+		return true
+	}
+
+	return false
+}
+
+// SetTimestamp gets a reference to the given string and assigns it to the Timestamp field.
+func (o *ErrorResponse) SetTimestamp(v string) {
+	o.Timestamp = &v
+}
+
+// GetPath returns the Path field value if set, zero value otherwise.
+func (o *ErrorResponse) GetPath() string {
+	if o == nil || IsNil(o.Path) {
+		var ret string
+		return ret
+	}
+	return *o.Path
+}
+
+// GetPathOk returns a tuple with the Path field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ErrorResponse) GetPathOk() (*string, bool) {
+	if o == nil || IsNil(o.Path) {
+		return nil, false
+	}
+	return o.Path, true
+}
+
+// HasPath returns a boolean if a field has been set.
+func (o *ErrorResponse) HasPath() bool {
+	if o != nil && !IsNil(o.Path) {
+		return true
+	}
+
+	return false
+}
+
+// SetPath gets a reference to the given string and assigns it to the Path field.
+func (o *ErrorResponse) SetPath(v string) {
+	o.Path = &v
+}
+
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *ErrorResponse) GetStatus() bool {
+func (o *ErrorResponse) GetStatus() int32 {
 	if o == nil || IsNil(o.Status) {
-		var ret bool
+		var ret int32
 		return ret
 	}
 	return *o.Status
@@ -57,7 +123,7 @@ func (o *ErrorResponse) GetStatus() bool {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorResponse) GetStatusOk() (*bool, bool) {
+func (o *ErrorResponse) GetStatusOk() (*int32, bool) {
 	if o == nil || IsNil(o.Status) {
 		return nil, false
 	}
@@ -73,8 +139,8 @@ func (o *ErrorResponse) HasStatus() bool {
 	return false
 }
 
-// SetStatus gets a reference to the given bool and assigns it to the Status field.
-func (o *ErrorResponse) SetStatus(v bool) {
+// SetStatus gets a reference to the given int32 and assigns it to the Status field.
+func (o *ErrorResponse) SetStatus(v int32) {
 	o.Status = &v
 }
 
@@ -184,6 +250,12 @@ func (o ErrorResponse) MarshalJSON() ([]byte, error) {
 
 func (o ErrorResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.Timestamp) {
+		toSerialize["timestamp"] = o.Timestamp
+	}
+	if !IsNil(o.Path) {
+		toSerialize["path"] = o.Path
+	}
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
@@ -218,6 +290,8 @@ func (o *ErrorResponse) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "timestamp")
+		delete(additionalProperties, "path")
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "error")
 		delete(additionalProperties, "message")

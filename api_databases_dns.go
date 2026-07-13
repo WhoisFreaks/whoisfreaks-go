@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 
@@ -33,8 +34,8 @@ type DatabasesDNSAPI interface {
 	DbDnsDaily(ctx context.Context) DatabasesDNSAPIDbDnsDailyRequest
 
 	// DbDnsDailyExecute executes the request
-	//  @return string
-	DbDnsDailyExecute(r DatabasesDNSAPIDbDnsDailyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbDnsDailyExecute(r DatabasesDNSAPIDbDnsDailyRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbDnsMonthly DNS Database Monthly
@@ -47,8 +48,8 @@ type DatabasesDNSAPI interface {
 	DbDnsMonthly(ctx context.Context) DatabasesDNSAPIDbDnsMonthlyRequest
 
 	// DbDnsMonthlyExecute executes the request
-	//  @return string
-	DbDnsMonthlyExecute(r DatabasesDNSAPIDbDnsMonthlyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbDnsMonthlyExecute(r DatabasesDNSAPIDbDnsMonthlyRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbDnsWeekly DNS Database Weekly
@@ -61,8 +62,8 @@ type DatabasesDNSAPI interface {
 	DbDnsWeekly(ctx context.Context) DatabasesDNSAPIDbDnsWeeklyRequest
 
 	// DbDnsWeeklyExecute executes the request
-	//  @return string
-	DbDnsWeeklyExecute(r DatabasesDNSAPIDbDnsWeeklyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbDnsWeeklyExecute(r DatabasesDNSAPIDbDnsWeeklyRequest) (*os.File, *http.Response, error)
 }
 
 // DatabasesDNSAPIService DatabasesDNSAPI service
@@ -87,7 +88,7 @@ func (r DatabasesDNSAPIDbDnsDailyRequest) Date(date string) DatabasesDNSAPIDbDns
 	return r
 }
 
-func (r DatabasesDNSAPIDbDnsDailyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesDNSAPIDbDnsDailyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbDnsDailyExecute(r)
 }
 
@@ -107,13 +108,13 @@ func (a *DatabasesDNSAPIService) DbDnsDaily(ctx context.Context) DatabasesDNSAPI
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesDNSAPIService) DbDnsDailyExecute(r DatabasesDNSAPIDbDnsDailyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesDNSAPIService) DbDnsDailyExecute(r DatabasesDNSAPIDbDnsDailyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesDNSAPIService.DbDnsDaily")
@@ -144,7 +145,7 @@ func (a *DatabasesDNSAPIService) DbDnsDailyExecute(r DatabasesDNSAPIDbDnsDailyRe
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -231,7 +232,7 @@ func (r DatabasesDNSAPIDbDnsMonthlyRequest) Date(date string) DatabasesDNSAPIDbD
 	return r
 }
 
-func (r DatabasesDNSAPIDbDnsMonthlyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesDNSAPIDbDnsMonthlyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbDnsMonthlyExecute(r)
 }
 
@@ -251,13 +252,13 @@ func (a *DatabasesDNSAPIService) DbDnsMonthly(ctx context.Context) DatabasesDNSA
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesDNSAPIService) DbDnsMonthlyExecute(r DatabasesDNSAPIDbDnsMonthlyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesDNSAPIService) DbDnsMonthlyExecute(r DatabasesDNSAPIDbDnsMonthlyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesDNSAPIService.DbDnsMonthly")
@@ -288,7 +289,7 @@ func (a *DatabasesDNSAPIService) DbDnsMonthlyExecute(r DatabasesDNSAPIDbDnsMonth
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -375,7 +376,7 @@ func (r DatabasesDNSAPIDbDnsWeeklyRequest) Date(date string) DatabasesDNSAPIDbDn
 	return r
 }
 
-func (r DatabasesDNSAPIDbDnsWeeklyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesDNSAPIDbDnsWeeklyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbDnsWeeklyExecute(r)
 }
 
@@ -395,13 +396,13 @@ func (a *DatabasesDNSAPIService) DbDnsWeekly(ctx context.Context) DatabasesDNSAP
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesDNSAPIService) DbDnsWeeklyExecute(r DatabasesDNSAPIDbDnsWeeklyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesDNSAPIService) DbDnsWeeklyExecute(r DatabasesDNSAPIDbDnsWeeklyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesDNSAPIService.DbDnsWeekly")
@@ -432,7 +433,7 @@ func (a *DatabasesDNSAPIService) DbDnsWeeklyExecute(r DatabasesDNSAPIDbDnsWeekly
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

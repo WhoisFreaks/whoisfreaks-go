@@ -1343,8 +1343,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1398,8 +1399,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1439,8 +1441,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1480,8 +1483,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1621,11 +1625,10 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            application/octet-stream:
               schema:
-                items:
-                  type: object
-                type: array
+                format: binary
+                type: string
           description: JSON array of domains with DNS
         "4XX":
           content:
@@ -1670,8 +1673,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1711,8 +1715,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1758,8 +1763,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1856,8 +1862,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1897,8 +1904,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1938,8 +1946,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -1979,8 +1988,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -2020,8 +2030,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -2061,8 +2072,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -2102,8 +2114,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -2142,8 +2155,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -2183,8 +2197,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -2224,8 +2239,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -2296,7 +2312,7 @@ paths:
       responses:
         "200":
           content:
-            application/zip:
+            application/octet-stream:
               schema:
                 format: binary
                 type: string
@@ -2369,7 +2385,7 @@ paths:
       responses:
         "200":
           content:
-            application/zip:
+            application/octet-stream:
               schema:
                 format: binary
                 type: string
@@ -2410,9 +2426,10 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            application/octet-stream:
               schema:
-                type: object
+                format: binary
+                type: string
           description: JSON gzipped
         "4XX":
           content:
@@ -2482,9 +2499,10 @@ paths:
       responses:
         "200":
           content:
-            application/json:
+            application/octet-stream:
               schema:
-                type: object
+                format: binary
+                type: string
           description: JSON gzipped
         "4XX":
           content:
@@ -2554,8 +2572,9 @@ paths:
       responses:
         "200":
           content:
-            text/csv:
+            application/octet-stream:
               schema:
+                format: binary
                 type: string
           description: CSV
         "4XX":
@@ -7434,13 +7453,19 @@ components:
     ErrorResponse:
       additionalProperties: true
       example:
-        code: 0
+        path: path
+        code: 6
         error: error
         message: message
-        status: true
+        timestamp: timestamp
+        status: 0
       properties:
+        timestamp:
+          type: string
+        path:
+          type: string
         status:
-          type: boolean
+          type: integer
         error:
           type: string
         message:

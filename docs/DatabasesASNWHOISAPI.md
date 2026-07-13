@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## DbAsnWhois
 
-> map[string]interface{} DbAsnWhois(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbAsnWhois(ctx).ApiKey(apiKey).Date(date).Execute()
 
 ASN WHOIS Snapshot
 
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesASNWHOISAPI.DbAsnWhois``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbAsnWhois`: map[string]interface{}
+	// response from `DbAsnWhois`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesASNWHOISAPI.DbAsnWhois`: %v\n", resp)
 }
 ```
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

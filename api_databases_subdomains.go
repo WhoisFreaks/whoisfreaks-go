@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 
@@ -33,8 +34,8 @@ type DatabasesSubdomainsAPI interface {
 	DbSubdomainsDaily(ctx context.Context) DatabasesSubdomainsAPIDbSubdomainsDailyRequest
 
 	// DbSubdomainsDailyExecute executes the request
-	//  @return string
-	DbSubdomainsDailyExecute(r DatabasesSubdomainsAPIDbSubdomainsDailyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbSubdomainsDailyExecute(r DatabasesSubdomainsAPIDbSubdomainsDailyRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbSubdomainsMonthly Subdomains Monthly
@@ -47,8 +48,8 @@ type DatabasesSubdomainsAPI interface {
 	DbSubdomainsMonthly(ctx context.Context) DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest
 
 	// DbSubdomainsMonthlyExecute executes the request
-	//  @return string
-	DbSubdomainsMonthlyExecute(r DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbSubdomainsMonthlyExecute(r DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbSubdomainsWeekly Subdomains Weekly
@@ -61,8 +62,8 @@ type DatabasesSubdomainsAPI interface {
 	DbSubdomainsWeekly(ctx context.Context) DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest
 
 	// DbSubdomainsWeeklyExecute executes the request
-	//  @return string
-	DbSubdomainsWeeklyExecute(r DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbSubdomainsWeeklyExecute(r DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest) (*os.File, *http.Response, error)
 }
 
 // DatabasesSubdomainsAPIService DatabasesSubdomainsAPI service
@@ -87,7 +88,7 @@ func (r DatabasesSubdomainsAPIDbSubdomainsDailyRequest) Date(date string) Databa
 	return r
 }
 
-func (r DatabasesSubdomainsAPIDbSubdomainsDailyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesSubdomainsAPIDbSubdomainsDailyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbSubdomainsDailyExecute(r)
 }
 
@@ -107,13 +108,13 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsDaily(ctx context.Context) D
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesSubdomainsAPIService) DbSubdomainsDailyExecute(r DatabasesSubdomainsAPIDbSubdomainsDailyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesSubdomainsAPIService) DbSubdomainsDailyExecute(r DatabasesSubdomainsAPIDbSubdomainsDailyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesSubdomainsAPIService.DbSubdomainsDaily")
@@ -144,7 +145,7 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsDailyExecute(r DatabasesSubd
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -231,7 +232,7 @@ func (r DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest) Date(date string) Data
 	return r
 }
 
-func (r DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbSubdomainsMonthlyExecute(r)
 }
 
@@ -251,13 +252,13 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsMonthly(ctx context.Context)
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesSubdomainsAPIService) DbSubdomainsMonthlyExecute(r DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesSubdomainsAPIService) DbSubdomainsMonthlyExecute(r DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesSubdomainsAPIService.DbSubdomainsMonthly")
@@ -288,7 +289,7 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsMonthlyExecute(r DatabasesSu
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -375,7 +376,7 @@ func (r DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest) Date(date string) Datab
 	return r
 }
 
-func (r DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbSubdomainsWeeklyExecute(r)
 }
 
@@ -395,13 +396,13 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsWeekly(ctx context.Context) 
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesSubdomainsAPIService) DbSubdomainsWeeklyExecute(r DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesSubdomainsAPIService) DbSubdomainsWeeklyExecute(r DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesSubdomainsAPIService.DbSubdomainsWeekly")
@@ -432,7 +433,7 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsWeeklyExecute(r DatabasesSub
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

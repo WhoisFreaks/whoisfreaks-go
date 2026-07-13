@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 
@@ -33,8 +34,8 @@ type DatabasesNewlyRegisteredAPI interface {
 	DbNewlyCctld(ctx context.Context) DatabasesNewlyRegisteredAPIDbNewlyCctldRequest
 
 	// DbNewlyCctldExecute executes the request
-	//  @return string
-	DbNewlyCctldExecute(r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbNewlyCctldExecute(r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbNewlyCctldCleaned Newly Registered ccTLD Cleaned WHOIS (CSV)
@@ -47,8 +48,8 @@ type DatabasesNewlyRegisteredAPI interface {
 	DbNewlyCctldCleaned(ctx context.Context) DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest
 
 	// DbNewlyCctldCleanedExecute executes the request
-	//  @return string
-	DbNewlyCctldCleanedExecute(r DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbNewlyCctldCleanedExecute(r DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbNewlyCctldJson Newly Registered ccTLD (JSON)
@@ -75,8 +76,8 @@ type DatabasesNewlyRegisteredAPI interface {
 	DbNewlyDns(ctx context.Context) DatabasesNewlyRegisteredAPIDbNewlyDnsRequest
 
 	// DbNewlyDnsExecute executes the request
-	//  @return []map[string]interface{}
-	DbNewlyDnsExecute(r DatabasesNewlyRegisteredAPIDbNewlyDnsRequest) ([]map[string]interface{}, *http.Response, error)
+	//  @return *os.File
+	DbNewlyDnsExecute(r DatabasesNewlyRegisteredAPIDbNewlyDnsRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbNewlyGtld Newly Registered gTLD (CSV)
@@ -89,8 +90,8 @@ type DatabasesNewlyRegisteredAPI interface {
 	DbNewlyGtld(ctx context.Context) DatabasesNewlyRegisteredAPIDbNewlyGtldRequest
 
 	// DbNewlyGtldExecute executes the request
-	//  @return string
-	DbNewlyGtldExecute(r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbNewlyGtldExecute(r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbNewlyGtldCleaned Newly Registered gTLD Cleaned WHOIS (CSV)
@@ -103,8 +104,8 @@ type DatabasesNewlyRegisteredAPI interface {
 	DbNewlyGtldCleaned(ctx context.Context) DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest
 
 	// DbNewlyGtldCleanedExecute executes the request
-	//  @return string
-	DbNewlyGtldCleanedExecute(r DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbNewlyGtldCleanedExecute(r DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbNewlyGtldJson Newly Registered gTLD (JSON)
@@ -155,7 +156,7 @@ func (r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) Tlds(tlds string) Databa
 	return r
 }
 
-func (r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbNewlyCctldExecute(r)
 }
 
@@ -175,13 +176,13 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctld(ctx context.Context) D
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldExecute(r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldExecute(r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesNewlyRegisteredAPIService.DbNewlyCctld")
@@ -219,7 +220,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldExecute(r DatabasesNewl
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -306,7 +307,7 @@ func (r DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest) Date(date string)
 	return r
 }
 
-func (r DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbNewlyCctldCleanedExecute(r)
 }
 
@@ -326,13 +327,13 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldCleaned(ctx context.Con
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldCleanedExecute(r DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldCleanedExecute(r DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesNewlyRegisteredAPIService.DbNewlyCctldCleaned")
@@ -363,7 +364,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldCleanedExecute(r Databa
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -603,7 +604,7 @@ func (r DatabasesNewlyRegisteredAPIDbNewlyDnsRequest) Date(date string) Database
 	return r
 }
 
-func (r DatabasesNewlyRegisteredAPIDbNewlyDnsRequest) Execute() ([]map[string]interface{}, *http.Response, error) {
+func (r DatabasesNewlyRegisteredAPIDbNewlyDnsRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbNewlyDnsExecute(r)
 }
 
@@ -623,13 +624,13 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyDns(ctx context.Context) Dat
 }
 
 // Execute executes the request
-//  @return []map[string]interface{}
-func (a *DatabasesNewlyRegisteredAPIService) DbNewlyDnsExecute(r DatabasesNewlyRegisteredAPIDbNewlyDnsRequest) ([]map[string]interface{}, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesNewlyRegisteredAPIService) DbNewlyDnsExecute(r DatabasesNewlyRegisteredAPIDbNewlyDnsRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []map[string]interface{}
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesNewlyRegisteredAPIService.DbNewlyDns")
@@ -660,7 +661,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyDnsExecute(r DatabasesNewlyR
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -759,7 +760,7 @@ func (r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) Tlds(tlds string) Databas
 	return r
 }
 
-func (r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbNewlyGtldExecute(r)
 }
 
@@ -779,13 +780,13 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtld(ctx context.Context) Da
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldExecute(r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldExecute(r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesNewlyRegisteredAPIService.DbNewlyGtld")
@@ -823,7 +824,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldExecute(r DatabasesNewly
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -910,7 +911,7 @@ func (r DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest) Date(date string) 
 	return r
 }
 
-func (r DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbNewlyGtldCleanedExecute(r)
 }
 
@@ -930,13 +931,13 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldCleaned(ctx context.Cont
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldCleanedExecute(r DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldCleanedExecute(r DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesNewlyRegisteredAPIService.DbNewlyGtldCleaned")
@@ -967,7 +968,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldCleanedExecute(r Databas
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

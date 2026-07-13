@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 
@@ -33,8 +34,8 @@ type DatabasesASNWHOISAPI interface {
 	DbAsnWhois(ctx context.Context) DatabasesASNWHOISAPIDbAsnWhoisRequest
 
 	// DbAsnWhoisExecute executes the request
-	//  @return map[string]interface{}
-	DbAsnWhoisExecute(r DatabasesASNWHOISAPIDbAsnWhoisRequest) (map[string]interface{}, *http.Response, error)
+	//  @return *os.File
+	DbAsnWhoisExecute(r DatabasesASNWHOISAPIDbAsnWhoisRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbAsnWhoisStatus ASN WHOIS Snapshot Status
@@ -72,7 +73,7 @@ func (r DatabasesASNWHOISAPIDbAsnWhoisRequest) Date(date string) DatabasesASNWHO
 	return r
 }
 
-func (r DatabasesASNWHOISAPIDbAsnWhoisRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r DatabasesASNWHOISAPIDbAsnWhoisRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbAsnWhoisExecute(r)
 }
 
@@ -92,13 +93,13 @@ func (a *DatabasesASNWHOISAPIService) DbAsnWhois(ctx context.Context) DatabasesA
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (a *DatabasesASNWHOISAPIService) DbAsnWhoisExecute(r DatabasesASNWHOISAPIDbAsnWhoisRequest) (map[string]interface{}, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesASNWHOISAPIService) DbAsnWhoisExecute(r DatabasesASNWHOISAPIDbAsnWhoisRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesASNWHOISAPIService.DbAsnWhois")
@@ -130,7 +131,7 @@ func (a *DatabasesASNWHOISAPIService) DbAsnWhoisExecute(r DatabasesASNWHOISAPIDb
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

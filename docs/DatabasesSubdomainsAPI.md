@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## DbSubdomainsDaily
 
-> string DbSubdomainsDaily(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbSubdomainsDaily(ctx).ApiKey(apiKey).Date(date).Execute()
 
 Subdomains Daily
 
@@ -42,7 +42,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesSubdomainsAPI.DbSubdomainsDaily``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbSubdomainsDaily`: string
+	// response from `DbSubdomainsDaily`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesSubdomainsAPI.DbSubdomainsDaily`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## DbSubdomainsMonthly
 
-> string DbSubdomainsMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbSubdomainsMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
 
 Subdomains Monthly
 
@@ -111,7 +111,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesSubdomainsAPI.DbSubdomainsMonthly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbSubdomainsMonthly`: string
+	// response from `DbSubdomainsMonthly`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesSubdomainsAPI.DbSubdomainsMonthly`: %v\n", resp)
 }
 ```
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ## DbSubdomainsWeekly
 
-> string DbSubdomainsWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbSubdomainsWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
 
 Subdomains Weekly
 
@@ -180,7 +180,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesSubdomainsAPI.DbSubdomainsWeekly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbSubdomainsWeekly`: string
+	// response from `DbSubdomainsWeekly`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesSubdomainsAPI.DbSubdomainsWeekly`: %v\n", resp)
 }
 ```
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

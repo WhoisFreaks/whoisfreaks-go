@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## DbDnsDaily
 
-> string DbDnsDaily(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbDnsDaily(ctx).ApiKey(apiKey).Date(date).Execute()
 
 DNS Database Daily
 
@@ -42,7 +42,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesDNSAPI.DbDnsDaily``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbDnsDaily`: string
+	// response from `DbDnsDaily`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesDNSAPI.DbDnsDaily`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## DbDnsMonthly
 
-> string DbDnsMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbDnsMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
 
 DNS Database Monthly
 
@@ -111,7 +111,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesDNSAPI.DbDnsMonthly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbDnsMonthly`: string
+	// response from `DbDnsMonthly`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesDNSAPI.DbDnsMonthly`: %v\n", resp)
 }
 ```
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ## DbDnsWeekly
 
-> string DbDnsWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbDnsWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
 
 DNS Database Weekly
 
@@ -180,7 +180,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesDNSAPI.DbDnsWeekly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbDnsWeekly`: string
+	// response from `DbDnsWeekly`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesDNSAPI.DbDnsWeekly`: %v\n", resp)
 }
 ```
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 
@@ -33,8 +34,8 @@ type DatabasesIPSecurityAPI interface {
 	DbIpSecurity(ctx context.Context) DatabasesIPSecurityAPIDbIpSecurityRequest
 
 	// DbIpSecurityExecute executes the request
-	//  @return string
-	DbIpSecurityExecute(r DatabasesIPSecurityAPIDbIpSecurityRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbIpSecurityExecute(r DatabasesIPSecurityAPIDbIpSecurityRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbIpSecurityStatus IP Security Snapshot Status
@@ -72,7 +73,7 @@ func (r DatabasesIPSecurityAPIDbIpSecurityRequest) Date(date string) DatabasesIP
 	return r
 }
 
-func (r DatabasesIPSecurityAPIDbIpSecurityRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesIPSecurityAPIDbIpSecurityRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbIpSecurityExecute(r)
 }
 
@@ -92,13 +93,13 @@ func (a *DatabasesIPSecurityAPIService) DbIpSecurity(ctx context.Context) Databa
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesIPSecurityAPIService) DbIpSecurityExecute(r DatabasesIPSecurityAPIDbIpSecurityRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesIPSecurityAPIService) DbIpSecurityExecute(r DatabasesIPSecurityAPIDbIpSecurityRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesIPSecurityAPIService.DbIpSecurity")
@@ -130,7 +131,7 @@ func (a *DatabasesIPSecurityAPIService) DbIpSecurityExecute(r DatabasesIPSecurit
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

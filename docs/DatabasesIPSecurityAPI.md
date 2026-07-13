@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## DbIpSecurity
 
-> string DbIpSecurity(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbIpSecurity(ctx).ApiKey(apiKey).Date(date).Execute()
 
 IP Security Snapshot
 
@@ -41,7 +41,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesIPSecurityAPI.DbIpSecurity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbIpSecurity`: string
+	// response from `DbIpSecurity`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesIPSecurityAPI.DbIpSecurity`: %v\n", resp)
 }
 ```
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

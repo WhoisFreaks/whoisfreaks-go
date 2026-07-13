@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## DbWhoisDaily
 
-> string DbWhoisDaily(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbWhoisDaily(ctx).ApiKey(apiKey).Date(date).Execute()
 
 WHOIS Database Daily
 
@@ -42,7 +42,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesWHOISAPI.DbWhoisDaily``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbWhoisDaily`: string
+	// response from `DbWhoisDaily`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesWHOISAPI.DbWhoisDaily`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## DbWhoisMonthly
 
-> string DbWhoisMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbWhoisMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
 
 WHOIS Database Monthly
 
@@ -111,7 +111,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesWHOISAPI.DbWhoisMonthly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbWhoisMonthly`: string
+	// response from `DbWhoisMonthly`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesWHOISAPI.DbWhoisMonthly`: %v\n", resp)
 }
 ```
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ## DbWhoisWeekly
 
-> string DbWhoisWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbWhoisWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
 
 WHOIS Database Weekly
 
@@ -180,7 +180,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesWHOISAPI.DbWhoisWeekly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbWhoisWeekly`: string
+	// response from `DbWhoisWeekly`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesWHOISAPI.DbWhoisWeekly`: %v\n", resp)
 }
 ```
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

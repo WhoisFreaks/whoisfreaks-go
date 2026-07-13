@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## DbNewlyCctld
 
-> string DbNewlyCctld(ctx).ApiKey(apiKey).Whois(whois).Date(date).Tlds(tlds).Execute()
+> *os.File DbNewlyCctld(ctx).ApiKey(apiKey).Whois(whois).Date(date).Tlds(tlds).Execute()
 
 Newly Registered ccTLD (CSV)
 
@@ -48,7 +48,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyCctld``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbNewlyCctld`: string
+	// response from `DbNewlyCctld`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesNewlyRegisteredAPI.DbNewlyCctld`: %v\n", resp)
 }
 ```
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyCctldCleaned
 
-> string DbNewlyCctldCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbNewlyCctldCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
 
 Newly Registered ccTLD Cleaned WHOIS (CSV)
 
@@ -119,7 +119,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyCctldCleaned``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbNewlyCctldCleaned`: string
+	// response from `DbNewlyCctldCleaned`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesNewlyRegisteredAPI.DbNewlyCctldCleaned`: %v\n", resp)
 }
 ```
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyDns
 
-> []map[string]interface{} DbNewlyDns(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbNewlyDns(ctx).ApiKey(apiKey).Date(date).Execute()
 
 Newly Registered With DNS
 
@@ -259,7 +259,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyDns``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbNewlyDns`: []map[string]interface{}
+	// response from `DbNewlyDns`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesNewlyRegisteredAPI.DbNewlyDns`: %v\n", resp)
 }
 ```
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]map[string]interface{}**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyGtld
 
-> string DbNewlyGtld(ctx).ApiKey(apiKey).Whois(whois).Date(date).Tlds(tlds).Execute()
+> *os.File DbNewlyGtld(ctx).ApiKey(apiKey).Whois(whois).Date(date).Tlds(tlds).Execute()
 
 Newly Registered gTLD (CSV)
 
@@ -330,7 +330,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyGtld``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbNewlyGtld`: string
+	// response from `DbNewlyGtld`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesNewlyRegisteredAPI.DbNewlyGtld`: %v\n", resp)
 }
 ```
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyGtldCleaned
 
-> string DbNewlyGtldCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbNewlyGtldCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
 
 Newly Registered gTLD Cleaned WHOIS (CSV)
 
@@ -401,7 +401,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyGtldCleaned``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DbNewlyGtldCleaned`: string
+	// response from `DbNewlyGtldCleaned`: *os.File
 	fmt.Fprintf(os.Stdout, "Response from `DatabasesNewlyRegisteredAPI.DbNewlyGtldCleaned`: %v\n", resp)
 }
 ```
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[***os.File**](*os.File.md)
 
 ### Authorization
 
@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

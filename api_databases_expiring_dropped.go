@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 
@@ -33,8 +34,8 @@ type DatabasesExpiringDroppedAPI interface {
 	DbDropped(ctx context.Context) DatabasesExpiringDroppedAPIDbDroppedRequest
 
 	// DbDroppedExecute executes the request
-	//  @return string
-	DbDroppedExecute(r DatabasesExpiringDroppedAPIDbDroppedRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbDroppedExecute(r DatabasesExpiringDroppedAPIDbDroppedRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbDroppedBacklinks Dropped With Backlinks
@@ -47,8 +48,8 @@ type DatabasesExpiringDroppedAPI interface {
 	DbDroppedBacklinks(ctx context.Context) DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest
 
 	// DbDroppedBacklinksExecute executes the request
-	//  @return string
-	DbDroppedBacklinksExecute(r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbDroppedBacklinksExecute(r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbDroppedJson Dropped Domains (JSON)
@@ -75,8 +76,8 @@ type DatabasesExpiringDroppedAPI interface {
 	DbExpired(ctx context.Context) DatabasesExpiringDroppedAPIDbExpiredRequest
 
 	// DbExpiredExecute executes the request
-	//  @return string
-	DbExpiredExecute(r DatabasesExpiringDroppedAPIDbExpiredRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbExpiredExecute(r DatabasesExpiringDroppedAPIDbExpiredRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbExpiredCleaned Expiring Cleaned WHOIS
@@ -89,8 +90,8 @@ type DatabasesExpiringDroppedAPI interface {
 	DbExpiredCleaned(ctx context.Context) DatabasesExpiringDroppedAPIDbExpiredCleanedRequest
 
 	// DbExpiredCleanedExecute executes the request
-	//  @return string
-	DbExpiredCleanedExecute(r DatabasesExpiringDroppedAPIDbExpiredCleanedRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbExpiredCleanedExecute(r DatabasesExpiringDroppedAPIDbExpiredCleanedRequest) (*os.File, *http.Response, error)
 }
 
 // DatabasesExpiringDroppedAPIService DatabasesExpiringDroppedAPI service
@@ -121,7 +122,7 @@ func (r DatabasesExpiringDroppedAPIDbDroppedRequest) Date(date string) Databases
 	return r
 }
 
-func (r DatabasesExpiringDroppedAPIDbDroppedRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesExpiringDroppedAPIDbDroppedRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbDroppedExecute(r)
 }
 
@@ -141,13 +142,13 @@ func (a *DatabasesExpiringDroppedAPIService) DbDropped(ctx context.Context) Data
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesExpiringDroppedAPIService) DbDroppedExecute(r DatabasesExpiringDroppedAPIDbDroppedRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesExpiringDroppedAPIService) DbDroppedExecute(r DatabasesExpiringDroppedAPIDbDroppedRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesExpiringDroppedAPIService.DbDropped")
@@ -182,7 +183,7 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedExecute(r DatabasesExpirin
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -275,7 +276,7 @@ func (r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) Date(date string) 
 	return r
 }
 
-func (r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbDroppedBacklinksExecute(r)
 }
 
@@ -295,13 +296,13 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedBacklinks(ctx context.Cont
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesExpiringDroppedAPIService) DbDroppedBacklinksExecute(r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesExpiringDroppedAPIService) DbDroppedBacklinksExecute(r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesExpiringDroppedAPIService.DbDroppedBacklinks")
@@ -335,7 +336,7 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedBacklinksExecute(r Databas
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -581,7 +582,7 @@ func (r DatabasesExpiringDroppedAPIDbExpiredRequest) Date(date string) Databases
 	return r
 }
 
-func (r DatabasesExpiringDroppedAPIDbExpiredRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesExpiringDroppedAPIDbExpiredRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbExpiredExecute(r)
 }
 
@@ -601,13 +602,13 @@ func (a *DatabasesExpiringDroppedAPIService) DbExpired(ctx context.Context) Data
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesExpiringDroppedAPIService) DbExpiredExecute(r DatabasesExpiringDroppedAPIDbExpiredRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesExpiringDroppedAPIService) DbExpiredExecute(r DatabasesExpiringDroppedAPIDbExpiredRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesExpiringDroppedAPIService.DbExpired")
@@ -642,7 +643,7 @@ func (a *DatabasesExpiringDroppedAPIService) DbExpiredExecute(r DatabasesExpirin
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -729,7 +730,7 @@ func (r DatabasesExpiringDroppedAPIDbExpiredCleanedRequest) Date(date string) Da
 	return r
 }
 
-func (r DatabasesExpiringDroppedAPIDbExpiredCleanedRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesExpiringDroppedAPIDbExpiredCleanedRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbExpiredCleanedExecute(r)
 }
 
@@ -749,13 +750,13 @@ func (a *DatabasesExpiringDroppedAPIService) DbExpiredCleaned(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesExpiringDroppedAPIService) DbExpiredCleanedExecute(r DatabasesExpiringDroppedAPIDbExpiredCleanedRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesExpiringDroppedAPIService) DbExpiredCleanedExecute(r DatabasesExpiringDroppedAPIDbExpiredCleanedRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesExpiringDroppedAPIService.DbExpiredCleaned")
@@ -786,7 +787,7 @@ func (a *DatabasesExpiringDroppedAPIService) DbExpiredCleanedExecute(r Databases
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

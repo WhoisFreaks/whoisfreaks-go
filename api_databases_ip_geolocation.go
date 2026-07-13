@@ -159,7 +159,7 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCityExecute(r DatabasesIPGeolocat
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -437,7 +437,7 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCountryExecute(r DatabasesIPGeolo
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/zip", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

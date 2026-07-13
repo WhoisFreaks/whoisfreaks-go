@@ -17,6 +17,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 )
 
 
@@ -33,8 +34,8 @@ type DatabasesWHOISAPI interface {
 	DbWhoisDaily(ctx context.Context) DatabasesWHOISAPIDbWhoisDailyRequest
 
 	// DbWhoisDailyExecute executes the request
-	//  @return string
-	DbWhoisDailyExecute(r DatabasesWHOISAPIDbWhoisDailyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbWhoisDailyExecute(r DatabasesWHOISAPIDbWhoisDailyRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbWhoisMonthly WHOIS Database Monthly
@@ -47,8 +48,8 @@ type DatabasesWHOISAPI interface {
 	DbWhoisMonthly(ctx context.Context) DatabasesWHOISAPIDbWhoisMonthlyRequest
 
 	// DbWhoisMonthlyExecute executes the request
-	//  @return string
-	DbWhoisMonthlyExecute(r DatabasesWHOISAPIDbWhoisMonthlyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbWhoisMonthlyExecute(r DatabasesWHOISAPIDbWhoisMonthlyRequest) (*os.File, *http.Response, error)
 
 	/*
 	DbWhoisWeekly WHOIS Database Weekly
@@ -61,8 +62,8 @@ type DatabasesWHOISAPI interface {
 	DbWhoisWeekly(ctx context.Context) DatabasesWHOISAPIDbWhoisWeeklyRequest
 
 	// DbWhoisWeeklyExecute executes the request
-	//  @return string
-	DbWhoisWeeklyExecute(r DatabasesWHOISAPIDbWhoisWeeklyRequest) (string, *http.Response, error)
+	//  @return *os.File
+	DbWhoisWeeklyExecute(r DatabasesWHOISAPIDbWhoisWeeklyRequest) (*os.File, *http.Response, error)
 }
 
 // DatabasesWHOISAPIService DatabasesWHOISAPI service
@@ -87,7 +88,7 @@ func (r DatabasesWHOISAPIDbWhoisDailyRequest) Date(date string) DatabasesWHOISAP
 	return r
 }
 
-func (r DatabasesWHOISAPIDbWhoisDailyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesWHOISAPIDbWhoisDailyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbWhoisDailyExecute(r)
 }
 
@@ -107,13 +108,13 @@ func (a *DatabasesWHOISAPIService) DbWhoisDaily(ctx context.Context) DatabasesWH
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesWHOISAPIService) DbWhoisDailyExecute(r DatabasesWHOISAPIDbWhoisDailyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesWHOISAPIService) DbWhoisDailyExecute(r DatabasesWHOISAPIDbWhoisDailyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesWHOISAPIService.DbWhoisDaily")
@@ -144,7 +145,7 @@ func (a *DatabasesWHOISAPIService) DbWhoisDailyExecute(r DatabasesWHOISAPIDbWhoi
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -231,7 +232,7 @@ func (r DatabasesWHOISAPIDbWhoisMonthlyRequest) Date(date string) DatabasesWHOIS
 	return r
 }
 
-func (r DatabasesWHOISAPIDbWhoisMonthlyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesWHOISAPIDbWhoisMonthlyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbWhoisMonthlyExecute(r)
 }
 
@@ -251,13 +252,13 @@ func (a *DatabasesWHOISAPIService) DbWhoisMonthly(ctx context.Context) Databases
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesWHOISAPIService) DbWhoisMonthlyExecute(r DatabasesWHOISAPIDbWhoisMonthlyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesWHOISAPIService) DbWhoisMonthlyExecute(r DatabasesWHOISAPIDbWhoisMonthlyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesWHOISAPIService.DbWhoisMonthly")
@@ -288,7 +289,7 @@ func (a *DatabasesWHOISAPIService) DbWhoisMonthlyExecute(r DatabasesWHOISAPIDbWh
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -375,7 +376,7 @@ func (r DatabasesWHOISAPIDbWhoisWeeklyRequest) Date(date string) DatabasesWHOISA
 	return r
 }
 
-func (r DatabasesWHOISAPIDbWhoisWeeklyRequest) Execute() (string, *http.Response, error) {
+func (r DatabasesWHOISAPIDbWhoisWeeklyRequest) Execute() (*os.File, *http.Response, error) {
 	return r.ApiService.DbWhoisWeeklyExecute(r)
 }
 
@@ -395,13 +396,13 @@ func (a *DatabasesWHOISAPIService) DbWhoisWeekly(ctx context.Context) DatabasesW
 }
 
 // Execute executes the request
-//  @return string
-func (a *DatabasesWHOISAPIService) DbWhoisWeeklyExecute(r DatabasesWHOISAPIDbWhoisWeeklyRequest) (string, *http.Response, error) {
+//  @return *os.File
+func (a *DatabasesWHOISAPIService) DbWhoisWeeklyExecute(r DatabasesWHOISAPIDbWhoisWeeklyRequest) (*os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  string
+		localVarReturnValue  *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "DatabasesWHOISAPIService.DbWhoisWeekly")
@@ -432,7 +433,7 @@ func (a *DatabasesWHOISAPIService) DbWhoisWeeklyExecute(r DatabasesWHOISAPIDbWho
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"text/csv", "application/json"}
+	localVarHTTPHeaderAccepts := []string{"application/octet-stream", "application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
