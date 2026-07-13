@@ -7452,20 +7452,22 @@ components:
       type: object
     ErrorResponse:
       additionalProperties: true
+      description: "Error response. `status` may be an integer (e.g. 401), boolean,\
+        \ or string depending on the endpoint, so it is intentionally untyped to avoid\
+        \ deserialization failures."
       example:
         path: path
-        code: 6
+        code: 0
         error: error
         message: message
         timestamp: timestamp
-        status: 0
+        status: ""
       properties:
         timestamp:
           type: string
         path:
           type: string
-        status:
-          type: integer
+        status: {}
         error:
           type: string
         message:

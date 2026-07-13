@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Timestamp** | Pointer to **string** |  | [optional] 
 **Path** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to **int32** |  | [optional] 
+**Status** | Pointer to **interface{}** |  | [optional] 
 **Error** | Pointer to **string** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **int32** |  | [optional] 
@@ -82,20 +82,20 @@ HasPath returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *ErrorResponse) GetStatus() int32`
+`func (o *ErrorResponse) GetStatus() interface{}`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ErrorResponse) GetStatusOk() (*int32, bool)`
+`func (o *ErrorResponse) GetStatusOk() (*interface{}, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ErrorResponse) SetStatus(v int32)`
+`func (o *ErrorResponse) SetStatus(v interface{})`
 
 SetStatus sets Status field to given value.
 
@@ -105,6 +105,16 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### SetStatusNil
+
+`func (o *ErrorResponse) SetStatusNil(b bool)`
+
+ SetStatusNil sets the value for Status to be an explicit nil
+
+### UnsetStatus
+`func (o *ErrorResponse) UnsetStatus()`
+
+UnsetStatus ensures that no value is present for Status, not even an explicit nil
 ### GetError
 
 `func (o *ErrorResponse) GetError() string`
