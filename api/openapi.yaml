@@ -2620,6 +2620,102 @@ paths:
       - Databases - IP Security
     servers:
     - url: https://files.whoisfreaks.com
+  /v2.0/whois/history:
+    get:
+      operationId: whoisHistory
+      parameters:
+      - description: Your WHOISFreaks API key
+        explode: true
+        in: query
+        name: apiKey
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Domain to fetch historical WHOIS records for
+        explode: true
+        in: query
+        name: domainName
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - json
+          - xml
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhoisHistoricalResponse'
+          description: Historical WHOIS records
+      summary: Historical WHOIS records for a domain
+      tags:
+      - WHOIS
+  /v2.0/whois/reverse:
+    get:
+      operationId: whoisReverse
+      parameters:
+      - description: Your WHOISFreaks API key
+        explode: true
+        in: query
+        name: apiKey
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Keyword to search across WHOIS records
+        explode: true
+        in: query
+        name: keyword
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: format
+        required: false
+        schema:
+          enum:
+          - json
+          - xml
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReverseWhoisResponse'
+          description: Reverse WHOIS results (paginated)
+      summary: Reverse WHOIS lookup by keyword
+      tags:
+      - WHOIS
 components:
   parameters:
     ApiKey:
@@ -3092,6 +3188,7 @@ components:
     WhoisHistoricalItem:
       additionalProperties: true
       example:
+        whois_server: whois_server
         whois_raw_domain: whois_raw_domain
         billing_contact:
           city: city
@@ -3111,6 +3208,10 @@ components:
           fax: fax
         num: 0
         expiry_date: expiry_date
+        eligibility_info:
+          name: name
+          id: id
+          type: type
         registrant_contact:
           city: city
           handle: handle
@@ -3151,7 +3252,41 @@ components:
           email_address: email_address
           phone: phone
           name: name
+        domain_handle: domain_handle
+        secure_dns: true
         update_date: update_date
+        registry_data:
+          domain_name: domain_name
+          domain_status:
+          - domain_status
+          - domain_status
+          whois_server: whois_server
+          whois_raw_domain: whois_raw_domain
+          domain_registered: domain_registered
+          expiry_date: expiry_date
+          name_servers:
+          - name_servers
+          - name_servers
+          create_date: create_date
+          domain_registrar:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          query_time: query_time
+          update_date: update_date
         domain_name: domain_name
         technical_contact:
           city: city
@@ -3188,6 +3323,24 @@ components:
           id: id
           state: state
           fax: fax
+        domain_registered: domain_registered
+        abuse_contact:
+          whois_server: whois_server
+          registrar_name: registrar_name
+          normalized_name: normalized_name
+          handle: handle
+          rdap_server: rdap_server
+          is_sponsor: true
+          registry_id: registry_id
+          email_address: email_address
+          website_url: website_url
+          id_type: id_type
+          phone_number: phone_number
+          authoritative_registry_name: authoritative_registry_name
+          id: id
+          organization_number: organization_number
+          iana_id: iana_id
+          status: status
         create_date: create_date
         query_time: query_time
         status: true
@@ -3199,6 +3352,14 @@ components:
         domain_name:
           type: string
         query_time:
+          type: string
+        whois_server:
+          type: string
+        domain_registered:
+          type: string
+        secure_dns:
+          type: boolean
+        domain_handle:
           type: string
         create_date:
           type: string
@@ -3218,6 +3379,10 @@ components:
           $ref: '#/components/schemas/PersonalInformation'
         billing_contact:
           $ref: '#/components/schemas/PersonalInformation'
+        eligibility_info:
+          $ref: '#/components/schemas/EligibilityInfo'
+        abuse_contact:
+          $ref: '#/components/schemas/RegistrarInformation'
         name_servers:
           items:
             type: string
@@ -3228,6 +3393,8 @@ components:
           type: array
         whois_raw_domain:
           type: string
+        registry_data:
+          $ref: '#/components/schemas/RegistryData'
       type: object
     WhoisHistoricalResponse:
       additionalProperties: true
@@ -3235,7 +3402,8 @@ components:
         whois: whois
         total_records: total_records
         whois_domains_historical:
-        - whois_raw_domain: whois_raw_domain
+        - whois_server: whois_server
+          whois_raw_domain: whois_raw_domain
           billing_contact:
             city: city
             handle: handle
@@ -3254,6 +3422,10 @@ components:
             fax: fax
           num: 0
           expiry_date: expiry_date
+          eligibility_info:
+            name: name
+            id: id
+            type: type
           registrant_contact:
             city: city
             handle: handle
@@ -3294,7 +3466,41 @@ components:
             email_address: email_address
             phone: phone
             name: name
+          domain_handle: domain_handle
+          secure_dns: true
           update_date: update_date
+          registry_data:
+            domain_name: domain_name
+            domain_status:
+            - domain_status
+            - domain_status
+            whois_server: whois_server
+            whois_raw_domain: whois_raw_domain
+            domain_registered: domain_registered
+            expiry_date: expiry_date
+            name_servers:
+            - name_servers
+            - name_servers
+            create_date: create_date
+            domain_registrar:
+              whois_server: whois_server
+              registrar_name: registrar_name
+              normalized_name: normalized_name
+              handle: handle
+              rdap_server: rdap_server
+              is_sponsor: true
+              registry_id: registry_id
+              email_address: email_address
+              website_url: website_url
+              id_type: id_type
+              phone_number: phone_number
+              authoritative_registry_name: authoritative_registry_name
+              id: id
+              organization_number: organization_number
+              iana_id: iana_id
+              status: status
+            query_time: query_time
+            update_date: update_date
           domain_name: domain_name
           technical_contact:
             city: city
@@ -3331,10 +3537,29 @@ components:
             id: id
             state: state
             fax: fax
+          domain_registered: domain_registered
+          abuse_contact:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
           create_date: create_date
           query_time: query_time
           status: true
-        - whois_raw_domain: whois_raw_domain
+        - whois_server: whois_server
+          whois_raw_domain: whois_raw_domain
           billing_contact:
             city: city
             handle: handle
@@ -3353,6 +3578,10 @@ components:
             fax: fax
           num: 0
           expiry_date: expiry_date
+          eligibility_info:
+            name: name
+            id: id
+            type: type
           registrant_contact:
             city: city
             handle: handle
@@ -3393,7 +3622,41 @@ components:
             email_address: email_address
             phone: phone
             name: name
+          domain_handle: domain_handle
+          secure_dns: true
           update_date: update_date
+          registry_data:
+            domain_name: domain_name
+            domain_status:
+            - domain_status
+            - domain_status
+            whois_server: whois_server
+            whois_raw_domain: whois_raw_domain
+            domain_registered: domain_registered
+            expiry_date: expiry_date
+            name_servers:
+            - name_servers
+            - name_servers
+            create_date: create_date
+            domain_registrar:
+              whois_server: whois_server
+              registrar_name: registrar_name
+              normalized_name: normalized_name
+              handle: handle
+              rdap_server: rdap_server
+              is_sponsor: true
+              registry_id: registry_id
+              email_address: email_address
+              website_url: website_url
+              id_type: id_type
+              phone_number: phone_number
+              authoritative_registry_name: authoritative_registry_name
+              id: id
+              organization_number: organization_number
+              iana_id: iana_id
+              status: status
+            query_time: query_time
+            update_date: update_date
           domain_name: domain_name
           technical_contact:
             city: city
@@ -3430,6 +3693,24 @@ components:
             id: id
             state: state
             fax: fax
+          domain_registered: domain_registered
+          abuse_contact:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
           create_date: create_date
           query_time: query_time
           status: true
@@ -3448,12 +3729,331 @@ components:
       type: object
     ReverseWhoisResponse:
       additionalProperties: true
+      description: Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page)
+        as returned by the API.
+      example:
+        Total_Pages: 6
+        Total_Result: 0
+        whois_domains_historical:
+        - whois_server: whois_server
+          whois_raw_domain: whois_raw_domain
+          billing_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          num: 0
+          expiry_date: expiry_date
+          eligibility_info:
+            name: name
+            id: id
+            type: type
+          registrant_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          name_servers:
+          - name_servers
+          - name_servers
+          domain_registrar:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          reseller_contact:
+            email_address: email_address
+            phone: phone
+            name: name
+          domain_handle: domain_handle
+          secure_dns: true
+          update_date: update_date
+          registry_data:
+            domain_name: domain_name
+            domain_status:
+            - domain_status
+            - domain_status
+            whois_server: whois_server
+            whois_raw_domain: whois_raw_domain
+            domain_registered: domain_registered
+            expiry_date: expiry_date
+            name_servers:
+            - name_servers
+            - name_servers
+            create_date: create_date
+            domain_registrar:
+              whois_server: whois_server
+              registrar_name: registrar_name
+              normalized_name: normalized_name
+              handle: handle
+              rdap_server: rdap_server
+              is_sponsor: true
+              registry_id: registry_id
+              email_address: email_address
+              website_url: website_url
+              id_type: id_type
+              phone_number: phone_number
+              authoritative_registry_name: authoritative_registry_name
+              id: id
+              organization_number: organization_number
+              iana_id: iana_id
+              status: status
+            query_time: query_time
+            update_date: update_date
+          domain_name: domain_name
+          technical_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          domain_status:
+          - domain_status
+          - domain_status
+          administrative_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          domain_registered: domain_registered
+          abuse_contact:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          create_date: create_date
+          query_time: query_time
+          status: true
+        - whois_server: whois_server
+          whois_raw_domain: whois_raw_domain
+          billing_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          num: 0
+          expiry_date: expiry_date
+          eligibility_info:
+            name: name
+            id: id
+            type: type
+          registrant_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          name_servers:
+          - name_servers
+          - name_servers
+          domain_registrar:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          reseller_contact:
+            email_address: email_address
+            phone: phone
+            name: name
+          domain_handle: domain_handle
+          secure_dns: true
+          update_date: update_date
+          registry_data:
+            domain_name: domain_name
+            domain_status:
+            - domain_status
+            - domain_status
+            whois_server: whois_server
+            whois_raw_domain: whois_raw_domain
+            domain_registered: domain_registered
+            expiry_date: expiry_date
+            name_servers:
+            - name_servers
+            - name_servers
+            create_date: create_date
+            domain_registrar:
+              whois_server: whois_server
+              registrar_name: registrar_name
+              normalized_name: normalized_name
+              handle: handle
+              rdap_server: rdap_server
+              is_sponsor: true
+              registry_id: registry_id
+              email_address: email_address
+              website_url: website_url
+              id_type: id_type
+              phone_number: phone_number
+              authoritative_registry_name: authoritative_registry_name
+              id: id
+              organization_number: organization_number
+              iana_id: iana_id
+              status: status
+            query_time: query_time
+            update_date: update_date
+          domain_name: domain_name
+          technical_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          domain_status:
+          - domain_status
+          - domain_status
+          administrative_contact:
+            city: city
+            handle: handle
+            zip_code: zip_code
+            mailing_address: mailing_address
+            country_code: country_code
+            email_address: email_address
+            phone: phone
+            street: street
+            name: name
+            country_name: country_name
+            id_type: id_type
+            company: company
+            id: id
+            state: state
+            fax: fax
+          domain_registered: domain_registered
+          abuse_contact:
+            whois_server: whois_server
+            registrar_name: registrar_name
+            normalized_name: normalized_name
+            handle: handle
+            rdap_server: rdap_server
+            is_sponsor: true
+            registry_id: registry_id
+            email_address: email_address
+            website_url: website_url
+            id_type: id_type
+            phone_number: phone_number
+            authoritative_registry_name: authoritative_registry_name
+            id: id
+            organization_number: organization_number
+            iana_id: iana_id
+            status: status
+          create_date: create_date
+          query_time: query_time
+          status: true
+        Current_Page: 1
       properties:
-        total_Result:
+        Total_Result:
           type: integer
-        total_Pages:
+        Total_Pages:
           type: integer
-        current_Page:
+        Current_Page:
           type: integer
         whois_domains_historical:
           items:

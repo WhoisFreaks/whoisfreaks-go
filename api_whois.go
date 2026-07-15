@@ -51,6 +51,18 @@ type WHOISAPI interface {
 	WhoisHistoricalOrReverseExecute(r WHOISAPIWhoisHistoricalOrReverseRequest) (*WhoisHistoricalResponse, *http.Response, error)
 
 	/*
+	WhoisHistory Historical WHOIS records for a domain
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return WHOISAPIWhoisHistoryRequest
+	*/
+	WhoisHistory(ctx context.Context) WHOISAPIWhoisHistoryRequest
+
+	// WhoisHistoryExecute executes the request
+	//  @return WhoisHistoricalResponse
+	WhoisHistoryExecute(r WHOISAPIWhoisHistoryRequest) (*WhoisHistoricalResponse, *http.Response, error)
+
+	/*
 	WhoisLive Live WHOIS Lookup
 
 	Real-time WHOIS lookup from authoritative servers. Cost 1 credit.
@@ -63,6 +75,18 @@ type WHOISAPI interface {
 	// WhoisLiveExecute executes the request
 	//  @return WhoisResponse
 	WhoisLiveExecute(r WHOISAPIWhoisLiveRequest) (*WhoisResponse, *http.Response, error)
+
+	/*
+	WhoisReverse Reverse WHOIS lookup by keyword
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return WHOISAPIWhoisReverseRequest
+	*/
+	WhoisReverse(ctx context.Context) WHOISAPIWhoisReverseRequest
+
+	// WhoisReverseExecute executes the request
+	//  @return ReverseWhoisResponse
+	WhoisReverseExecute(r WHOISAPIWhoisReverseRequest) (*ReverseWhoisResponse, *http.Response, error)
 }
 
 // WHOISAPIService WHOISAPI service
@@ -467,6 +491,158 @@ func (a *WHOISAPIService) WhoisHistoricalOrReverseExecute(r WHOISAPIWhoisHistori
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type WHOISAPIWhoisHistoryRequest struct {
+	ctx context.Context
+	ApiService WHOISAPI
+	apiKey *string
+	domainName *string
+	page *int32
+	format *string
+}
+
+// Your WHOISFreaks API key
+func (r WHOISAPIWhoisHistoryRequest) ApiKey(apiKey string) WHOISAPIWhoisHistoryRequest {
+	r.apiKey = &apiKey
+	return r
+}
+
+// Domain to fetch historical WHOIS records for
+func (r WHOISAPIWhoisHistoryRequest) DomainName(domainName string) WHOISAPIWhoisHistoryRequest {
+	r.domainName = &domainName
+	return r
+}
+
+// Page number
+func (r WHOISAPIWhoisHistoryRequest) Page(page int32) WHOISAPIWhoisHistoryRequest {
+	r.page = &page
+	return r
+}
+
+func (r WHOISAPIWhoisHistoryRequest) Format(format string) WHOISAPIWhoisHistoryRequest {
+	r.format = &format
+	return r
+}
+
+func (r WHOISAPIWhoisHistoryRequest) Execute() (*WhoisHistoricalResponse, *http.Response, error) {
+	return r.ApiService.WhoisHistoryExecute(r)
+}
+
+/*
+WhoisHistory Historical WHOIS records for a domain
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return WHOISAPIWhoisHistoryRequest
+*/
+func (a *WHOISAPIService) WhoisHistory(ctx context.Context) WHOISAPIWhoisHistoryRequest {
+	return WHOISAPIWhoisHistoryRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return WhoisHistoricalResponse
+func (a *WHOISAPIService) WhoisHistoryExecute(r WHOISAPIWhoisHistoryRequest) (*WhoisHistoricalResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *WhoisHistoricalResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WHOISAPIService.WhoisHistory")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v2.0/whois/history"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.apiKey == nil {
+		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
+	}
+	if r.domainName == nil {
+		return localVarReturnValue, nil, reportError("domainName is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "domainName", r.domainName, "form", "")
+	if r.page != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
+	}
+	if r.format != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKeyAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarQueryParams.Add("apiKey", key)
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type WHOISAPIWhoisLiveRequest struct {
 	ctx context.Context
 	ApiService WHOISAPI
@@ -629,6 +805,158 @@ func (a *WHOISAPIService) WhoisLiveExecute(r WHOISAPIWhoisLiveRequest) (*WhoisRe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type WHOISAPIWhoisReverseRequest struct {
+	ctx context.Context
+	ApiService WHOISAPI
+	apiKey *string
+	keyword *string
+	page *int32
+	format *string
+}
+
+// Your WHOISFreaks API key
+func (r WHOISAPIWhoisReverseRequest) ApiKey(apiKey string) WHOISAPIWhoisReverseRequest {
+	r.apiKey = &apiKey
+	return r
+}
+
+// Keyword to search across WHOIS records
+func (r WHOISAPIWhoisReverseRequest) Keyword(keyword string) WHOISAPIWhoisReverseRequest {
+	r.keyword = &keyword
+	return r
+}
+
+// Page number
+func (r WHOISAPIWhoisReverseRequest) Page(page int32) WHOISAPIWhoisReverseRequest {
+	r.page = &page
+	return r
+}
+
+func (r WHOISAPIWhoisReverseRequest) Format(format string) WHOISAPIWhoisReverseRequest {
+	r.format = &format
+	return r
+}
+
+func (r WHOISAPIWhoisReverseRequest) Execute() (*ReverseWhoisResponse, *http.Response, error) {
+	return r.ApiService.WhoisReverseExecute(r)
+}
+
+/*
+WhoisReverse Reverse WHOIS lookup by keyword
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return WHOISAPIWhoisReverseRequest
+*/
+func (a *WHOISAPIService) WhoisReverse(ctx context.Context) WHOISAPIWhoisReverseRequest {
+	return WHOISAPIWhoisReverseRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ReverseWhoisResponse
+func (a *WHOISAPIService) WhoisReverseExecute(r WHOISAPIWhoisReverseRequest) (*ReverseWhoisResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ReverseWhoisResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "WHOISAPIService.WhoisReverse")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v2.0/whois/reverse"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.apiKey == nil {
+		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
+	}
+	if r.keyword == nil {
+		return localVarReturnValue, nil, reportError("keyword is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "keyword", r.keyword, "form", "")
+	if r.page != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
+	}
+	if r.format != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKeyAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarQueryParams.Add("apiKey", key)
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

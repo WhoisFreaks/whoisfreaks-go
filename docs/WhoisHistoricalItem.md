@@ -8,6 +8,10 @@ Name | Type | Description | Notes
 **Status** | Pointer to **bool** |  | [optional] 
 **DomainName** | Pointer to **string** |  | [optional] 
 **QueryTime** | Pointer to **string** |  | [optional] 
+**WhoisServer** | Pointer to **string** |  | [optional] 
+**DomainRegistered** | Pointer to **string** |  | [optional] 
+**SecureDns** | Pointer to **bool** |  | [optional] 
+**DomainHandle** | Pointer to **string** |  | [optional] 
 **CreateDate** | Pointer to **string** |  | [optional] 
 **UpdateDate** | Pointer to **string** |  | [optional] 
 **ExpiryDate** | Pointer to **string** |  | [optional] 
@@ -17,9 +21,12 @@ Name | Type | Description | Notes
 **AdministrativeContact** | Pointer to [**PersonalInformation**](PersonalInformation.md) |  | [optional] 
 **TechnicalContact** | Pointer to [**PersonalInformation**](PersonalInformation.md) |  | [optional] 
 **BillingContact** | Pointer to [**PersonalInformation**](PersonalInformation.md) |  | [optional] 
+**EligibilityInfo** | Pointer to [**EligibilityInfo**](EligibilityInfo.md) |  | [optional] 
+**AbuseContact** | Pointer to [**RegistrarInformation**](RegistrarInformation.md) |  | [optional] 
 **NameServers** | Pointer to **[]string** |  | [optional] 
 **DomainStatus** | Pointer to **[]string** |  | [optional] 
 **WhoisRawDomain** | Pointer to **string** |  | [optional] 
+**RegistryData** | Pointer to [**RegistryData**](RegistryData.md) |  | [optional] 
 
 ## Methods
 
@@ -139,6 +146,106 @@ SetQueryTime sets QueryTime field to given value.
 `func (o *WhoisHistoricalItem) HasQueryTime() bool`
 
 HasQueryTime returns a boolean if a field has been set.
+
+### GetWhoisServer
+
+`func (o *WhoisHistoricalItem) GetWhoisServer() string`
+
+GetWhoisServer returns the WhoisServer field if non-nil, zero value otherwise.
+
+### GetWhoisServerOk
+
+`func (o *WhoisHistoricalItem) GetWhoisServerOk() (*string, bool)`
+
+GetWhoisServerOk returns a tuple with the WhoisServer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWhoisServer
+
+`func (o *WhoisHistoricalItem) SetWhoisServer(v string)`
+
+SetWhoisServer sets WhoisServer field to given value.
+
+### HasWhoisServer
+
+`func (o *WhoisHistoricalItem) HasWhoisServer() bool`
+
+HasWhoisServer returns a boolean if a field has been set.
+
+### GetDomainRegistered
+
+`func (o *WhoisHistoricalItem) GetDomainRegistered() string`
+
+GetDomainRegistered returns the DomainRegistered field if non-nil, zero value otherwise.
+
+### GetDomainRegisteredOk
+
+`func (o *WhoisHistoricalItem) GetDomainRegisteredOk() (*string, bool)`
+
+GetDomainRegisteredOk returns a tuple with the DomainRegistered field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDomainRegistered
+
+`func (o *WhoisHistoricalItem) SetDomainRegistered(v string)`
+
+SetDomainRegistered sets DomainRegistered field to given value.
+
+### HasDomainRegistered
+
+`func (o *WhoisHistoricalItem) HasDomainRegistered() bool`
+
+HasDomainRegistered returns a boolean if a field has been set.
+
+### GetSecureDns
+
+`func (o *WhoisHistoricalItem) GetSecureDns() bool`
+
+GetSecureDns returns the SecureDns field if non-nil, zero value otherwise.
+
+### GetSecureDnsOk
+
+`func (o *WhoisHistoricalItem) GetSecureDnsOk() (*bool, bool)`
+
+GetSecureDnsOk returns a tuple with the SecureDns field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSecureDns
+
+`func (o *WhoisHistoricalItem) SetSecureDns(v bool)`
+
+SetSecureDns sets SecureDns field to given value.
+
+### HasSecureDns
+
+`func (o *WhoisHistoricalItem) HasSecureDns() bool`
+
+HasSecureDns returns a boolean if a field has been set.
+
+### GetDomainHandle
+
+`func (o *WhoisHistoricalItem) GetDomainHandle() string`
+
+GetDomainHandle returns the DomainHandle field if non-nil, zero value otherwise.
+
+### GetDomainHandleOk
+
+`func (o *WhoisHistoricalItem) GetDomainHandleOk() (*string, bool)`
+
+GetDomainHandleOk returns a tuple with the DomainHandle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDomainHandle
+
+`func (o *WhoisHistoricalItem) SetDomainHandle(v string)`
+
+SetDomainHandle sets DomainHandle field to given value.
+
+### HasDomainHandle
+
+`func (o *WhoisHistoricalItem) HasDomainHandle() bool`
+
+HasDomainHandle returns a boolean if a field has been set.
 
 ### GetCreateDate
 
@@ -365,6 +472,56 @@ SetBillingContact sets BillingContact field to given value.
 
 HasBillingContact returns a boolean if a field has been set.
 
+### GetEligibilityInfo
+
+`func (o *WhoisHistoricalItem) GetEligibilityInfo() EligibilityInfo`
+
+GetEligibilityInfo returns the EligibilityInfo field if non-nil, zero value otherwise.
+
+### GetEligibilityInfoOk
+
+`func (o *WhoisHistoricalItem) GetEligibilityInfoOk() (*EligibilityInfo, bool)`
+
+GetEligibilityInfoOk returns a tuple with the EligibilityInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEligibilityInfo
+
+`func (o *WhoisHistoricalItem) SetEligibilityInfo(v EligibilityInfo)`
+
+SetEligibilityInfo sets EligibilityInfo field to given value.
+
+### HasEligibilityInfo
+
+`func (o *WhoisHistoricalItem) HasEligibilityInfo() bool`
+
+HasEligibilityInfo returns a boolean if a field has been set.
+
+### GetAbuseContact
+
+`func (o *WhoisHistoricalItem) GetAbuseContact() RegistrarInformation`
+
+GetAbuseContact returns the AbuseContact field if non-nil, zero value otherwise.
+
+### GetAbuseContactOk
+
+`func (o *WhoisHistoricalItem) GetAbuseContactOk() (*RegistrarInformation, bool)`
+
+GetAbuseContactOk returns a tuple with the AbuseContact field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAbuseContact
+
+`func (o *WhoisHistoricalItem) SetAbuseContact(v RegistrarInformation)`
+
+SetAbuseContact sets AbuseContact field to given value.
+
+### HasAbuseContact
+
+`func (o *WhoisHistoricalItem) HasAbuseContact() bool`
+
+HasAbuseContact returns a boolean if a field has been set.
+
 ### GetNameServers
 
 `func (o *WhoisHistoricalItem) GetNameServers() []string`
@@ -439,6 +596,31 @@ SetWhoisRawDomain sets WhoisRawDomain field to given value.
 `func (o *WhoisHistoricalItem) HasWhoisRawDomain() bool`
 
 HasWhoisRawDomain returns a boolean if a field has been set.
+
+### GetRegistryData
+
+`func (o *WhoisHistoricalItem) GetRegistryData() RegistryData`
+
+GetRegistryData returns the RegistryData field if non-nil, zero value otherwise.
+
+### GetRegistryDataOk
+
+`func (o *WhoisHistoricalItem) GetRegistryDataOk() (*RegistryData, bool)`
+
+GetRegistryDataOk returns a tuple with the RegistryData field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegistryData
+
+`func (o *WhoisHistoricalItem) SetRegistryData(v RegistryData)`
+
+SetRegistryData sets RegistryData field to given value.
+
+### HasRegistryData
+
+`func (o *WhoisHistoricalItem) HasRegistryData() bool`
+
+HasRegistryData returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

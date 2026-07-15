@@ -46,11 +46,35 @@ func Test_whoisfreaks_WHOISAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test WHOISAPIService WhoisHistory", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.WHOISAPI.WhoisHistory(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test WHOISAPIService WhoisLive", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.WHOISAPI.WhoisLive(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test WHOISAPIService WhoisReverse", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.WHOISAPI.WhoisReverse(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

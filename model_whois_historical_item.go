@@ -24,6 +24,10 @@ type WhoisHistoricalItem struct {
 	Status *bool `json:"status,omitempty"`
 	DomainName *string `json:"domain_name,omitempty"`
 	QueryTime *string `json:"query_time,omitempty"`
+	WhoisServer *string `json:"whois_server,omitempty"`
+	DomainRegistered *string `json:"domain_registered,omitempty"`
+	SecureDns *bool `json:"secure_dns,omitempty"`
+	DomainHandle *string `json:"domain_handle,omitempty"`
 	CreateDate *string `json:"create_date,omitempty"`
 	UpdateDate *string `json:"update_date,omitempty"`
 	ExpiryDate *string `json:"expiry_date,omitempty"`
@@ -33,9 +37,12 @@ type WhoisHistoricalItem struct {
 	AdministrativeContact *PersonalInformation `json:"administrative_contact,omitempty"`
 	TechnicalContact *PersonalInformation `json:"technical_contact,omitempty"`
 	BillingContact *PersonalInformation `json:"billing_contact,omitempty"`
+	EligibilityInfo *EligibilityInfo `json:"eligibility_info,omitempty"`
+	AbuseContact *RegistrarInformation `json:"abuse_contact,omitempty"`
 	NameServers []string `json:"name_servers,omitempty"`
 	DomainStatus []string `json:"domain_status,omitempty"`
 	WhoisRawDomain *string `json:"whois_raw_domain,omitempty"`
+	RegistryData *RegistryData `json:"registry_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -184,6 +191,134 @@ func (o *WhoisHistoricalItem) HasQueryTime() bool {
 // SetQueryTime gets a reference to the given string and assigns it to the QueryTime field.
 func (o *WhoisHistoricalItem) SetQueryTime(v string) {
 	o.QueryTime = &v
+}
+
+// GetWhoisServer returns the WhoisServer field value if set, zero value otherwise.
+func (o *WhoisHistoricalItem) GetWhoisServer() string {
+	if o == nil || IsNil(o.WhoisServer) {
+		var ret string
+		return ret
+	}
+	return *o.WhoisServer
+}
+
+// GetWhoisServerOk returns a tuple with the WhoisServer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhoisHistoricalItem) GetWhoisServerOk() (*string, bool) {
+	if o == nil || IsNil(o.WhoisServer) {
+		return nil, false
+	}
+	return o.WhoisServer, true
+}
+
+// HasWhoisServer returns a boolean if a field has been set.
+func (o *WhoisHistoricalItem) HasWhoisServer() bool {
+	if o != nil && !IsNil(o.WhoisServer) {
+		return true
+	}
+
+	return false
+}
+
+// SetWhoisServer gets a reference to the given string and assigns it to the WhoisServer field.
+func (o *WhoisHistoricalItem) SetWhoisServer(v string) {
+	o.WhoisServer = &v
+}
+
+// GetDomainRegistered returns the DomainRegistered field value if set, zero value otherwise.
+func (o *WhoisHistoricalItem) GetDomainRegistered() string {
+	if o == nil || IsNil(o.DomainRegistered) {
+		var ret string
+		return ret
+	}
+	return *o.DomainRegistered
+}
+
+// GetDomainRegisteredOk returns a tuple with the DomainRegistered field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhoisHistoricalItem) GetDomainRegisteredOk() (*string, bool) {
+	if o == nil || IsNil(o.DomainRegistered) {
+		return nil, false
+	}
+	return o.DomainRegistered, true
+}
+
+// HasDomainRegistered returns a boolean if a field has been set.
+func (o *WhoisHistoricalItem) HasDomainRegistered() bool {
+	if o != nil && !IsNil(o.DomainRegistered) {
+		return true
+	}
+
+	return false
+}
+
+// SetDomainRegistered gets a reference to the given string and assigns it to the DomainRegistered field.
+func (o *WhoisHistoricalItem) SetDomainRegistered(v string) {
+	o.DomainRegistered = &v
+}
+
+// GetSecureDns returns the SecureDns field value if set, zero value otherwise.
+func (o *WhoisHistoricalItem) GetSecureDns() bool {
+	if o == nil || IsNil(o.SecureDns) {
+		var ret bool
+		return ret
+	}
+	return *o.SecureDns
+}
+
+// GetSecureDnsOk returns a tuple with the SecureDns field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhoisHistoricalItem) GetSecureDnsOk() (*bool, bool) {
+	if o == nil || IsNil(o.SecureDns) {
+		return nil, false
+	}
+	return o.SecureDns, true
+}
+
+// HasSecureDns returns a boolean if a field has been set.
+func (o *WhoisHistoricalItem) HasSecureDns() bool {
+	if o != nil && !IsNil(o.SecureDns) {
+		return true
+	}
+
+	return false
+}
+
+// SetSecureDns gets a reference to the given bool and assigns it to the SecureDns field.
+func (o *WhoisHistoricalItem) SetSecureDns(v bool) {
+	o.SecureDns = &v
+}
+
+// GetDomainHandle returns the DomainHandle field value if set, zero value otherwise.
+func (o *WhoisHistoricalItem) GetDomainHandle() string {
+	if o == nil || IsNil(o.DomainHandle) {
+		var ret string
+		return ret
+	}
+	return *o.DomainHandle
+}
+
+// GetDomainHandleOk returns a tuple with the DomainHandle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhoisHistoricalItem) GetDomainHandleOk() (*string, bool) {
+	if o == nil || IsNil(o.DomainHandle) {
+		return nil, false
+	}
+	return o.DomainHandle, true
+}
+
+// HasDomainHandle returns a boolean if a field has been set.
+func (o *WhoisHistoricalItem) HasDomainHandle() bool {
+	if o != nil && !IsNil(o.DomainHandle) {
+		return true
+	}
+
+	return false
+}
+
+// SetDomainHandle gets a reference to the given string and assigns it to the DomainHandle field.
+func (o *WhoisHistoricalItem) SetDomainHandle(v string) {
+	o.DomainHandle = &v
 }
 
 // GetCreateDate returns the CreateDate field value if set, zero value otherwise.
@@ -474,6 +609,70 @@ func (o *WhoisHistoricalItem) SetBillingContact(v PersonalInformation) {
 	o.BillingContact = &v
 }
 
+// GetEligibilityInfo returns the EligibilityInfo field value if set, zero value otherwise.
+func (o *WhoisHistoricalItem) GetEligibilityInfo() EligibilityInfo {
+	if o == nil || IsNil(o.EligibilityInfo) {
+		var ret EligibilityInfo
+		return ret
+	}
+	return *o.EligibilityInfo
+}
+
+// GetEligibilityInfoOk returns a tuple with the EligibilityInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhoisHistoricalItem) GetEligibilityInfoOk() (*EligibilityInfo, bool) {
+	if o == nil || IsNil(o.EligibilityInfo) {
+		return nil, false
+	}
+	return o.EligibilityInfo, true
+}
+
+// HasEligibilityInfo returns a boolean if a field has been set.
+func (o *WhoisHistoricalItem) HasEligibilityInfo() bool {
+	if o != nil && !IsNil(o.EligibilityInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetEligibilityInfo gets a reference to the given EligibilityInfo and assigns it to the EligibilityInfo field.
+func (o *WhoisHistoricalItem) SetEligibilityInfo(v EligibilityInfo) {
+	o.EligibilityInfo = &v
+}
+
+// GetAbuseContact returns the AbuseContact field value if set, zero value otherwise.
+func (o *WhoisHistoricalItem) GetAbuseContact() RegistrarInformation {
+	if o == nil || IsNil(o.AbuseContact) {
+		var ret RegistrarInformation
+		return ret
+	}
+	return *o.AbuseContact
+}
+
+// GetAbuseContactOk returns a tuple with the AbuseContact field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhoisHistoricalItem) GetAbuseContactOk() (*RegistrarInformation, bool) {
+	if o == nil || IsNil(o.AbuseContact) {
+		return nil, false
+	}
+	return o.AbuseContact, true
+}
+
+// HasAbuseContact returns a boolean if a field has been set.
+func (o *WhoisHistoricalItem) HasAbuseContact() bool {
+	if o != nil && !IsNil(o.AbuseContact) {
+		return true
+	}
+
+	return false
+}
+
+// SetAbuseContact gets a reference to the given RegistrarInformation and assigns it to the AbuseContact field.
+func (o *WhoisHistoricalItem) SetAbuseContact(v RegistrarInformation) {
+	o.AbuseContact = &v
+}
+
 // GetNameServers returns the NameServers field value if set, zero value otherwise.
 func (o *WhoisHistoricalItem) GetNameServers() []string {
 	if o == nil || IsNil(o.NameServers) {
@@ -570,6 +769,38 @@ func (o *WhoisHistoricalItem) SetWhoisRawDomain(v string) {
 	o.WhoisRawDomain = &v
 }
 
+// GetRegistryData returns the RegistryData field value if set, zero value otherwise.
+func (o *WhoisHistoricalItem) GetRegistryData() RegistryData {
+	if o == nil || IsNil(o.RegistryData) {
+		var ret RegistryData
+		return ret
+	}
+	return *o.RegistryData
+}
+
+// GetRegistryDataOk returns a tuple with the RegistryData field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *WhoisHistoricalItem) GetRegistryDataOk() (*RegistryData, bool) {
+	if o == nil || IsNil(o.RegistryData) {
+		return nil, false
+	}
+	return o.RegistryData, true
+}
+
+// HasRegistryData returns a boolean if a field has been set.
+func (o *WhoisHistoricalItem) HasRegistryData() bool {
+	if o != nil && !IsNil(o.RegistryData) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegistryData gets a reference to the given RegistryData and assigns it to the RegistryData field.
+func (o *WhoisHistoricalItem) SetRegistryData(v RegistryData) {
+	o.RegistryData = &v
+}
+
 func (o WhoisHistoricalItem) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -591,6 +822,18 @@ func (o WhoisHistoricalItem) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.QueryTime) {
 		toSerialize["query_time"] = o.QueryTime
+	}
+	if !IsNil(o.WhoisServer) {
+		toSerialize["whois_server"] = o.WhoisServer
+	}
+	if !IsNil(o.DomainRegistered) {
+		toSerialize["domain_registered"] = o.DomainRegistered
+	}
+	if !IsNil(o.SecureDns) {
+		toSerialize["secure_dns"] = o.SecureDns
+	}
+	if !IsNil(o.DomainHandle) {
+		toSerialize["domain_handle"] = o.DomainHandle
 	}
 	if !IsNil(o.CreateDate) {
 		toSerialize["create_date"] = o.CreateDate
@@ -619,6 +862,12 @@ func (o WhoisHistoricalItem) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.BillingContact) {
 		toSerialize["billing_contact"] = o.BillingContact
 	}
+	if !IsNil(o.EligibilityInfo) {
+		toSerialize["eligibility_info"] = o.EligibilityInfo
+	}
+	if !IsNil(o.AbuseContact) {
+		toSerialize["abuse_contact"] = o.AbuseContact
+	}
 	if !IsNil(o.NameServers) {
 		toSerialize["name_servers"] = o.NameServers
 	}
@@ -627,6 +876,9 @@ func (o WhoisHistoricalItem) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.WhoisRawDomain) {
 		toSerialize["whois_raw_domain"] = o.WhoisRawDomain
+	}
+	if !IsNil(o.RegistryData) {
+		toSerialize["registry_data"] = o.RegistryData
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -654,6 +906,10 @@ func (o *WhoisHistoricalItem) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "domain_name")
 		delete(additionalProperties, "query_time")
+		delete(additionalProperties, "whois_server")
+		delete(additionalProperties, "domain_registered")
+		delete(additionalProperties, "secure_dns")
+		delete(additionalProperties, "domain_handle")
 		delete(additionalProperties, "create_date")
 		delete(additionalProperties, "update_date")
 		delete(additionalProperties, "expiry_date")
@@ -663,9 +919,12 @@ func (o *WhoisHistoricalItem) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "administrative_contact")
 		delete(additionalProperties, "technical_contact")
 		delete(additionalProperties, "billing_contact")
+		delete(additionalProperties, "eligibility_info")
+		delete(additionalProperties, "abuse_contact")
 		delete(additionalProperties, "name_servers")
 		delete(additionalProperties, "domain_status")
 		delete(additionalProperties, "whois_raw_domain")
+		delete(additionalProperties, "registry_data")
 		o.AdditionalProperties = additionalProperties
 	}
 
