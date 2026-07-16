@@ -72,14 +72,7 @@ type DatabasesWHOISAPIService service
 type DatabasesWHOISAPIDbWhoisDailyRequest struct {
 	ctx context.Context
 	ApiService DatabasesWHOISAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesWHOISAPIDbWhoisDailyRequest) ApiKey(apiKey string) DatabasesWHOISAPIDbWhoisDailyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -127,11 +120,7 @@ func (a *DatabasesWHOISAPIService) DbWhoisDailyExecute(r DatabasesWHOISAPIDbWhoi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -216,14 +205,7 @@ func (a *DatabasesWHOISAPIService) DbWhoisDailyExecute(r DatabasesWHOISAPIDbWhoi
 type DatabasesWHOISAPIDbWhoisMonthlyRequest struct {
 	ctx context.Context
 	ApiService DatabasesWHOISAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesWHOISAPIDbWhoisMonthlyRequest) ApiKey(apiKey string) DatabasesWHOISAPIDbWhoisMonthlyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -271,11 +253,7 @@ func (a *DatabasesWHOISAPIService) DbWhoisMonthlyExecute(r DatabasesWHOISAPIDbWh
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -360,14 +338,7 @@ func (a *DatabasesWHOISAPIService) DbWhoisMonthlyExecute(r DatabasesWHOISAPIDbWh
 type DatabasesWHOISAPIDbWhoisWeeklyRequest struct {
 	ctx context.Context
 	ApiService DatabasesWHOISAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesWHOISAPIDbWhoisWeeklyRequest) ApiKey(apiKey string) DatabasesWHOISAPIDbWhoisWeeklyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -415,11 +386,7 @@ func (a *DatabasesWHOISAPIService) DbWhoisWeeklyExecute(r DatabasesWHOISAPIDbWho
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}

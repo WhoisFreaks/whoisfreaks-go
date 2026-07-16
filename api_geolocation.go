@@ -57,14 +57,7 @@ type GeolocationAPIService service
 type GeolocationAPIBulkGeolocationRequest struct {
 	ctx context.Context
 	ApiService GeolocationAPI
-	apiKey *string
 	bulkGeolocationRequest *BulkGeolocationRequest
-}
-
-// Your WHOISFreaks API key
-func (r GeolocationAPIBulkGeolocationRequest) ApiKey(apiKey string) GeolocationAPIBulkGeolocationRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r GeolocationAPIBulkGeolocationRequest) BulkGeolocationRequest(bulkGeolocationRequest BulkGeolocationRequest) GeolocationAPIBulkGeolocationRequest {
@@ -111,14 +104,10 @@ func (a *GeolocationAPIService) BulkGeolocationExecute(r GeolocationAPIBulkGeolo
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.bulkGeolocationRequest == nil {
 		return localVarReturnValue, nil, reportError("bulkGeolocationRequest is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -202,14 +191,7 @@ func (a *GeolocationAPIService) BulkGeolocationExecute(r GeolocationAPIBulkGeolo
 type GeolocationAPIGeolocationRequest struct {
 	ctx context.Context
 	ApiService GeolocationAPI
-	apiKey *string
 	ip *string
-}
-
-// Your WHOISFreaks API key
-func (r GeolocationAPIGeolocationRequest) ApiKey(apiKey string) GeolocationAPIGeolocationRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r GeolocationAPIGeolocationRequest) Ip(ip string) GeolocationAPIGeolocationRequest {
@@ -256,14 +238,10 @@ func (a *GeolocationAPIService) GeolocationExecute(r GeolocationAPIGeolocationRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.ip == nil {
 		return localVarReturnValue, nil, reportError("ip is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "ip", r.ip, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

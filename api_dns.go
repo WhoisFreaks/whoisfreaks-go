@@ -85,16 +85,9 @@ type DNSAPIService service
 type DNSAPIDnsBulkRequest struct {
 	ctx context.Context
 	ApiService DNSAPI
-	apiKey *string
 	type_ *string
 	dnsBulkRequest *DnsBulkRequest
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r DNSAPIDnsBulkRequest) ApiKey(apiKey string) DNSAPIDnsBulkRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DNSAPIDnsBulkRequest) Type_(type_ string) DNSAPIDnsBulkRequest {
@@ -151,9 +144,6 @@ func (a *DNSAPIService) DnsBulkExecute(r DNSAPIDnsBulkRequest) (*BulkDnsResponse
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.type_ == nil {
 		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
 	}
@@ -161,7 +151,6 @@ func (a *DNSAPIService) DnsBulkExecute(r DNSAPIDnsBulkRequest) (*BulkDnsResponse
 		return localVarReturnValue, nil, reportError("dnsBulkRequest is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
 	if r.format != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
@@ -252,17 +241,10 @@ func (a *DNSAPIService) DnsBulkExecute(r DNSAPIDnsBulkRequest) (*BulkDnsResponse
 type DNSAPIDnsHistoricalRequest struct {
 	ctx context.Context
 	ApiService DNSAPI
-	apiKey *string
 	domainName *string
 	type_ *string
 	page *int32
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r DNSAPIDnsHistoricalRequest) ApiKey(apiKey string) DNSAPIDnsHistoricalRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DNSAPIDnsHistoricalRequest) DomainName(domainName string) DNSAPIDnsHistoricalRequest {
@@ -324,9 +306,6 @@ func (a *DNSAPIService) DnsHistoricalExecute(r DNSAPIDnsHistoricalRequest) (*His
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.domainName == nil {
 		return localVarReturnValue, nil, reportError("domainName is required and must be specified")
 	}
@@ -334,7 +313,6 @@ func (a *DNSAPIService) DnsHistoricalExecute(r DNSAPIDnsHistoricalRequest) (*His
 		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "domainName", r.domainName, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
 	if r.page != nil {
@@ -430,17 +408,10 @@ func (a *DNSAPIService) DnsHistoricalExecute(r DNSAPIDnsHistoricalRequest) (*His
 type DNSAPIDnsLiveRequest struct {
 	ctx context.Context
 	ApiService DNSAPI
-	apiKey *string
 	type_ *string
 	domainName *string
 	ipAddress *string
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r DNSAPIDnsLiveRequest) ApiKey(apiKey string) DNSAPIDnsLiveRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME
@@ -504,14 +475,10 @@ func (a *DNSAPIService) DnsLiveExecute(r DNSAPIDnsLiveRequest) (*DnsResponse, *h
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.type_ == nil {
 		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.domainName != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "domainName", r.domainName, "form", "")
 	}
@@ -617,18 +584,11 @@ func (a *DNSAPIService) DnsLiveExecute(r DNSAPIDnsLiveRequest) (*DnsResponse, *h
 type DNSAPIDnsReverseRequest struct {
 	ctx context.Context
 	ApiService DNSAPI
-	apiKey *string
 	value *string
 	type_ *string
 	exact *bool
 	page *int32
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r DNSAPIDnsReverseRequest) ApiKey(apiKey string) DNSAPIDnsReverseRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // IP, CIDR, or record value
@@ -696,9 +656,6 @@ func (a *DNSAPIService) DnsReverseExecute(r DNSAPIDnsReverseRequest) (*ReverseDn
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.value == nil {
 		return localVarReturnValue, nil, reportError("value is required and must be specified")
 	}
@@ -706,7 +663,6 @@ func (a *DNSAPIService) DnsReverseExecute(r DNSAPIDnsReverseRequest) (*ReverseDn
 		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "value", r.value, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
 	if r.exact != nil {

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## Subdomains
 
-> SubdomainsResponse Subdomains(ctx).ApiKey(apiKey).Domain(domain).After(after).Before(before).Status(status).Page(page).Format(format).Execute()
+> SubdomainsResponse Subdomains(ctx).Domain(domain).After(after).Before(before).Status(status).Page(page).Format(format).Execute()
 
 Subdomains Lookup
 
@@ -30,7 +30,6 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	domain := "domain_example" // string | 
 	after := time.Now() // string |  (optional)
 	before := time.Now() // string |  (optional)
@@ -40,7 +39,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SubdomainsAPI.Subdomains(context.Background()).ApiKey(apiKey).Domain(domain).After(after).Before(before).Status(status).Page(page).Format(format).Execute()
+	resp, r, err := apiClient.SubdomainsAPI.Subdomains(context.Background()).Domain(domain).After(after).Before(before).Status(status).Page(page).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SubdomainsAPI.Subdomains``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,7 +60,6 @@ Other parameters are passed through a pointer to a apiSubdomainsRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **domain** | **string** |  | 
  **after** | **string** |  | 
  **before** | **string** |  | 

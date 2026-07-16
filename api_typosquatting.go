@@ -43,16 +43,9 @@ type TyposquattingAPIService service
 type TyposquattingAPITyposquattingRequest struct {
 	ctx context.Context
 	ApiService TyposquattingAPI
-	apiKey *string
 	keyword *string
 	pattern *string
 	pageToken *string
-}
-
-// Your WHOISFreaks API key
-func (r TyposquattingAPITyposquattingRequest) ApiKey(apiKey string) TyposquattingAPITyposquattingRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r TyposquattingAPITyposquattingRequest) Keyword(keyword string) TyposquattingAPITyposquattingRequest {
@@ -109,11 +102,7 @@ func (a *TyposquattingAPIService) TyposquattingExecute(r TyposquattingAPITyposqu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.keyword != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "keyword", r.keyword, "form", "")
 	}

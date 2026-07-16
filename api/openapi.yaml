@@ -76,14 +76,6 @@ paths:
       description: Real-time WHOIS lookup from authoritative servers. Cost 1 credit.
       operationId: whoisLive
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - example: whoisfreaks.com
         explode: true
         in: query
@@ -131,138 +123,11 @@ paths:
       summary: Live WHOIS Lookup
       tags:
       - WHOIS
-  /v1.0/whois:
-    get:
-      description: "Historical WHOIS (all records since 1986) or Reverse WHOIS (search\
-        \ by keyword/email/owner/company). Historical: 2 credits/page (100 records).\
-        \ Reverse: 5 credits/page."
-      operationId: whoisHistoricalOrReverse
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: whois
-        required: true
-        schema:
-          enum:
-          - historical
-          - reverse
-          type: string
-        style: form
-      - description: Required for historical lookup
-        explode: true
-        in: query
-        name: domainName
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: For reverse — domain keyword search
-        explode: true
-        in: query
-        name: keyword
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: For reverse — registrant email search
-        explode: true
-        in: query
-        name: email
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: For reverse — registrant name search
-        explode: true
-        in: query
-        name: owner
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: For reverse — company name search
-        explode: true
-        in: query
-        name: company
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: mode
-        required: false
-        schema:
-          default: default
-          enum:
-          - default
-          - mini
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: exact
-        required: false
-        schema:
-          default: true
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          default: 1
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: format
-        required: false
-        schema:
-          default: json
-          enum:
-          - json
-          - xml
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/WhoisHistoricalResponse'
-          description: Successful response
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-          description: Invalid API key
-      summary: WHOIS Historical or Reverse Lookup
-      tags:
-      - WHOIS
   /v2.0/bulkwhois/live:
     post:
       description: Up to 100 domains in one request. 1 credit per successful domain.
       operationId: bulkWhois
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: format
@@ -301,14 +166,6 @@ paths:
       description: Real-time DNS record lookup. 1 credit per query.
       operationId: dnsLive
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: domainName
@@ -371,14 +228,6 @@ paths:
       description: All historical DNS records. 2 credits per page (100 records/page).
       operationId: dnsHistorical
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: domainName
@@ -434,14 +283,6 @@ paths:
       description: Search domains by IP or DNS value. 5 credits per page.
       operationId: dnsReverse
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: "IP, CIDR, or record value"
         explode: true
         in: query
@@ -513,14 +354,6 @@ paths:
       description: Up to 100 domains + 100 IPs in one request.
       operationId: dnsBulk
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: type
@@ -569,14 +402,6 @@ paths:
         queried domain; sug=true returns up to `count` (max 100) TLD suggestions.
       operationId: domainAvailabilityV2
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: The domain name to check
         example: google.com
         explode: true
@@ -652,14 +477,6 @@ paths:
         \ domain checked."
       operationId: bulkDomainAvailabilityV2
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: Required for TLD-mode bulk check (base domain).
         example: google.com
         explode: true
@@ -719,14 +536,6 @@ paths:
       description: Find typo variants of a brand. 5 credits per page.
       operationId: typosquatting
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: keyword
@@ -775,14 +584,6 @@ paths:
       description: Real-time SSL cert with optional chain.
       operationId: sslLookup
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: domainName
@@ -838,14 +639,6 @@ paths:
       description: "Get location, ASN, currency for an IP. 1 credit."
       operationId: geolocation
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: ip
@@ -872,15 +665,7 @@ paths:
     post:
       description: Up to 100 IPs.
       operationId: bulkGeolocation
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       requestBody:
         content:
           application/json:
@@ -910,14 +695,6 @@ paths:
       description: All subdomains including nested. 2 credits per query.
       operationId: subdomains
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: domain
@@ -991,14 +768,6 @@ paths:
       description: "Threat intel for IP — VPN, proxy, Tor, bots. 1 credit."
       operationId: ipReputation
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: ip
@@ -1025,15 +794,7 @@ paths:
     post:
       description: Up to 100 IPs.
       operationId: bulkIpReputation
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       requestBody:
         content:
           application/json:
@@ -1065,14 +826,6 @@ paths:
         \ 1 credit."
       operationId: domainReputation
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: The domain name to assess
         example: amazon.com
         explode: true
@@ -1132,14 +885,6 @@ paths:
       description: WHOIS for an ASN. 1 credit.
       operationId: asnWhois
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - example: as15169
         explode: true
         in: query
@@ -1180,14 +925,6 @@ paths:
       description: WHOIS for an IP address. 1 credit.
       operationId: ipWhois
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: ip
@@ -1226,15 +963,7 @@ paths:
     get:
       description: Rotate API Key. Returns the file/snapshot described by this operation.
       operationId: rotateApiKey
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       responses:
         "200":
           content:
@@ -1255,15 +984,7 @@ paths:
     get:
       description: Account Usage. Returns the file/snapshot described by this operation.
       operationId: accountUsage
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       responses:
         "200":
           content:
@@ -1309,14 +1030,6 @@ paths:
         by this operation.
       operationId: dbNewlyGtld
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: whois
@@ -1365,14 +1078,6 @@ paths:
         by this operation.
       operationId: dbNewlyCctld
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: whois
@@ -1421,14 +1126,6 @@ paths:
         described by this operation.
       operationId: dbNewlyGtldCleaned
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1463,14 +1160,6 @@ paths:
         described by this operation.
       operationId: dbNewlyCctldCleaned
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1505,14 +1194,6 @@ paths:
         by this operation.
       operationId: dbNewlyGtldJson
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1555,14 +1236,6 @@ paths:
         by this operation.
       operationId: dbNewlyCctldJson
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1605,14 +1278,6 @@ paths:
         by this operation.
       operationId: dbNewlyDns
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1646,14 +1311,6 @@ paths:
       description: Expiring Domains. Returns the file/snapshot described by this operation.
       operationId: dbExpired
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: whois
@@ -1695,14 +1352,6 @@ paths:
         this operation.
       operationId: dbExpiredCleaned
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1736,14 +1385,6 @@ paths:
       description: Dropped Domains. Returns the file/snapshot described by this operation.
       operationId: dbDropped
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: whois
@@ -1785,14 +1426,6 @@ paths:
         this operation.
       operationId: dbDroppedJson
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1835,14 +1468,6 @@ paths:
         this operation.
       operationId: dbDroppedBacklinks
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: whois
@@ -1884,14 +1509,6 @@ paths:
         operation.
       operationId: dbWhoisDaily
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1926,14 +1543,6 @@ paths:
         operation.
       operationId: dbWhoisWeekly
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -1968,14 +1577,6 @@ paths:
         this operation.
       operationId: dbWhoisMonthly
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -2010,14 +1611,6 @@ paths:
         operation.
       operationId: dbDnsDaily
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -2052,14 +1645,6 @@ paths:
         operation.
       operationId: dbDnsWeekly
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -2094,14 +1679,6 @@ paths:
         operation.
       operationId: dbDnsMonthly
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -2135,14 +1712,6 @@ paths:
       description: Subdomains Daily. Returns the file/snapshot described by this operation.
       operationId: dbSubdomainsDaily
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -2177,14 +1746,6 @@ paths:
         operation.
       operationId: dbSubdomainsWeekly
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -2219,14 +1780,6 @@ paths:
         operation.
       operationId: dbSubdomainsMonthly
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: yyyy-MM-dd; omit for latest
         explode: true
         in: query
@@ -2260,15 +1813,7 @@ paths:
       description: IP to Country Snapshot Status. Returns the file/snapshot described
         by this operation.
       operationId: dbIpCountryStatus
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       responses:
         "200":
           content:
@@ -2293,14 +1838,6 @@ paths:
         this operation.
       operationId: dbIpCountry
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: date
@@ -2333,15 +1870,7 @@ paths:
       description: IP to City Snapshot Status. Returns the file/snapshot described
         by this operation.
       operationId: dbIpCityStatus
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       responses:
         "200":
           content:
@@ -2366,14 +1895,6 @@ paths:
         operation.
       operationId: dbIpCity
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: date
@@ -2407,14 +1928,6 @@ paths:
         operation.
       operationId: dbAsnWhois
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: date
@@ -2447,15 +1960,7 @@ paths:
       description: ASN WHOIS Snapshot Status. Returns the file/snapshot described
         by this operation.
       operationId: dbAsnWhoisStatus
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       responses:
         "200":
           content:
@@ -2480,14 +1985,6 @@ paths:
         operation.
       operationId: dbIpWhois
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: date
@@ -2520,15 +2017,7 @@ paths:
       description: IP WHOIS Snapshot Status. Returns the file/snapshot described by
         this operation.
       operationId: dbIpWhoisStatus
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       responses:
         "200":
           content:
@@ -2553,14 +2042,6 @@ paths:
         operation.
       operationId: dbIpSecurity
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: date
@@ -2593,15 +2074,7 @@ paths:
       description: IP Security Snapshot Status. Returns the file/snapshot described
         by this operation.
       operationId: dbIpSecurityStatus
-      parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
+      parameters: []
       responses:
         "200":
           content:
@@ -2624,14 +2097,6 @@ paths:
     get:
       operationId: whoisHistory
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: Domain to fetch historical WHOIS records for
         explode: true
         in: query
@@ -2672,14 +2137,6 @@ paths:
     get:
       operationId: whoisReverse
       parameters:
-      - description: Your WHOISFreaks API key
-        explode: true
-        in: query
-        name: apiKey
-        required: true
-        schema:
-          type: string
-        style: form
       - description: Keyword to search across WHOIS records
         explode: true
         in: query
@@ -2718,15 +2175,6 @@ paths:
       - WHOIS
 components:
   parameters:
-    ApiKey:
-      description: Your WHOISFreaks API key
-      explode: true
-      in: query
-      name: apiKey
-      required: true
-      schema:
-        type: string
-      style: form
     Format:
       explode: true
       in: query

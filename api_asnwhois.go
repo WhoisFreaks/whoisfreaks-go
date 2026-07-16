@@ -43,15 +43,8 @@ type ASNWHOISAPIService service
 type ASNWHOISAPIAsnWhoisRequest struct {
 	ctx context.Context
 	ApiService ASNWHOISAPI
-	apiKey *string
 	asn *string
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r ASNWHOISAPIAsnWhoisRequest) ApiKey(apiKey string) ASNWHOISAPIAsnWhoisRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r ASNWHOISAPIAsnWhoisRequest) Asn(asn string) ASNWHOISAPIAsnWhoisRequest {
@@ -103,14 +96,10 @@ func (a *ASNWHOISAPIService) AsnWhoisExecute(r ASNWHOISAPIAsnWhoisRequest) (*Asn
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.asn == nil {
 		return localVarReturnValue, nil, reportError("asn is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "asn", r.asn, "form", "")
 	if r.format != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")

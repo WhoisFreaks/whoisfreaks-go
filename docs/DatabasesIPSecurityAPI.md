@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## DbIpSecurity
 
-> *os.File DbIpSecurity(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbIpSecurity(ctx).Date(date).Execute()
 
 IP Security Snapshot
 
@@ -31,12 +31,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesIPSecurityAPI.DbIpSecurity(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesIPSecurityAPI.DbIpSecurity(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesIPSecurityAPI.DbIpSecurity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +56,6 @@ Other parameters are passed through a pointer to a apiDbIpSecurityRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** |  | 
 
 ### Return type
@@ -80,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## DbIpSecurityStatus
 
-> SnapshotStatus DbIpSecurityStatus(ctx).ApiKey(apiKey).Execute()
+> SnapshotStatus DbIpSecurityStatus(ctx).Execute()
 
 IP Security Snapshot Status
 
@@ -99,11 +97,10 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesIPSecurityAPI.DbIpSecurityStatus(context.Background()).ApiKey(apiKey).Execute()
+	resp, r, err := apiClient.DatabasesIPSecurityAPI.DbIpSecurityStatus(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesIPSecurityAPI.DbIpSecurityStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -115,16 +112,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDbIpSecurityStatusRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
 
 ### Return type
 

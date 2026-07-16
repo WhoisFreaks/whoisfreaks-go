@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## AccountUsage
 
-> AccountUsageResponse AccountUsage(ctx).ApiKey(apiKey).Execute()
+> AccountUsageResponse AccountUsage(ctx).Execute()
 
 Account Usage
 
@@ -31,11 +31,10 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.AccountUsage(context.Background()).ApiKey(apiKey).Execute()
+	resp, r, err := apiClient.AccountAPI.AccountUsage(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.AccountUsage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -47,16 +46,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiAccountUsageRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
 
 ### Return type
 
@@ -139,7 +134,7 @@ No authorization required
 
 ## RotateApiKey
 
-> string RotateApiKey(ctx).ApiKey(apiKey).Execute()
+> string RotateApiKey(ctx).Execute()
 
 Rotate API Key
 
@@ -158,11 +153,10 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AccountAPI.RotateApiKey(context.Background()).ApiKey(apiKey).Execute()
+	resp, r, err := apiClient.AccountAPI.RotateApiKey(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountAPI.RotateApiKey``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -174,16 +168,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiRotateApiKeyRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
 
 ### Return type
 

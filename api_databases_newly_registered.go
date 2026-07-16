@@ -128,16 +128,9 @@ type DatabasesNewlyRegisteredAPIService service
 type DatabasesNewlyRegisteredAPIDbNewlyCctldRequest struct {
 	ctx context.Context
 	ApiService DatabasesNewlyRegisteredAPI
-	apiKey *string
 	whois *bool
 	date *string
 	tlds *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) ApiKey(apiKey string) DatabasesNewlyRegisteredAPIDbNewlyCctldRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesNewlyRegisteredAPIDbNewlyCctldRequest) Whois(whois bool) DatabasesNewlyRegisteredAPIDbNewlyCctldRequest {
@@ -195,14 +188,10 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldExecute(r DatabasesNewl
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.whois == nil {
 		return localVarReturnValue, nil, reportError("whois is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "whois", r.whois, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
@@ -291,14 +280,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldExecute(r DatabasesNewl
 type DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest struct {
 	ctx context.Context
 	ApiService DatabasesNewlyRegisteredAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest) ApiKey(apiKey string) DatabasesNewlyRegisteredAPIDbNewlyCctldCleanedRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -346,11 +328,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldCleanedExecute(r Databa
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -435,15 +413,8 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldCleanedExecute(r Databa
 type DatabasesNewlyRegisteredAPIDbNewlyCctldJsonRequest struct {
 	ctx context.Context
 	ApiService DatabasesNewlyRegisteredAPI
-	apiKey *string
 	date *string
 	tlds *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesNewlyRegisteredAPIDbNewlyCctldJsonRequest) ApiKey(apiKey string) DatabasesNewlyRegisteredAPIDbNewlyCctldJsonRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -496,11 +467,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldJsonExecute(r Databases
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -588,14 +555,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyCctldJsonExecute(r Databases
 type DatabasesNewlyRegisteredAPIDbNewlyDnsRequest struct {
 	ctx context.Context
 	ApiService DatabasesNewlyRegisteredAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesNewlyRegisteredAPIDbNewlyDnsRequest) ApiKey(apiKey string) DatabasesNewlyRegisteredAPIDbNewlyDnsRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -643,11 +603,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyDnsExecute(r DatabasesNewlyR
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -732,16 +688,9 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyDnsExecute(r DatabasesNewlyR
 type DatabasesNewlyRegisteredAPIDbNewlyGtldRequest struct {
 	ctx context.Context
 	ApiService DatabasesNewlyRegisteredAPI
-	apiKey *string
 	whois *bool
 	date *string
 	tlds *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) ApiKey(apiKey string) DatabasesNewlyRegisteredAPIDbNewlyGtldRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesNewlyRegisteredAPIDbNewlyGtldRequest) Whois(whois bool) DatabasesNewlyRegisteredAPIDbNewlyGtldRequest {
@@ -799,14 +748,10 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldExecute(r DatabasesNewly
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.whois == nil {
 		return localVarReturnValue, nil, reportError("whois is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "whois", r.whois, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
@@ -895,14 +840,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldExecute(r DatabasesNewly
 type DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest struct {
 	ctx context.Context
 	ApiService DatabasesNewlyRegisteredAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest) ApiKey(apiKey string) DatabasesNewlyRegisteredAPIDbNewlyGtldCleanedRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -950,11 +888,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldCleanedExecute(r Databas
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -1039,15 +973,8 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldCleanedExecute(r Databas
 type DatabasesNewlyRegisteredAPIDbNewlyGtldJsonRequest struct {
 	ctx context.Context
 	ApiService DatabasesNewlyRegisteredAPI
-	apiKey *string
 	date *string
 	tlds *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesNewlyRegisteredAPIDbNewlyGtldJsonRequest) ApiKey(apiKey string) DatabasesNewlyRegisteredAPIDbNewlyGtldJsonRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -1100,11 +1027,7 @@ func (a *DatabasesNewlyRegisteredAPIService) DbNewlyGtldJsonExecute(r DatabasesN
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}

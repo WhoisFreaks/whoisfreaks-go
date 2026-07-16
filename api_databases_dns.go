@@ -72,14 +72,7 @@ type DatabasesDNSAPIService service
 type DatabasesDNSAPIDbDnsDailyRequest struct {
 	ctx context.Context
 	ApiService DatabasesDNSAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesDNSAPIDbDnsDailyRequest) ApiKey(apiKey string) DatabasesDNSAPIDbDnsDailyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -127,11 +120,7 @@ func (a *DatabasesDNSAPIService) DbDnsDailyExecute(r DatabasesDNSAPIDbDnsDailyRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -216,14 +205,7 @@ func (a *DatabasesDNSAPIService) DbDnsDailyExecute(r DatabasesDNSAPIDbDnsDailyRe
 type DatabasesDNSAPIDbDnsMonthlyRequest struct {
 	ctx context.Context
 	ApiService DatabasesDNSAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesDNSAPIDbDnsMonthlyRequest) ApiKey(apiKey string) DatabasesDNSAPIDbDnsMonthlyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -271,11 +253,7 @@ func (a *DatabasesDNSAPIService) DbDnsMonthlyExecute(r DatabasesDNSAPIDbDnsMonth
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -360,14 +338,7 @@ func (a *DatabasesDNSAPIService) DbDnsMonthlyExecute(r DatabasesDNSAPIDbDnsMonth
 type DatabasesDNSAPIDbDnsWeeklyRequest struct {
 	ctx context.Context
 	ApiService DatabasesDNSAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesDNSAPIDbDnsWeeklyRequest) ApiKey(apiKey string) DatabasesDNSAPIDbDnsWeeklyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -415,11 +386,7 @@ func (a *DatabasesDNSAPIService) DbDnsWeeklyExecute(r DatabasesDNSAPIDbDnsWeekly
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## DomainReputation
 
-> DomainReputationResponse DomainReputation(ctx).ApiKey(apiKey).DomainName(domainName).Format(format).Execute()
+> DomainReputationResponse DomainReputation(ctx).DomainName(domainName).Format(format).Execute()
 
 Domain Reputation Lookup
 
@@ -29,13 +29,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	domainName := "amazon.com" // string | The domain name to assess
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DomainReputationAPI.DomainReputation(context.Background()).ApiKey(apiKey).DomainName(domainName).Format(format).Execute()
+	resp, r, err := apiClient.DomainReputationAPI.DomainReputation(context.Background()).DomainName(domainName).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DomainReputationAPI.DomainReputation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +55,6 @@ Other parameters are passed through a pointer to a apiDomainReputationRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **domainName** | **string** | The domain name to assess | 
  **format** | **string** |  | [default to &quot;json&quot;]
 

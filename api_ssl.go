@@ -43,17 +43,10 @@ type SSLAPIService service
 type SSLAPISslLookupRequest struct {
 	ctx context.Context
 	ApiService SSLAPI
-	apiKey *string
 	domainName *string
 	chain *bool
 	sslRaw *bool
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r SSLAPISslLookupRequest) ApiKey(apiKey string) SSLAPISslLookupRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r SSLAPISslLookupRequest) DomainName(domainName string) SSLAPISslLookupRequest {
@@ -115,14 +108,10 @@ func (a *SSLAPIService) SslLookupExecute(r SSLAPISslLookupRequest) (*SslResponse
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.domainName == nil {
 		return localVarReturnValue, nil, reportError("domainName is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "domainName", r.domainName, "form", "")
 	if r.chain != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "chain", r.chain, "form", "")

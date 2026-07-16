@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## DbSubdomainsDaily
 
-> *os.File DbSubdomainsDaily(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbSubdomainsDaily(ctx).Date(date).Execute()
 
 Subdomains Daily
 
@@ -32,12 +32,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesSubdomainsAPI.DbSubdomainsDaily(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesSubdomainsAPI.DbSubdomainsDaily(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesSubdomainsAPI.DbSubdomainsDaily``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,7 +57,6 @@ Other parameters are passed through a pointer to a apiDbSubdomainsDailyRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -81,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## DbSubdomainsMonthly
 
-> *os.File DbSubdomainsMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbSubdomainsMonthly(ctx).Date(date).Execute()
 
 Subdomains Monthly
 
@@ -101,12 +99,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesSubdomainsAPI.DbSubdomainsMonthly(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesSubdomainsAPI.DbSubdomainsMonthly(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesSubdomainsAPI.DbSubdomainsMonthly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,7 +124,6 @@ Other parameters are passed through a pointer to a apiDbSubdomainsMonthlyRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -150,7 +146,7 @@ Name | Type | Description  | Notes
 
 ## DbSubdomainsWeekly
 
-> *os.File DbSubdomainsWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbSubdomainsWeekly(ctx).Date(date).Execute()
 
 Subdomains Weekly
 
@@ -170,12 +166,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesSubdomainsAPI.DbSubdomainsWeekly(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesSubdomainsAPI.DbSubdomainsWeekly(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesSubdomainsAPI.DbSubdomainsWeekly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -196,7 +191,6 @@ Other parameters are passed through a pointer to a apiDbSubdomainsWeeklyRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## SslLookup
 
-> SslResponse SslLookup(ctx).ApiKey(apiKey).DomainName(domainName).Chain(chain).SslRaw(sslRaw).Format(format).Execute()
+> SslResponse SslLookup(ctx).DomainName(domainName).Chain(chain).SslRaw(sslRaw).Format(format).Execute()
 
 SSL Certificate Lookup
 
@@ -29,7 +29,6 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	domainName := "domainName_example" // string | 
 	chain := true // bool |  (optional) (default to false)
 	sslRaw := true // bool |  (optional) (default to false)
@@ -37,7 +36,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SSLAPI.SslLookup(context.Background()).ApiKey(apiKey).DomainName(domainName).Chain(chain).SslRaw(sslRaw).Format(format).Execute()
+	resp, r, err := apiClient.SSLAPI.SslLookup(context.Background()).DomainName(domainName).Chain(chain).SslRaw(sslRaw).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SSLAPI.SslLookup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,7 +57,6 @@ Other parameters are passed through a pointer to a apiSslLookupRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **domainName** | **string** |  | 
  **chain** | **bool** |  | [default to false]
  **sslRaw** | **bool** |  | [default to false]

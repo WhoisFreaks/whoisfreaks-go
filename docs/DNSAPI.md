@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## DnsBulk
 
-> BulkDnsResponse DnsBulk(ctx).ApiKey(apiKey).Type_(type_).DnsBulkRequest(dnsBulkRequest).Format(format).Execute()
+> BulkDnsResponse DnsBulk(ctx).Type_(type_).DnsBulkRequest(dnsBulkRequest).Format(format).Execute()
 
 Bulk DNS Lookup
 
@@ -32,14 +32,13 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	type_ := "type__example" // string |  (default to "all")
 	dnsBulkRequest := *openapiclient.NewDnsBulkRequest() // DnsBulkRequest | 
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DNSAPI.DnsBulk(context.Background()).ApiKey(apiKey).Type_(type_).DnsBulkRequest(dnsBulkRequest).Format(format).Execute()
+	resp, r, err := apiClient.DNSAPI.DnsBulk(context.Background()).Type_(type_).DnsBulkRequest(dnsBulkRequest).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DNSAPI.DnsBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -60,7 +59,6 @@ Other parameters are passed through a pointer to a apiDnsBulkRequest struct via 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **type_** | **string** |  | [default to &quot;all&quot;]
  **dnsBulkRequest** | [**DnsBulkRequest**](DnsBulkRequest.md) |  | 
  **format** | **string** |  | [default to &quot;json&quot;]
@@ -85,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## DnsHistorical
 
-> HistoricalDnsResponse DnsHistorical(ctx).ApiKey(apiKey).DomainName(domainName).Type_(type_).Page(page).Format(format).Execute()
+> HistoricalDnsResponse DnsHistorical(ctx).DomainName(domainName).Type_(type_).Page(page).Format(format).Execute()
 
 Historical DNS Lookup
 
@@ -104,7 +102,6 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	domainName := "domainName_example" // string | 
 	type_ := "type__example" // string |  (default to "all")
 	page := int32(56) // int32 |  (optional) (default to 1)
@@ -112,7 +109,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DNSAPI.DnsHistorical(context.Background()).ApiKey(apiKey).DomainName(domainName).Type_(type_).Page(page).Format(format).Execute()
+	resp, r, err := apiClient.DNSAPI.DnsHistorical(context.Background()).DomainName(domainName).Type_(type_).Page(page).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DNSAPI.DnsHistorical``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -133,7 +130,6 @@ Other parameters are passed through a pointer to a apiDnsHistoricalRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **domainName** | **string** |  | 
  **type_** | **string** |  | [default to &quot;all&quot;]
  **page** | **int32** |  | [default to 1]
@@ -159,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## DnsLive
 
-> DnsResponse DnsLive(ctx).ApiKey(apiKey).Type_(type_).DomainName(domainName).IpAddress(ipAddress).Format(format).Execute()
+> DnsResponse DnsLive(ctx).Type_(type_).DomainName(domainName).IpAddress(ipAddress).Format(format).Execute()
 
 Live DNS Lookup
 
@@ -178,7 +174,6 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	type_ := "type__example" // string | all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME (default to "all")
 	domainName := "domainName_example" // string |  (optional)
 	ipAddress := "ipAddress_example" // string | Use for PTR lookups (optional)
@@ -186,7 +181,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DNSAPI.DnsLive(context.Background()).ApiKey(apiKey).Type_(type_).DomainName(domainName).IpAddress(ipAddress).Format(format).Execute()
+	resp, r, err := apiClient.DNSAPI.DnsLive(context.Background()).Type_(type_).DomainName(domainName).IpAddress(ipAddress).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DNSAPI.DnsLive``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -207,7 +202,6 @@ Other parameters are passed through a pointer to a apiDnsLiveRequest struct via 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **type_** | **string** | all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME | [default to &quot;all&quot;]
  **domainName** | **string** |  | 
  **ipAddress** | **string** | Use for PTR lookups | 
@@ -233,7 +227,7 @@ Name | Type | Description  | Notes
 
 ## DnsReverse
 
-> ReverseDnsResponse DnsReverse(ctx).ApiKey(apiKey).Value(value).Type_(type_).Exact(exact).Page(page).Format(format).Execute()
+> ReverseDnsResponse DnsReverse(ctx).Value(value).Type_(type_).Exact(exact).Page(page).Format(format).Execute()
 
 Reverse DNS Lookup
 
@@ -252,7 +246,6 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	value := "value_example" // string | IP, CIDR, or record value
 	type_ := "type__example" // string | 
 	exact := true // bool |  (optional) (default to true)
@@ -261,7 +254,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DNSAPI.DnsReverse(context.Background()).ApiKey(apiKey).Value(value).Type_(type_).Exact(exact).Page(page).Format(format).Execute()
+	resp, r, err := apiClient.DNSAPI.DnsReverse(context.Background()).Value(value).Type_(type_).Exact(exact).Page(page).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DNSAPI.DnsReverse``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -282,7 +275,6 @@ Other parameters are passed through a pointer to a apiDnsReverseRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **value** | **string** | IP, CIDR, or record value | 
  **type_** | **string** |  | 
  **exact** | **bool** |  | [default to true]

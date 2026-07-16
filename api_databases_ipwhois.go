@@ -58,14 +58,7 @@ type DatabasesIPWHOISAPIService service
 type DatabasesIPWHOISAPIDbIpWhoisRequest struct {
 	ctx context.Context
 	ApiService DatabasesIPWHOISAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesIPWHOISAPIDbIpWhoisRequest) ApiKey(apiKey string) DatabasesIPWHOISAPIDbIpWhoisRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesIPWHOISAPIDbIpWhoisRequest) Date(date string) DatabasesIPWHOISAPIDbIpWhoisRequest {
@@ -112,14 +105,10 @@ func (a *DatabasesIPWHOISAPIService) DbIpWhoisExecute(r DatabasesIPWHOISAPIDbIpW
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.date == nil {
 		return localVarReturnValue, nil, reportError("date is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -202,13 +191,6 @@ func (a *DatabasesIPWHOISAPIService) DbIpWhoisExecute(r DatabasesIPWHOISAPIDbIpW
 type DatabasesIPWHOISAPIDbIpWhoisStatusRequest struct {
 	ctx context.Context
 	ApiService DatabasesIPWHOISAPI
-	apiKey *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesIPWHOISAPIDbIpWhoisStatusRequest) ApiKey(apiKey string) DatabasesIPWHOISAPIDbIpWhoisStatusRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesIPWHOISAPIDbIpWhoisStatusRequest) Execute() (*SnapshotStatus, *http.Response, error) {
@@ -250,11 +232,7 @@ func (a *DatabasesIPWHOISAPIService) DbIpWhoisStatusExecute(r DatabasesIPWHOISAP
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

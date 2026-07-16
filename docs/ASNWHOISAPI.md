@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## AsnWhois
 
-> AsnWhoisResponse AsnWhois(ctx).ApiKey(apiKey).Asn(asn).Format(format).Execute()
+> AsnWhoisResponse AsnWhois(ctx).Asn(asn).Format(format).Execute()
 
 ASN WHOIS Lookup
 
@@ -29,13 +29,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	asn := "as15169" // string | 
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ASNWHOISAPI.AsnWhois(context.Background()).ApiKey(apiKey).Asn(asn).Format(format).Execute()
+	resp, r, err := apiClient.ASNWHOISAPI.AsnWhois(context.Background()).Asn(asn).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ASNWHOISAPI.AsnWhois``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +55,6 @@ Other parameters are passed through a pointer to a apiAsnWhoisRequest struct via
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **asn** | **string** |  | 
  **format** | **string** |  | [default to &quot;json&quot;]
 

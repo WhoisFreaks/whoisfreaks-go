@@ -58,14 +58,7 @@ type DatabasesIPSecurityAPIService service
 type DatabasesIPSecurityAPIDbIpSecurityRequest struct {
 	ctx context.Context
 	ApiService DatabasesIPSecurityAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesIPSecurityAPIDbIpSecurityRequest) ApiKey(apiKey string) DatabasesIPSecurityAPIDbIpSecurityRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesIPSecurityAPIDbIpSecurityRequest) Date(date string) DatabasesIPSecurityAPIDbIpSecurityRequest {
@@ -112,14 +105,10 @@ func (a *DatabasesIPSecurityAPIService) DbIpSecurityExecute(r DatabasesIPSecurit
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.date == nil {
 		return localVarReturnValue, nil, reportError("date is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -202,13 +191,6 @@ func (a *DatabasesIPSecurityAPIService) DbIpSecurityExecute(r DatabasesIPSecurit
 type DatabasesIPSecurityAPIDbIpSecurityStatusRequest struct {
 	ctx context.Context
 	ApiService DatabasesIPSecurityAPI
-	apiKey *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesIPSecurityAPIDbIpSecurityStatusRequest) ApiKey(apiKey string) DatabasesIPSecurityAPIDbIpSecurityStatusRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesIPSecurityAPIDbIpSecurityStatusRequest) Execute() (*SnapshotStatus, *http.Response, error) {
@@ -250,11 +232,7 @@ func (a *DatabasesIPSecurityAPIService) DbIpSecurityStatusExecute(r DatabasesIPS
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

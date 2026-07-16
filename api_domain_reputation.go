@@ -43,15 +43,8 @@ type DomainReputationAPIService service
 type DomainReputationAPIDomainReputationRequest struct {
 	ctx context.Context
 	ApiService DomainReputationAPI
-	apiKey *string
 	domainName *string
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r DomainReputationAPIDomainReputationRequest) ApiKey(apiKey string) DomainReputationAPIDomainReputationRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // The domain name to assess
@@ -104,14 +97,10 @@ func (a *DomainReputationAPIService) DomainReputationExecute(r DomainReputationA
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.domainName == nil {
 		return localVarReturnValue, nil, reportError("domainName is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "domainName", r.domainName, "form", "")
 	if r.format != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")

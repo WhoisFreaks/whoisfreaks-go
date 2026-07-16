@@ -86,14 +86,7 @@ type DatabasesIPGeolocationAPIService service
 type DatabasesIPGeolocationAPIDbIpCityRequest struct {
 	ctx context.Context
 	ApiService DatabasesIPGeolocationAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesIPGeolocationAPIDbIpCityRequest) ApiKey(apiKey string) DatabasesIPGeolocationAPIDbIpCityRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesIPGeolocationAPIDbIpCityRequest) Date(date string) DatabasesIPGeolocationAPIDbIpCityRequest {
@@ -140,14 +133,10 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCityExecute(r DatabasesIPGeolocat
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.date == nil {
 		return localVarReturnValue, nil, reportError("date is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -230,13 +219,6 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCityExecute(r DatabasesIPGeolocat
 type DatabasesIPGeolocationAPIDbIpCityStatusRequest struct {
 	ctx context.Context
 	ApiService DatabasesIPGeolocationAPI
-	apiKey *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesIPGeolocationAPIDbIpCityStatusRequest) ApiKey(apiKey string) DatabasesIPGeolocationAPIDbIpCityStatusRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesIPGeolocationAPIDbIpCityStatusRequest) Execute() (*SnapshotStatus, *http.Response, error) {
@@ -278,11 +260,7 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCityStatusExecute(r DatabasesIPGe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -364,14 +342,7 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCityStatusExecute(r DatabasesIPGe
 type DatabasesIPGeolocationAPIDbIpCountryRequest struct {
 	ctx context.Context
 	ApiService DatabasesIPGeolocationAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesIPGeolocationAPIDbIpCountryRequest) ApiKey(apiKey string) DatabasesIPGeolocationAPIDbIpCountryRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesIPGeolocationAPIDbIpCountryRequest) Date(date string) DatabasesIPGeolocationAPIDbIpCountryRequest {
@@ -418,14 +389,10 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCountryExecute(r DatabasesIPGeolo
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.date == nil {
 		return localVarReturnValue, nil, reportError("date is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -508,13 +475,6 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCountryExecute(r DatabasesIPGeolo
 type DatabasesIPGeolocationAPIDbIpCountryStatusRequest struct {
 	ctx context.Context
 	ApiService DatabasesIPGeolocationAPI
-	apiKey *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesIPGeolocationAPIDbIpCountryStatusRequest) ApiKey(apiKey string) DatabasesIPGeolocationAPIDbIpCountryStatusRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesIPGeolocationAPIDbIpCountryStatusRequest) Execute() (*SnapshotStatus, *http.Response, error) {
@@ -556,11 +516,7 @@ func (a *DatabasesIPGeolocationAPIService) DbIpCountryStatusExecute(r DatabasesI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

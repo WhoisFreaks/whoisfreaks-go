@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## DbDnsDaily
 
-> *os.File DbDnsDaily(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbDnsDaily(ctx).Date(date).Execute()
 
 DNS Database Daily
 
@@ -32,12 +32,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesDNSAPI.DbDnsDaily(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesDNSAPI.DbDnsDaily(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesDNSAPI.DbDnsDaily``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,7 +57,6 @@ Other parameters are passed through a pointer to a apiDbDnsDailyRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -81,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## DbDnsMonthly
 
-> *os.File DbDnsMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbDnsMonthly(ctx).Date(date).Execute()
 
 DNS Database Monthly
 
@@ -101,12 +99,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesDNSAPI.DbDnsMonthly(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesDNSAPI.DbDnsMonthly(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesDNSAPI.DbDnsMonthly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,7 +124,6 @@ Other parameters are passed through a pointer to a apiDbDnsMonthlyRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -150,7 +146,7 @@ Name | Type | Description  | Notes
 
 ## DbDnsWeekly
 
-> *os.File DbDnsWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbDnsWeekly(ctx).Date(date).Execute()
 
 DNS Database Weekly
 
@@ -170,12 +166,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesDNSAPI.DbDnsWeekly(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesDNSAPI.DbDnsWeekly(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesDNSAPI.DbDnsWeekly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -196,7 +191,6 @@ Other parameters are passed through a pointer to a apiDbDnsWeeklyRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type

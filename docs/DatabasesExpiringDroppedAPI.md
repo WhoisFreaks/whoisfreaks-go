@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## DbDropped
 
-> *os.File DbDropped(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+> *os.File DbDropped(ctx).Whois(whois).Date(date).Execute()
 
 Dropped Domains
 
@@ -34,13 +34,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	whois := true // bool | 
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbDropped(context.Background()).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbDropped(context.Background()).Whois(whois).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbDropped``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,7 +60,6 @@ Other parameters are passed through a pointer to a apiDbDroppedRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **whois** | **bool** |  | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
@@ -85,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## DbDroppedBacklinks
 
-> *os.File DbDroppedBacklinks(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+> *os.File DbDroppedBacklinks(ctx).Whois(whois).Date(date).Execute()
 
 Dropped With Backlinks
 
@@ -105,13 +103,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	whois := true // bool |  (optional)
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbDroppedBacklinks(context.Background()).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbDroppedBacklinks(context.Background()).Whois(whois).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbDroppedBacklinks``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -132,7 +129,6 @@ Other parameters are passed through a pointer to a apiDbDroppedBacklinksRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **whois** | **bool** |  | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
@@ -156,7 +152,7 @@ Name | Type | Description  | Notes
 
 ## DbDroppedJson
 
-> []string DbDroppedJson(ctx).ApiKey(apiKey).Date(date).Tlds(tlds).Execute()
+> []string DbDroppedJson(ctx).Date(date).Tlds(tlds).Execute()
 
 Dropped Domains (JSON)
 
@@ -176,13 +172,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 	tlds := "tlds_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbDroppedJson(context.Background()).ApiKey(apiKey).Date(date).Tlds(tlds).Execute()
+	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbDroppedJson(context.Background()).Date(date).Tlds(tlds).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbDroppedJson``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -203,7 +198,6 @@ Other parameters are passed through a pointer to a apiDbDroppedJsonRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
  **tlds** | **string** |  | 
 
@@ -227,7 +221,7 @@ Name | Type | Description  | Notes
 
 ## DbExpired
 
-> *os.File DbExpired(ctx).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+> *os.File DbExpired(ctx).Whois(whois).Date(date).Execute()
 
 Expiring Domains
 
@@ -247,13 +241,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	whois := true // bool | 
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbExpired(context.Background()).ApiKey(apiKey).Whois(whois).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbExpired(context.Background()).Whois(whois).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbExpired``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -274,7 +267,6 @@ Other parameters are passed through a pointer to a apiDbExpiredRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **whois** | **bool** |  | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
@@ -298,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## DbExpiredCleaned
 
-> *os.File DbExpiredCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbExpiredCleaned(ctx).Date(date).Execute()
 
 Expiring Cleaned WHOIS
 
@@ -318,12 +310,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbExpiredCleaned(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesExpiringDroppedAPI.DbExpiredCleaned(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesExpiringDroppedAPI.DbExpiredCleaned``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -344,7 +335,6 @@ Other parameters are passed through a pointer to a apiDbExpiredCleanedRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type

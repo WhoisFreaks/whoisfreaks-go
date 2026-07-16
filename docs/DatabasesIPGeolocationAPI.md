@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## DbIpCity
 
-> *os.File DbIpCity(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbIpCity(ctx).Date(date).Execute()
 
 IP to City Snapshot
 
@@ -33,12 +33,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesIPGeolocationAPI.DbIpCity(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesIPGeolocationAPI.DbIpCity(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesIPGeolocationAPI.DbIpCity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -59,7 +58,6 @@ Other parameters are passed through a pointer to a apiDbIpCityRequest struct via
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** |  | 
 
 ### Return type
@@ -82,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## DbIpCityStatus
 
-> SnapshotStatus DbIpCityStatus(ctx).ApiKey(apiKey).Execute()
+> SnapshotStatus DbIpCityStatus(ctx).Execute()
 
 IP to City Snapshot Status
 
@@ -101,11 +99,10 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesIPGeolocationAPI.DbIpCityStatus(context.Background()).ApiKey(apiKey).Execute()
+	resp, r, err := apiClient.DatabasesIPGeolocationAPI.DbIpCityStatus(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesIPGeolocationAPI.DbIpCityStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -117,16 +114,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDbIpCityStatusRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
 
 ### Return type
 
@@ -148,7 +141,7 @@ Name | Type | Description  | Notes
 
 ## DbIpCountry
 
-> *os.File DbIpCountry(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbIpCountry(ctx).Date(date).Execute()
 
 IP to Country Snapshot
 
@@ -168,12 +161,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesIPGeolocationAPI.DbIpCountry(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesIPGeolocationAPI.DbIpCountry(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesIPGeolocationAPI.DbIpCountry``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -194,7 +186,6 @@ Other parameters are passed through a pointer to a apiDbIpCountryRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** |  | 
 
 ### Return type
@@ -217,7 +208,7 @@ Name | Type | Description  | Notes
 
 ## DbIpCountryStatus
 
-> SnapshotStatus DbIpCountryStatus(ctx).ApiKey(apiKey).Execute()
+> SnapshotStatus DbIpCountryStatus(ctx).Execute()
 
 IP to Country Snapshot Status
 
@@ -236,11 +227,10 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesIPGeolocationAPI.DbIpCountryStatus(context.Background()).ApiKey(apiKey).Execute()
+	resp, r, err := apiClient.DatabasesIPGeolocationAPI.DbIpCountryStatus(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesIPGeolocationAPI.DbIpCountryStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -252,16 +242,12 @@ func main() {
 
 ### Path Parameters
 
-
+This endpoint does not need any parameter.
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiDbIpCountryStatusRequest struct via the builder pattern
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
 
 ### Return type
 

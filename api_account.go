@@ -71,13 +71,6 @@ type AccountAPIService service
 type AccountAPIAccountUsageRequest struct {
 	ctx context.Context
 	ApiService AccountAPI
-	apiKey *string
-}
-
-// Your WHOISFreaks API key
-func (r AccountAPIAccountUsageRequest) ApiKey(apiKey string) AccountAPIAccountUsageRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r AccountAPIAccountUsageRequest) Execute() (*AccountUsageResponse, *http.Response, error) {
@@ -119,11 +112,7 @@ func (a *AccountAPIService) AccountUsageExecute(r AccountAPIAccountUsageRequest)
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -314,13 +303,6 @@ func (a *AccountAPIService) DatabaseFileStatusExecute(r AccountAPIDatabaseFileSt
 type AccountAPIRotateApiKeyRequest struct {
 	ctx context.Context
 	ApiService AccountAPI
-	apiKey *string
-}
-
-// Your WHOISFreaks API key
-func (r AccountAPIRotateApiKeyRequest) ApiKey(apiKey string) AccountAPIRotateApiKeyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r AccountAPIRotateApiKeyRequest) Execute() (string, *http.Response, error) {
@@ -362,11 +344,7 @@ func (a *AccountAPIService) RotateApiKeyExecute(r AccountAPIRotateApiKeyRequest)
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## Typosquatting
 
-> TyposquattingResponse Typosquatting(ctx).ApiKey(apiKey).Keyword(keyword).Pattern(pattern).PageToken(pageToken).Execute()
+> TyposquattingResponse Typosquatting(ctx).Keyword(keyword).Pattern(pattern).PageToken(pageToken).Execute()
 
 Typosquatting Lookup
 
@@ -29,14 +29,13 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	keyword := "keyword_example" // string |  (optional)
 	pattern := "pattern_example" // string |  (optional)
 	pageToken := "pageToken_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TyposquattingAPI.Typosquatting(context.Background()).ApiKey(apiKey).Keyword(keyword).Pattern(pattern).PageToken(pageToken).Execute()
+	resp, r, err := apiClient.TyposquattingAPI.Typosquatting(context.Background()).Keyword(keyword).Pattern(pattern).PageToken(pageToken).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TyposquattingAPI.Typosquatting``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +56,6 @@ Other parameters are passed through a pointer to a apiTyposquattingRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **keyword** | **string** |  | 
  **pattern** | **string** |  | 
  **pageToken** | **string** |  | 

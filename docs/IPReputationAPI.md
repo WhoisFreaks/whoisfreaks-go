@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## BulkIpReputation
 
-> []IpReputationResponse BulkIpReputation(ctx).ApiKey(apiKey).BulkGeolocationRequest(bulkGeolocationRequest).Execute()
+> []IpReputationResponse BulkIpReputation(ctx).BulkGeolocationRequest(bulkGeolocationRequest).Execute()
 
 Bulk IP Reputation
 
@@ -30,12 +30,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	bulkGeolocationRequest := *openapiclient.NewBulkGeolocationRequest([]string{"Ips_example"}) // BulkGeolocationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IPReputationAPI.BulkIpReputation(context.Background()).ApiKey(apiKey).BulkGeolocationRequest(bulkGeolocationRequest).Execute()
+	resp, r, err := apiClient.IPReputationAPI.BulkIpReputation(context.Background()).BulkGeolocationRequest(bulkGeolocationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IPReputationAPI.BulkIpReputation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +55,6 @@ Other parameters are passed through a pointer to a apiBulkIpReputationRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **bulkGeolocationRequest** | [**BulkGeolocationRequest**](BulkGeolocationRequest.md) |  | 
 
 ### Return type
@@ -79,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## IpReputation
 
-> IpReputationResponse IpReputation(ctx).ApiKey(apiKey).Ip(ip).Execute()
+> IpReputationResponse IpReputation(ctx).Ip(ip).Execute()
 
 IP Reputation Lookup
 
@@ -98,12 +96,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	ip := "ip_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IPReputationAPI.IpReputation(context.Background()).ApiKey(apiKey).Ip(ip).Execute()
+	resp, r, err := apiClient.IPReputationAPI.IpReputation(context.Background()).Ip(ip).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IPReputationAPI.IpReputation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,7 +121,6 @@ Other parameters are passed through a pointer to a apiIpReputationRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **ip** | **string** |  | 
 
 ### Return type

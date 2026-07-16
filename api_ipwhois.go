@@ -43,15 +43,8 @@ type IPWHOISAPIService service
 type IPWHOISAPIIpWhoisRequest struct {
 	ctx context.Context
 	ApiService IPWHOISAPI
-	apiKey *string
 	ip *string
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r IPWHOISAPIIpWhoisRequest) ApiKey(apiKey string) IPWHOISAPIIpWhoisRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r IPWHOISAPIIpWhoisRequest) Ip(ip string) IPWHOISAPIIpWhoisRequest {
@@ -103,14 +96,10 @@ func (a *IPWHOISAPIService) IpWhoisExecute(r IPWHOISAPIIpWhoisRequest) (*IpWhois
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.ip == nil {
 		return localVarReturnValue, nil, reportError("ip is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "ip", r.ip, "form", "")
 	if r.format != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")

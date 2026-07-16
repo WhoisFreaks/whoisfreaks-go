@@ -34,18 +34,6 @@ func Test_whoisfreaks_WHOISAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test WHOISAPIService WhoisHistoricalOrReverse", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.WHOISAPI.WhoisHistoricalOrReverse(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test WHOISAPIService WhoisHistory", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

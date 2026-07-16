@@ -43,19 +43,12 @@ type SubdomainsAPIService service
 type SubdomainsAPISubdomainsRequest struct {
 	ctx context.Context
 	ApiService SubdomainsAPI
-	apiKey *string
 	domain *string
 	after *string
 	before *string
 	status *string
 	page *int32
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r SubdomainsAPISubdomainsRequest) ApiKey(apiKey string) SubdomainsAPISubdomainsRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r SubdomainsAPISubdomainsRequest) Domain(domain string) SubdomainsAPISubdomainsRequest {
@@ -127,14 +120,10 @@ func (a *SubdomainsAPIService) SubdomainsExecute(r SubdomainsAPISubdomainsReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.domain == nil {
 		return localVarReturnValue, nil, reportError("domain is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "domain", r.domain, "form", "")
 	if r.after != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "after", r.after, "form", "")

@@ -72,14 +72,7 @@ type DatabasesSubdomainsAPIService service
 type DatabasesSubdomainsAPIDbSubdomainsDailyRequest struct {
 	ctx context.Context
 	ApiService DatabasesSubdomainsAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesSubdomainsAPIDbSubdomainsDailyRequest) ApiKey(apiKey string) DatabasesSubdomainsAPIDbSubdomainsDailyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -127,11 +120,7 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsDailyExecute(r DatabasesSubd
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -216,14 +205,7 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsDailyExecute(r DatabasesSubd
 type DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest struct {
 	ctx context.Context
 	ApiService DatabasesSubdomainsAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest) ApiKey(apiKey string) DatabasesSubdomainsAPIDbSubdomainsMonthlyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -271,11 +253,7 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsMonthlyExecute(r DatabasesSu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -360,14 +338,7 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsMonthlyExecute(r DatabasesSu
 type DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest struct {
 	ctx context.Context
 	ApiService DatabasesSubdomainsAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest) ApiKey(apiKey string) DatabasesSubdomainsAPIDbSubdomainsWeeklyRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -415,11 +386,7 @@ func (a *DatabasesSubdomainsAPIService) DbSubdomainsWeeklyExecute(r DatabasesSub
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}

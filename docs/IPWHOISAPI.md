@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## IpWhois
 
-> IpWhoisResponse IpWhois(ctx).ApiKey(apiKey).Ip(ip).Format(format).Execute()
+> IpWhoisResponse IpWhois(ctx).Ip(ip).Format(format).Execute()
 
 IP WHOIS Lookup
 
@@ -29,13 +29,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	ip := "ip_example" // string | 
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IPWHOISAPI.IpWhois(context.Background()).ApiKey(apiKey).Ip(ip).Format(format).Execute()
+	resp, r, err := apiClient.IPWHOISAPI.IpWhois(context.Background()).Ip(ip).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IPWHOISAPI.IpWhois``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +55,6 @@ Other parameters are passed through a pointer to a apiIpWhoisRequest struct via 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **ip** | **string** |  | 
  **format** | **string** |  | [default to &quot;json&quot;]
 

@@ -100,15 +100,8 @@ type DatabasesExpiringDroppedAPIService service
 type DatabasesExpiringDroppedAPIDbDroppedRequest struct {
 	ctx context.Context
 	ApiService DatabasesExpiringDroppedAPI
-	apiKey *string
 	whois *bool
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesExpiringDroppedAPIDbDroppedRequest) ApiKey(apiKey string) DatabasesExpiringDroppedAPIDbDroppedRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesExpiringDroppedAPIDbDroppedRequest) Whois(whois bool) DatabasesExpiringDroppedAPIDbDroppedRequest {
@@ -161,14 +154,10 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedExecute(r DatabasesExpirin
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.whois == nil {
 		return localVarReturnValue, nil, reportError("whois is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "whois", r.whois, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
@@ -254,15 +243,8 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedExecute(r DatabasesExpirin
 type DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest struct {
 	ctx context.Context
 	ApiService DatabasesExpiringDroppedAPI
-	apiKey *string
 	whois *bool
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) ApiKey(apiKey string) DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest) Whois(whois bool) DatabasesExpiringDroppedAPIDbDroppedBacklinksRequest {
@@ -315,11 +297,7 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedBacklinksExecute(r Databas
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.whois != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "whois", r.whois, "form", "")
 	}
@@ -407,15 +385,8 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedBacklinksExecute(r Databas
 type DatabasesExpiringDroppedAPIDbDroppedJsonRequest struct {
 	ctx context.Context
 	ApiService DatabasesExpiringDroppedAPI
-	apiKey *string
 	date *string
 	tlds *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesExpiringDroppedAPIDbDroppedJsonRequest) ApiKey(apiKey string) DatabasesExpiringDroppedAPIDbDroppedJsonRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -468,11 +439,7 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedJsonExecute(r DatabasesExp
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}
@@ -560,15 +527,8 @@ func (a *DatabasesExpiringDroppedAPIService) DbDroppedJsonExecute(r DatabasesExp
 type DatabasesExpiringDroppedAPIDbExpiredRequest struct {
 	ctx context.Context
 	ApiService DatabasesExpiringDroppedAPI
-	apiKey *string
 	whois *bool
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesExpiringDroppedAPIDbExpiredRequest) ApiKey(apiKey string) DatabasesExpiringDroppedAPIDbExpiredRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DatabasesExpiringDroppedAPIDbExpiredRequest) Whois(whois bool) DatabasesExpiringDroppedAPIDbExpiredRequest {
@@ -621,14 +581,10 @@ func (a *DatabasesExpiringDroppedAPIService) DbExpiredExecute(r DatabasesExpirin
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.whois == nil {
 		return localVarReturnValue, nil, reportError("whois is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "whois", r.whois, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
@@ -714,14 +670,7 @@ func (a *DatabasesExpiringDroppedAPIService) DbExpiredExecute(r DatabasesExpirin
 type DatabasesExpiringDroppedAPIDbExpiredCleanedRequest struct {
 	ctx context.Context
 	ApiService DatabasesExpiringDroppedAPI
-	apiKey *string
 	date *string
-}
-
-// Your WHOISFreaks API key
-func (r DatabasesExpiringDroppedAPIDbExpiredCleanedRequest) ApiKey(apiKey string) DatabasesExpiringDroppedAPIDbExpiredCleanedRequest {
-	r.apiKey = &apiKey
-	return r
 }
 
 // yyyy-MM-dd; omit for latest
@@ -769,11 +718,7 @@ func (a *DatabasesExpiringDroppedAPIService) DbExpiredCleanedExecute(r Databases
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.date != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "date", r.date, "form", "")
 	}

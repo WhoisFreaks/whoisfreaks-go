@@ -57,16 +57,9 @@ type DomainAvailabilityAPIService service
 type DomainAvailabilityAPIBulkDomainAvailabilityV2Request struct {
 	ctx context.Context
 	ApiService DomainAvailabilityAPI
-	apiKey *string
 	bulkDomainAvailabilityRequest *BulkDomainAvailabilityRequest
 	domain *string
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r DomainAvailabilityAPIBulkDomainAvailabilityV2Request) ApiKey(apiKey string) DomainAvailabilityAPIBulkDomainAvailabilityV2Request {
-	r.apiKey = &apiKey
-	return r
 }
 
 func (r DomainAvailabilityAPIBulkDomainAvailabilityV2Request) BulkDomainAvailabilityRequest(bulkDomainAvailabilityRequest BulkDomainAvailabilityRequest) DomainAvailabilityAPIBulkDomainAvailabilityV2Request {
@@ -124,14 +117,10 @@ func (a *DomainAvailabilityAPIService) BulkDomainAvailabilityV2Execute(r DomainA
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.bulkDomainAvailabilityRequest == nil {
 		return localVarReturnValue, nil, reportError("bulkDomainAvailabilityRequest is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	if r.domain != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "domain", r.domain, "form", "")
 	}
@@ -246,17 +235,10 @@ func (a *DomainAvailabilityAPIService) BulkDomainAvailabilityV2Execute(r DomainA
 type DomainAvailabilityAPIDomainAvailabilityV2Request struct {
 	ctx context.Context
 	ApiService DomainAvailabilityAPI
-	apiKey *string
 	domain *string
 	sug *bool
 	count *int32
 	format *string
-}
-
-// Your WHOISFreaks API key
-func (r DomainAvailabilityAPIDomainAvailabilityV2Request) ApiKey(apiKey string) DomainAvailabilityAPIDomainAvailabilityV2Request {
-	r.apiKey = &apiKey
-	return r
 }
 
 // The domain name to check
@@ -321,14 +303,10 @@ func (a *DomainAvailabilityAPIService) DomainAvailabilityV2Execute(r DomainAvail
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.apiKey == nil {
-		return localVarReturnValue, nil, reportError("apiKey is required and must be specified")
-	}
 	if r.domain == nil {
 		return localVarReturnValue, nil, reportError("domain is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "apiKey", r.apiKey, "form", "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "domain", r.domain, "form", "")
 	if r.sug != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sug", r.sug, "form", "")

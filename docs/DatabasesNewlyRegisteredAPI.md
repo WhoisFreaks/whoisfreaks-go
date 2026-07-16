@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## DbNewlyCctld
 
-> *os.File DbNewlyCctld(ctx).ApiKey(apiKey).Whois(whois).Date(date).Tlds(tlds).Execute()
+> *os.File DbNewlyCctld(ctx).Whois(whois).Date(date).Tlds(tlds).Execute()
 
 Newly Registered ccTLD (CSV)
 
@@ -36,14 +36,13 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	whois := true // bool | 
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 	tlds := "tlds_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyCctld(context.Background()).ApiKey(apiKey).Whois(whois).Date(date).Tlds(tlds).Execute()
+	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyCctld(context.Background()).Whois(whois).Date(date).Tlds(tlds).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyCctld``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -64,7 +63,6 @@ Other parameters are passed through a pointer to a apiDbNewlyCctldRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **whois** | **bool** |  | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
  **tlds** | **string** |  | 
@@ -89,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyCctldCleaned
 
-> *os.File DbNewlyCctldCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbNewlyCctldCleaned(ctx).Date(date).Execute()
 
 Newly Registered ccTLD Cleaned WHOIS (CSV)
 
@@ -109,12 +107,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyCctldCleaned(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyCctldCleaned(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyCctldCleaned``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -135,7 +132,6 @@ Other parameters are passed through a pointer to a apiDbNewlyCctldCleanedRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -158,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyCctldJson
 
-> []string DbNewlyCctldJson(ctx).ApiKey(apiKey).Date(date).Tlds(tlds).Execute()
+> []string DbNewlyCctldJson(ctx).Date(date).Tlds(tlds).Execute()
 
 Newly Registered ccTLD (JSON)
 
@@ -178,13 +174,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 	tlds := "tlds_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyCctldJson(context.Background()).ApiKey(apiKey).Date(date).Tlds(tlds).Execute()
+	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyCctldJson(context.Background()).Date(date).Tlds(tlds).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyCctldJson``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -205,7 +200,6 @@ Other parameters are passed through a pointer to a apiDbNewlyCctldJsonRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
  **tlds** | **string** |  | 
 
@@ -229,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyDns
 
-> *os.File DbNewlyDns(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbNewlyDns(ctx).Date(date).Execute()
 
 Newly Registered With DNS
 
@@ -249,12 +243,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyDns(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyDns(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyDns``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -275,7 +268,6 @@ Other parameters are passed through a pointer to a apiDbNewlyDnsRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -298,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyGtld
 
-> *os.File DbNewlyGtld(ctx).ApiKey(apiKey).Whois(whois).Date(date).Tlds(tlds).Execute()
+> *os.File DbNewlyGtld(ctx).Whois(whois).Date(date).Tlds(tlds).Execute()
 
 Newly Registered gTLD (CSV)
 
@@ -318,14 +310,13 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	whois := true // bool | 
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 	tlds := "tlds_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyGtld(context.Background()).ApiKey(apiKey).Whois(whois).Date(date).Tlds(tlds).Execute()
+	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyGtld(context.Background()).Whois(whois).Date(date).Tlds(tlds).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyGtld``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -346,7 +337,6 @@ Other parameters are passed through a pointer to a apiDbNewlyGtldRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **whois** | **bool** |  | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
  **tlds** | **string** |  | 
@@ -371,7 +361,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyGtldCleaned
 
-> *os.File DbNewlyGtldCleaned(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbNewlyGtldCleaned(ctx).Date(date).Execute()
 
 Newly Registered gTLD Cleaned WHOIS (CSV)
 
@@ -391,12 +381,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyGtldCleaned(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyGtldCleaned(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyGtldCleaned``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -417,7 +406,6 @@ Other parameters are passed through a pointer to a apiDbNewlyGtldCleanedRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -440,7 +428,7 @@ Name | Type | Description  | Notes
 
 ## DbNewlyGtldJson
 
-> []string DbNewlyGtldJson(ctx).ApiKey(apiKey).Date(date).Tlds(tlds).Execute()
+> []string DbNewlyGtldJson(ctx).Date(date).Tlds(tlds).Execute()
 
 Newly Registered gTLD (JSON)
 
@@ -460,13 +448,12 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 	tlds := "tlds_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyGtldJson(context.Background()).ApiKey(apiKey).Date(date).Tlds(tlds).Execute()
+	resp, r, err := apiClient.DatabasesNewlyRegisteredAPI.DbNewlyGtldJson(context.Background()).Date(date).Tlds(tlds).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesNewlyRegisteredAPI.DbNewlyGtldJson``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -487,7 +474,6 @@ Other parameters are passed through a pointer to a apiDbNewlyGtldJsonRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
  **tlds** | **string** |  | 
 

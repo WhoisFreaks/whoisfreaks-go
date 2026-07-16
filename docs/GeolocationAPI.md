@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## BulkGeolocation
 
-> []GeolocationResponse BulkGeolocation(ctx).ApiKey(apiKey).BulkGeolocationRequest(bulkGeolocationRequest).Execute()
+> []GeolocationResponse BulkGeolocation(ctx).BulkGeolocationRequest(bulkGeolocationRequest).Execute()
 
 Bulk IP Geolocation
 
@@ -30,12 +30,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	bulkGeolocationRequest := *openapiclient.NewBulkGeolocationRequest([]string{"Ips_example"}) // BulkGeolocationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.GeolocationAPI.BulkGeolocation(context.Background()).ApiKey(apiKey).BulkGeolocationRequest(bulkGeolocationRequest).Execute()
+	resp, r, err := apiClient.GeolocationAPI.BulkGeolocation(context.Background()).BulkGeolocationRequest(bulkGeolocationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GeolocationAPI.BulkGeolocation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +55,6 @@ Other parameters are passed through a pointer to a apiBulkGeolocationRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **bulkGeolocationRequest** | [**BulkGeolocationRequest**](BulkGeolocationRequest.md) |  | 
 
 ### Return type
@@ -79,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## Geolocation
 
-> GeolocationResponse Geolocation(ctx).ApiKey(apiKey).Ip(ip).Execute()
+> GeolocationResponse Geolocation(ctx).Ip(ip).Execute()
 
 IP Geolocation Lookup
 
@@ -98,12 +96,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	ip := "ip_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.GeolocationAPI.Geolocation(context.Background()).ApiKey(apiKey).Ip(ip).Execute()
+	resp, r, err := apiClient.GeolocationAPI.Geolocation(context.Background()).Ip(ip).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GeolocationAPI.Geolocation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,7 +121,6 @@ Other parameters are passed through a pointer to a apiGeolocationRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **ip** | **string** |  | 
 
 ### Return type

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## DbWhoisDaily
 
-> *os.File DbWhoisDaily(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbWhoisDaily(ctx).Date(date).Execute()
 
 WHOIS Database Daily
 
@@ -32,12 +32,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesWHOISAPI.DbWhoisDaily(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesWHOISAPI.DbWhoisDaily(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesWHOISAPI.DbWhoisDaily``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,7 +57,6 @@ Other parameters are passed through a pointer to a apiDbWhoisDailyRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -81,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## DbWhoisMonthly
 
-> *os.File DbWhoisMonthly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbWhoisMonthly(ctx).Date(date).Execute()
 
 WHOIS Database Monthly
 
@@ -101,12 +99,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesWHOISAPI.DbWhoisMonthly(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesWHOISAPI.DbWhoisMonthly(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesWHOISAPI.DbWhoisMonthly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,7 +124,6 @@ Other parameters are passed through a pointer to a apiDbWhoisMonthlyRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
@@ -150,7 +146,7 @@ Name | Type | Description  | Notes
 
 ## DbWhoisWeekly
 
-> *os.File DbWhoisWeekly(ctx).ApiKey(apiKey).Date(date).Execute()
+> *os.File DbWhoisWeekly(ctx).Date(date).Execute()
 
 WHOIS Database Weekly
 
@@ -170,12 +166,11 @@ import (
 )
 
 func main() {
-	apiKey := "apiKey_example" // string | Your WHOISFreaks API key
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.DatabasesWHOISAPI.DbWhoisWeekly(context.Background()).ApiKey(apiKey).Date(date).Execute()
+	resp, r, err := apiClient.DatabasesWHOISAPI.DbWhoisWeekly(context.Background()).Date(date).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DatabasesWHOISAPI.DbWhoisWeekly``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -196,7 +191,6 @@ Other parameters are passed through a pointer to a apiDbWhoisWeeklyRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **string** | Your WHOISFreaks API key | 
  **date** | **string** | yyyy-MM-dd; omit for latest | 
 
 ### Return type
