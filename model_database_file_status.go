@@ -25,6 +25,7 @@ type DatabaseFileStatus struct {
 	CleanedExpired *DateRangeStatus `json:"cleaned_expired,omitempty"`
 	Dropped *DateRangeStatus `json:"dropped,omitempty"`
 	DroppedWithBacklinks *DateRangeStatus `json:"dropped_with_backlinks,omitempty"`
+	ThreatFeed *ThreatFeedStatus `json:"threat_feed,omitempty"`
 	DatabaseUpdates *DatabaseUpdates `json:"database_updates,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -208,6 +209,38 @@ func (o *DatabaseFileStatus) SetDroppedWithBacklinks(v DateRangeStatus) {
 	o.DroppedWithBacklinks = &v
 }
 
+// GetThreatFeed returns the ThreatFeed field value if set, zero value otherwise.
+func (o *DatabaseFileStatus) GetThreatFeed() ThreatFeedStatus {
+	if o == nil || IsNil(o.ThreatFeed) {
+		var ret ThreatFeedStatus
+		return ret
+	}
+	return *o.ThreatFeed
+}
+
+// GetThreatFeedOk returns a tuple with the ThreatFeed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DatabaseFileStatus) GetThreatFeedOk() (*ThreatFeedStatus, bool) {
+	if o == nil || IsNil(o.ThreatFeed) {
+		return nil, false
+	}
+	return o.ThreatFeed, true
+}
+
+// HasThreatFeed returns a boolean if a field has been set.
+func (o *DatabaseFileStatus) HasThreatFeed() bool {
+	if o != nil && !IsNil(o.ThreatFeed) {
+		return true
+	}
+
+	return false
+}
+
+// SetThreatFeed gets a reference to the given ThreatFeedStatus and assigns it to the ThreatFeed field.
+func (o *DatabaseFileStatus) SetThreatFeed(v ThreatFeedStatus) {
+	o.ThreatFeed = &v
+}
+
 // GetDatabaseUpdates returns the DatabaseUpdates field value if set, zero value otherwise.
 func (o *DatabaseFileStatus) GetDatabaseUpdates() DatabaseUpdates {
 	if o == nil || IsNil(o.DatabaseUpdates) {
@@ -265,6 +298,9 @@ func (o DatabaseFileStatus) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DroppedWithBacklinks) {
 		toSerialize["dropped_with_backlinks"] = o.DroppedWithBacklinks
 	}
+	if !IsNil(o.ThreatFeed) {
+		toSerialize["threat_feed"] = o.ThreatFeed
+	}
 	if !IsNil(o.DatabaseUpdates) {
 		toSerialize["database_updates"] = o.DatabaseUpdates
 	}
@@ -295,6 +331,7 @@ func (o *DatabaseFileStatus) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "cleaned_expired")
 		delete(additionalProperties, "dropped")
 		delete(additionalProperties, "dropped_with_backlinks")
+		delete(additionalProperties, "threat_feed")
 		delete(additionalProperties, "database_updates")
 		o.AdditionalProperties = additionalProperties
 	}

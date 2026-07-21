@@ -230,7 +230,7 @@ func (a *AccountAPIService) DatabaseFileStatusExecute(r AccountAPIDatabaseFileSt
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/v3.3/status"
+	localVarPath := localBasePath + "/v3.4/status"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

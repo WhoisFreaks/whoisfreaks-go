@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **CleanedExpired** | Pointer to [**DateRangeStatus**](DateRangeStatus.md) |  | [optional] 
 **Dropped** | Pointer to [**DateRangeStatus**](DateRangeStatus.md) |  | [optional] 
 **DroppedWithBacklinks** | Pointer to [**DateRangeStatus**](DateRangeStatus.md) |  | [optional] 
+**ThreatFeed** | Pointer to [**ThreatFeedStatus**](ThreatFeedStatus.md) |  | [optional] 
 **DatabaseUpdates** | Pointer to [**DatabaseUpdates**](DatabaseUpdates.md) |  | [optional] 
 
 ## Methods
@@ -154,6 +155,31 @@ SetDroppedWithBacklinks sets DroppedWithBacklinks field to given value.
 `func (o *DatabaseFileStatus) HasDroppedWithBacklinks() bool`
 
 HasDroppedWithBacklinks returns a boolean if a field has been set.
+
+### GetThreatFeed
+
+`func (o *DatabaseFileStatus) GetThreatFeed() ThreatFeedStatus`
+
+GetThreatFeed returns the ThreatFeed field if non-nil, zero value otherwise.
+
+### GetThreatFeedOk
+
+`func (o *DatabaseFileStatus) GetThreatFeedOk() (*ThreatFeedStatus, bool)`
+
+GetThreatFeedOk returns a tuple with the ThreatFeed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetThreatFeed
+
+`func (o *DatabaseFileStatus) SetThreatFeed(v ThreatFeedStatus)`
+
+SetThreatFeed sets ThreatFeed field to given value.
+
+### HasThreatFeed
+
+`func (o *DatabaseFileStatus) HasThreatFeed() bool`
+
+HasThreatFeed returns a boolean if a field has been set.
 
 ### GetDatabaseUpdates
 

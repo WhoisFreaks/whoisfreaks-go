@@ -13,6 +13,7 @@ api_databases_ip_security.go
 api_databases_ipwhois.go
 api_databases_newly_registered.go
 api_databases_subdomains.go
+api_databases_threat_feed.go
 api_databases_whois.go
 api_dns.go
 api_domain_availability.go
@@ -54,6 +55,7 @@ docs/DatabasesIPSecurityAPI.md
 docs/DatabasesIPWHOISAPI.md
 docs/DatabasesNewlyRegisteredAPI.md
 docs/DatabasesSubdomainsAPI.md
+docs/DatabasesThreatFeedAPI.md
 docs/DatabasesWHOISAPI.md
 docs/DateRangeStatus.md
 docs/DgaFeatures.md
@@ -114,6 +116,7 @@ docs/SslUnitInfo.md
 docs/Subdomain.md
 docs/SubdomainsAPI.md
 docs/SubdomainsResponse.md
+docs/ThreatFeedStatus.md
 docs/ThreatSource.md
 docs/TrustSignals.md
 docs/TyposquattingAPI.md
@@ -199,6 +202,7 @@ model_ssl_response.go
 model_ssl_unit_info.go
 model_subdomain.go
 model_subdomains_response.go
+model_threat_feed_status.go
 model_threat_source.go
 model_trust_signals.go
 model_typosquatting_domain.go
@@ -221,6 +225,7 @@ test/api_databases_ip_security_test.go
 test/api_databases_ipwhois_test.go
 test/api_databases_newly_registered_test.go
 test/api_databases_subdomains_test.go
+test/api_databases_threat_feed_test.go
 test/api_databases_whois_test.go
 test/api_dns_test.go
 test/api_domain_availability_test.go

@@ -72,6 +72,8 @@ type APIClient struct {
 
 	DatabasesSubdomainsAPI DatabasesSubdomainsAPI
 
+	DatabasesThreatFeedAPI DatabasesThreatFeedAPI
+
 	DatabasesWHOISAPI DatabasesWHOISAPI
 
 	DomainAvailabilityAPI DomainAvailabilityAPI
@@ -120,6 +122,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.DatabasesIPWHOISAPI = (*DatabasesIPWHOISAPIService)(&c.common)
 	c.DatabasesNewlyRegisteredAPI = (*DatabasesNewlyRegisteredAPIService)(&c.common)
 	c.DatabasesSubdomainsAPI = (*DatabasesSubdomainsAPIService)(&c.common)
+	c.DatabasesThreatFeedAPI = (*DatabasesThreatFeedAPIService)(&c.common)
 	c.DatabasesWHOISAPI = (*DatabasesWHOISAPIService)(&c.common)
 	c.DomainAvailabilityAPI = (*DomainAvailabilityAPIService)(&c.common)
 	c.DomainReputationAPI = (*DomainReputationAPIService)(&c.common)
