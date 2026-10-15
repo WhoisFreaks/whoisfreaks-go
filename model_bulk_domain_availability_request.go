@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -20,9 +20,9 @@ var _ MappedNullable = &BulkDomainAvailabilityRequest{}
 
 // BulkDomainAvailabilityRequest Request body for POST /v2.0/domain/availability. Use domainNames OR tld.
 type BulkDomainAvailabilityRequest struct {
-	// Mode 1 — list of full domain names. Cannot be used with tld.
+	// Mode 1: list of full domain names. Cannot be used with tld.
 	DomainNames []string `json:"domainNames,omitempty"`
-	// Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames.
+	// Mode 2: TLDs to check against the domain query param. Cannot be used with domainNames.
 	Tld []string `json:"tld,omitempty"`
 	AdditionalProperties map[string]interface{}
 }

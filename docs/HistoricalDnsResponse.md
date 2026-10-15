@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TotalPages** | Pointer to **int32** |  | [optional] 
-**CurrenPage** | Pointer to **int32** |  | [optional] 
+**CurrentPage** | Pointer to **int32** |  | [optional] 
 **TotalRecords** | Pointer to **int32** |  | [optional] 
-**HistoricalDns** | Pointer to [**[]DnsResponse**](DnsResponse.md) |  | [optional] 
+**HistoricalDnsRecords** | Pointer to [**[]DnsResponse**](DnsResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -53,30 +53,30 @@ SetTotalPages sets TotalPages field to given value.
 
 HasTotalPages returns a boolean if a field has been set.
 
-### GetCurrenPage
+### GetCurrentPage
 
-`func (o *HistoricalDnsResponse) GetCurrenPage() int32`
+`func (o *HistoricalDnsResponse) GetCurrentPage() int32`
 
-GetCurrenPage returns the CurrenPage field if non-nil, zero value otherwise.
+GetCurrentPage returns the CurrentPage field if non-nil, zero value otherwise.
 
-### GetCurrenPageOk
+### GetCurrentPageOk
 
-`func (o *HistoricalDnsResponse) GetCurrenPageOk() (*int32, bool)`
+`func (o *HistoricalDnsResponse) GetCurrentPageOk() (*int32, bool)`
 
-GetCurrenPageOk returns a tuple with the CurrenPage field if it's non-nil, zero value otherwise
+GetCurrentPageOk returns a tuple with the CurrentPage field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrenPage
+### SetCurrentPage
 
-`func (o *HistoricalDnsResponse) SetCurrenPage(v int32)`
+`func (o *HistoricalDnsResponse) SetCurrentPage(v int32)`
 
-SetCurrenPage sets CurrenPage field to given value.
+SetCurrentPage sets CurrentPage field to given value.
 
-### HasCurrenPage
+### HasCurrentPage
 
-`func (o *HistoricalDnsResponse) HasCurrenPage() bool`
+`func (o *HistoricalDnsResponse) HasCurrentPage() bool`
 
-HasCurrenPage returns a boolean if a field has been set.
+HasCurrentPage returns a boolean if a field has been set.
 
 ### GetTotalRecords
 
@@ -103,30 +103,30 @@ SetTotalRecords sets TotalRecords field to given value.
 
 HasTotalRecords returns a boolean if a field has been set.
 
-### GetHistoricalDns
+### GetHistoricalDnsRecords
 
-`func (o *HistoricalDnsResponse) GetHistoricalDns() []DnsResponse`
+`func (o *HistoricalDnsResponse) GetHistoricalDnsRecords() []DnsResponse`
 
-GetHistoricalDns returns the HistoricalDns field if non-nil, zero value otherwise.
+GetHistoricalDnsRecords returns the HistoricalDnsRecords field if non-nil, zero value otherwise.
 
-### GetHistoricalDnsOk
+### GetHistoricalDnsRecordsOk
 
-`func (o *HistoricalDnsResponse) GetHistoricalDnsOk() (*[]DnsResponse, bool)`
+`func (o *HistoricalDnsResponse) GetHistoricalDnsRecordsOk() (*[]DnsResponse, bool)`
 
-GetHistoricalDnsOk returns a tuple with the HistoricalDns field if it's non-nil, zero value otherwise
+GetHistoricalDnsRecordsOk returns a tuple with the HistoricalDnsRecords field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHistoricalDns
+### SetHistoricalDnsRecords
 
-`func (o *HistoricalDnsResponse) SetHistoricalDns(v []DnsResponse)`
+`func (o *HistoricalDnsResponse) SetHistoricalDnsRecords(v []DnsResponse)`
 
-SetHistoricalDns sets HistoricalDns field to given value.
+SetHistoricalDnsRecords sets HistoricalDnsRecords field to given value.
 
-### HasHistoricalDns
+### HasHistoricalDnsRecords
 
-`func (o *HistoricalDnsResponse) HasHistoricalDns() bool`
+`func (o *HistoricalDnsResponse) HasHistoricalDnsRecords() bool`
 
-HasHistoricalDns returns a boolean if a field has been set.
+HasHistoricalDnsRecords returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

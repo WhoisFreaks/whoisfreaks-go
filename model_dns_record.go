@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -20,9 +20,17 @@ var _ MappedNullable = &DnsRecord{}
 
 // DnsRecord Union of all DNS record variants (A/AAAA/MX/NS/CNAME/PTR/TXT/SPF/SOA).
 type DnsRecord struct {
-	Type *string `json:"type,omitempty"`
+	// Numeric DNS record type: 1 A, 2 NS, 5 CNAME, 6 SOA, 12 PTR, 15 MX, 16 TXT, 28 AAAA, 99 SPF.
+	Type *int32 `json:"type,omitempty"`
+	// Record type name, e.g. A, MX, TXT
+	DnsType *string `json:"dnsType,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Ttl *int32 `json:"ttl,omitempty"`
+	// The record in zone-file format
+	RawText *string `json:"rawText,omitempty"`
+	RRsetType *int32 `json:"rRsetType,omitempty"`
+	// Target host for NS, CNAME and PTR records
+	SingleName *string `json:"singleName,omitempty"`
 	Address *string `json:"address,omitempty"`
 	Priority *int32 `json:"priority,omitempty"`
 	Exchange *string `json:"exchange,omitempty"`
@@ -30,7 +38,8 @@ type DnsRecord struct {
 	Strings []string `json:"strings,omitempty"`
 	Host *string `json:"host,omitempty"`
 	Admin *string `json:"admin,omitempty"`
-	Serial *int32 `json:"serial,omitempty"`
+	// SOA serial; values above 2^31 are common, so it is 64-bit
+	Serial *int64 `json:"serial,omitempty"`
 	Refresh *int32 `json:"refresh,omitempty"`
 	Retry *int32 `json:"retry,omitempty"`
 	Expire *int32 `json:"expire,omitempty"`
@@ -58,9 +67,9 @@ func NewDnsRecordWithDefaults() *DnsRecord {
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *DnsRecord) GetType() string {
+func (o *DnsRecord) GetType() int32 {
 	if o == nil || IsNil(o.Type) {
-		var ret string
+		var ret int32
 		return ret
 	}
 	return *o.Type
@@ -68,7 +77,7 @@ func (o *DnsRecord) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DnsRecord) GetTypeOk() (*string, bool) {
+func (o *DnsRecord) GetTypeOk() (*int32, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -84,9 +93,41 @@ func (o *DnsRecord) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given string and assigns it to the Type field.
-func (o *DnsRecord) SetType(v string) {
+// SetType gets a reference to the given int32 and assigns it to the Type field.
+func (o *DnsRecord) SetType(v int32) {
 	o.Type = &v
+}
+
+// GetDnsType returns the DnsType field value if set, zero value otherwise.
+func (o *DnsRecord) GetDnsType() string {
+	if o == nil || IsNil(o.DnsType) {
+		var ret string
+		return ret
+	}
+	return *o.DnsType
+}
+
+// GetDnsTypeOk returns a tuple with the DnsType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DnsRecord) GetDnsTypeOk() (*string, bool) {
+	if o == nil || IsNil(o.DnsType) {
+		return nil, false
+	}
+	return o.DnsType, true
+}
+
+// HasDnsType returns a boolean if a field has been set.
+func (o *DnsRecord) HasDnsType() bool {
+	if o != nil && !IsNil(o.DnsType) {
+		return true
+	}
+
+	return false
+}
+
+// SetDnsType gets a reference to the given string and assigns it to the DnsType field.
+func (o *DnsRecord) SetDnsType(v string) {
+	o.DnsType = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -151,6 +192,102 @@ func (o *DnsRecord) HasTtl() bool {
 // SetTtl gets a reference to the given int32 and assigns it to the Ttl field.
 func (o *DnsRecord) SetTtl(v int32) {
 	o.Ttl = &v
+}
+
+// GetRawText returns the RawText field value if set, zero value otherwise.
+func (o *DnsRecord) GetRawText() string {
+	if o == nil || IsNil(o.RawText) {
+		var ret string
+		return ret
+	}
+	return *o.RawText
+}
+
+// GetRawTextOk returns a tuple with the RawText field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DnsRecord) GetRawTextOk() (*string, bool) {
+	if o == nil || IsNil(o.RawText) {
+		return nil, false
+	}
+	return o.RawText, true
+}
+
+// HasRawText returns a boolean if a field has been set.
+func (o *DnsRecord) HasRawText() bool {
+	if o != nil && !IsNil(o.RawText) {
+		return true
+	}
+
+	return false
+}
+
+// SetRawText gets a reference to the given string and assigns it to the RawText field.
+func (o *DnsRecord) SetRawText(v string) {
+	o.RawText = &v
+}
+
+// GetRRsetType returns the RRsetType field value if set, zero value otherwise.
+func (o *DnsRecord) GetRRsetType() int32 {
+	if o == nil || IsNil(o.RRsetType) {
+		var ret int32
+		return ret
+	}
+	return *o.RRsetType
+}
+
+// GetRRsetTypeOk returns a tuple with the RRsetType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DnsRecord) GetRRsetTypeOk() (*int32, bool) {
+	if o == nil || IsNil(o.RRsetType) {
+		return nil, false
+	}
+	return o.RRsetType, true
+}
+
+// HasRRsetType returns a boolean if a field has been set.
+func (o *DnsRecord) HasRRsetType() bool {
+	if o != nil && !IsNil(o.RRsetType) {
+		return true
+	}
+
+	return false
+}
+
+// SetRRsetType gets a reference to the given int32 and assigns it to the RRsetType field.
+func (o *DnsRecord) SetRRsetType(v int32) {
+	o.RRsetType = &v
+}
+
+// GetSingleName returns the SingleName field value if set, zero value otherwise.
+func (o *DnsRecord) GetSingleName() string {
+	if o == nil || IsNil(o.SingleName) {
+		var ret string
+		return ret
+	}
+	return *o.SingleName
+}
+
+// GetSingleNameOk returns a tuple with the SingleName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *DnsRecord) GetSingleNameOk() (*string, bool) {
+	if o == nil || IsNil(o.SingleName) {
+		return nil, false
+	}
+	return o.SingleName, true
+}
+
+// HasSingleName returns a boolean if a field has been set.
+func (o *DnsRecord) HasSingleName() bool {
+	if o != nil && !IsNil(o.SingleName) {
+		return true
+	}
+
+	return false
+}
+
+// SetSingleName gets a reference to the given string and assigns it to the SingleName field.
+func (o *DnsRecord) SetSingleName(v string) {
+	o.SingleName = &v
 }
 
 // GetAddress returns the Address field value if set, zero value otherwise.
@@ -378,9 +515,9 @@ func (o *DnsRecord) SetAdmin(v string) {
 }
 
 // GetSerial returns the Serial field value if set, zero value otherwise.
-func (o *DnsRecord) GetSerial() int32 {
+func (o *DnsRecord) GetSerial() int64 {
 	if o == nil || IsNil(o.Serial) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Serial
@@ -388,7 +525,7 @@ func (o *DnsRecord) GetSerial() int32 {
 
 // GetSerialOk returns a tuple with the Serial field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DnsRecord) GetSerialOk() (*int32, bool) {
+func (o *DnsRecord) GetSerialOk() (*int64, bool) {
 	if o == nil || IsNil(o.Serial) {
 		return nil, false
 	}
@@ -404,8 +541,8 @@ func (o *DnsRecord) HasSerial() bool {
 	return false
 }
 
-// SetSerial gets a reference to the given int32 and assigns it to the Serial field.
-func (o *DnsRecord) SetSerial(v int32) {
+// SetSerial gets a reference to the given int64 and assigns it to the Serial field.
+func (o *DnsRecord) SetSerial(v int64) {
 	o.Serial = &v
 }
 
@@ -550,11 +687,23 @@ func (o DnsRecord) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
+	if !IsNil(o.DnsType) {
+		toSerialize["dnsType"] = o.DnsType
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
 	if !IsNil(o.Ttl) {
 		toSerialize["ttl"] = o.Ttl
+	}
+	if !IsNil(o.RawText) {
+		toSerialize["rawText"] = o.RawText
+	}
+	if !IsNil(o.RRsetType) {
+		toSerialize["rRsetType"] = o.RRsetType
+	}
+	if !IsNil(o.SingleName) {
+		toSerialize["singleName"] = o.SingleName
 	}
 	if !IsNil(o.Address) {
 		toSerialize["address"] = o.Address
@@ -615,8 +764,12 @@ func (o *DnsRecord) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "type")
+		delete(additionalProperties, "dnsType")
 		delete(additionalProperties, "name")
 		delete(additionalProperties, "ttl")
+		delete(additionalProperties, "rawText")
+		delete(additionalProperties, "rRsetType")
+		delete(additionalProperties, "singleName")
 		delete(additionalProperties, "address")
 		delete(additionalProperties, "priority")
 		delete(additionalProperties, "exchange")

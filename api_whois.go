@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -38,6 +38,8 @@ type WHOISAPI interface {
 
 	/*
 	WhoisHistory Historical WHOIS records for a domain
+
+	Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return WHOISAPIWhoisHistoryRequest
@@ -228,19 +230,12 @@ type WHOISAPIWhoisHistoryRequest struct {
 	ctx context.Context
 	ApiService WHOISAPI
 	domainName *string
-	page *int32
 	format *string
 }
 
 // Domain to fetch historical WHOIS records for
 func (r WHOISAPIWhoisHistoryRequest) DomainName(domainName string) WHOISAPIWhoisHistoryRequest {
 	r.domainName = &domainName
-	return r
-}
-
-// Page number
-func (r WHOISAPIWhoisHistoryRequest) Page(page int32) WHOISAPIWhoisHistoryRequest {
-	r.page = &page
 	return r
 }
 
@@ -255,6 +250,8 @@ func (r WHOISAPIWhoisHistoryRequest) Execute() (*WhoisHistoricalResponse, *http.
 
 /*
 WhoisHistory Historical WHOIS records for a domain
+
+Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return WHOISAPIWhoisHistoryRequest
@@ -291,9 +288,6 @@ func (a *WHOISAPIService) WhoisHistoryExecute(r WHOISAPIWhoisHistoryRequest) (*W
 	}
 
 	parameterAddToHeaderOrQuery(localVarQueryParams, "domainName", r.domainName, "form", "")
-	if r.page != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "page", r.page, "form", "")
-	}
 	if r.format != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
 	}

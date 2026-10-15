@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DomainNames** | Pointer to **[]string** | Mode 1 — list of full domain names. Cannot be used with tld. | [optional] 
-**Tld** | Pointer to **[]string** | Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames. | [optional] 
+**DomainNames** | Pointer to **[]string** | Mode 1: list of full domain names. Cannot be used with tld. | [optional] 
+**Tld** | Pointer to **[]string** | Mode 2: TLDs to check against the domain query param. Cannot be used with domainNames. | [optional] 
 
 ## Methods
 

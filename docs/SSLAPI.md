@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-	domainName := "domainName_example" // string | 
+	domainName := "whoisfreaks.com" // string | 
 	chain := true // bool |  (optional) (default to false)
 	sslRaw := true // bool |  (optional) (default to false)
 	format := "format_example" // string |  (optional) (default to "json")

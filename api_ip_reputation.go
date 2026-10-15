@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -39,7 +39,7 @@ type IPReputationAPI interface {
 	/*
 	IpReputation IP Reputation Lookup
 
-	Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+	Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
 
 	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	@return IPReputationAPIIpReputationRequest
@@ -206,7 +206,7 @@ func (r IPReputationAPIIpReputationRequest) Execute() (*IpReputationResponse, *h
 /*
 IpReputation IP Reputation Lookup
 
-Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return IPReputationAPIIpReputationRequest

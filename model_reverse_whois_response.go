@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -18,11 +18,11 @@ import (
 // checks if the ReverseWhoisResponse type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ReverseWhoisResponse{}
 
-// ReverseWhoisResponse Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page) as returned by the API.
+// ReverseWhoisResponse Reverse WHOIS response. Pagination keys (total_Result, total_Pages, current_Page) are spelled as the API returns them.
 type ReverseWhoisResponse struct {
-	TotalResult *int32 `json:"Total_Result,omitempty"`
-	TotalPages *int32 `json:"Total_Pages,omitempty"`
-	CurrentPage *int32 `json:"Current_Page,omitempty"`
+	TotalResult *int32 `json:"total_Result,omitempty"`
+	TotalPages *int32 `json:"total_Pages,omitempty"`
+	CurrentPage *int32 `json:"current_Page,omitempty"`
 	WhoisDomainsHistorical []WhoisHistoricalItem `json:"whois_domains_historical,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
@@ -185,13 +185,13 @@ func (o ReverseWhoisResponse) MarshalJSON() ([]byte, error) {
 func (o ReverseWhoisResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.TotalResult) {
-		toSerialize["Total_Result"] = o.TotalResult
+		toSerialize["total_Result"] = o.TotalResult
 	}
 	if !IsNil(o.TotalPages) {
-		toSerialize["Total_Pages"] = o.TotalPages
+		toSerialize["total_Pages"] = o.TotalPages
 	}
 	if !IsNil(o.CurrentPage) {
-		toSerialize["Current_Page"] = o.CurrentPage
+		toSerialize["current_Page"] = o.CurrentPage
 	}
 	if !IsNil(o.WhoisDomainsHistorical) {
 		toSerialize["whois_domains_historical"] = o.WhoisDomainsHistorical
@@ -218,9 +218,9 @@ func (o *ReverseWhoisResponse) UnmarshalJSON(data []byte) (err error) {
 	additionalProperties := make(map[string]interface{})
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "Total_Result")
-		delete(additionalProperties, "Total_Pages")
-		delete(additionalProperties, "Current_Page")
+		delete(additionalProperties, "total_Result")
+		delete(additionalProperties, "total_Pages")
+		delete(additionalProperties, "current_Page")
 		delete(additionalProperties, "whois_domains_historical")
 		o.AdditionalProperties = additionalProperties
 	}

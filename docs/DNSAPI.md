@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	type_ := "type__example" // string |  (default to "all")
+	type_ := "A,MX,TXT" // string |  (default to "all")
 	dnsBulkRequest := *openapiclient.NewDnsBulkRequest() // DnsBulkRequest | 
 	format := "format_example" // string |  (optional) (default to "json")
 
@@ -102,9 +102,9 @@ import (
 )
 
 func main() {
-	domainName := "domainName_example" // string | 
-	type_ := "type__example" // string |  (default to "all")
-	page := int32(56) // int32 |  (optional) (default to 1)
+	domainName := "whoisfreaks.com" // string | 
+	type_ := "A,MX,TXT" // string |  (default to "all")
+	page := int32(1) // int32 |  (optional) (default to 1)
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()
@@ -174,9 +174,9 @@ import (
 )
 
 func main() {
-	type_ := "type__example" // string | all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME (default to "all")
-	domainName := "domainName_example" // string |  (optional)
-	ipAddress := "ipAddress_example" // string | Use for PTR lookups (optional)
+	type_ := "A,MX,TXT" // string | all or comma-separated: A,MX,NS,TXT,SOA,SPF,AAAA,CNAME (default to "all")
+	domainName := "whoisfreaks.com" // string |  (optional)
+	ipAddress := "8.8.8.8" // string | Use for PTR lookups (optional)
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()
@@ -246,10 +246,10 @@ import (
 )
 
 func main() {
-	value := "value_example" // string | IP, CIDR, or record value
+	value := "8.8.8.8" // string | IP, CIDR, or record value
 	type_ := "type__example" // string | 
 	exact := true // bool |  (optional) (default to true)
-	page := int32(56) // int32 |  (optional) (default to 1)
+	page := int32(1) // int32 |  (optional) (default to 1)
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()

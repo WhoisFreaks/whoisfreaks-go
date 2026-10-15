@@ -173,7 +173,7 @@ import (
 
 func main() {
 	date := time.Now() // string | yyyy-MM-dd; omit for latest (optional)
-	tlds := "tlds_example" // string |  (optional)
+	tlds := "com,net" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

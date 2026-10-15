@@ -4,9 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **int32** | Numeric DNS record type: 1 A, 2 NS, 5 CNAME, 6 SOA, 12 PTR, 15 MX, 16 TXT, 28 AAAA, 99 SPF. | [optional] 
+**DnsType** | Pointer to **string** | Record type name, e.g. A, MX, TXT | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Ttl** | Pointer to **int32** |  | [optional] 
+**RawText** | Pointer to **string** | The record in zone-file format | [optional] 
+**RRsetType** | Pointer to **int32** |  | [optional] 
+**SingleName** | Pointer to **string** | Target host for NS, CNAME and PTR records | [optional] 
 **Address** | Pointer to **string** |  | [optional] 
 **Priority** | Pointer to **int32** |  | [optional] 
 **Exchange** | Pointer to **string** |  | [optional] 
@@ -14,7 +18,7 @@ Name | Type | Description | Notes
 **Strings** | Pointer to **[]string** |  | [optional] 
 **Host** | Pointer to **string** |  | [optional] 
 **Admin** | Pointer to **string** |  | [optional] 
-**Serial** | Pointer to **int32** |  | [optional] 
+**Serial** | Pointer to **int64** | SOA serial; values above 2^31 are common, so it is 64-bit | [optional] 
 **Refresh** | Pointer to **int32** |  | [optional] 
 **Retry** | Pointer to **int32** |  | [optional] 
 **Expire** | Pointer to **int32** |  | [optional] 
@@ -41,20 +45,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *DnsRecord) GetType() string`
+`func (o *DnsRecord) GetType() int32`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *DnsRecord) GetTypeOk() (*string, bool)`
+`func (o *DnsRecord) GetTypeOk() (*int32, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *DnsRecord) SetType(v string)`
+`func (o *DnsRecord) SetType(v int32)`
 
 SetType sets Type field to given value.
 
@@ -63,6 +67,31 @@ SetType sets Type field to given value.
 `func (o *DnsRecord) HasType() bool`
 
 HasType returns a boolean if a field has been set.
+
+### GetDnsType
+
+`func (o *DnsRecord) GetDnsType() string`
+
+GetDnsType returns the DnsType field if non-nil, zero value otherwise.
+
+### GetDnsTypeOk
+
+`func (o *DnsRecord) GetDnsTypeOk() (*string, bool)`
+
+GetDnsTypeOk returns a tuple with the DnsType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDnsType
+
+`func (o *DnsRecord) SetDnsType(v string)`
+
+SetDnsType sets DnsType field to given value.
+
+### HasDnsType
+
+`func (o *DnsRecord) HasDnsType() bool`
+
+HasDnsType returns a boolean if a field has been set.
 
 ### GetName
 
@@ -113,6 +142,81 @@ SetTtl sets Ttl field to given value.
 `func (o *DnsRecord) HasTtl() bool`
 
 HasTtl returns a boolean if a field has been set.
+
+### GetRawText
+
+`func (o *DnsRecord) GetRawText() string`
+
+GetRawText returns the RawText field if non-nil, zero value otherwise.
+
+### GetRawTextOk
+
+`func (o *DnsRecord) GetRawTextOk() (*string, bool)`
+
+GetRawTextOk returns a tuple with the RawText field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRawText
+
+`func (o *DnsRecord) SetRawText(v string)`
+
+SetRawText sets RawText field to given value.
+
+### HasRawText
+
+`func (o *DnsRecord) HasRawText() bool`
+
+HasRawText returns a boolean if a field has been set.
+
+### GetRRsetType
+
+`func (o *DnsRecord) GetRRsetType() int32`
+
+GetRRsetType returns the RRsetType field if non-nil, zero value otherwise.
+
+### GetRRsetTypeOk
+
+`func (o *DnsRecord) GetRRsetTypeOk() (*int32, bool)`
+
+GetRRsetTypeOk returns a tuple with the RRsetType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRRsetType
+
+`func (o *DnsRecord) SetRRsetType(v int32)`
+
+SetRRsetType sets RRsetType field to given value.
+
+### HasRRsetType
+
+`func (o *DnsRecord) HasRRsetType() bool`
+
+HasRRsetType returns a boolean if a field has been set.
+
+### GetSingleName
+
+`func (o *DnsRecord) GetSingleName() string`
+
+GetSingleName returns the SingleName field if non-nil, zero value otherwise.
+
+### GetSingleNameOk
+
+`func (o *DnsRecord) GetSingleNameOk() (*string, bool)`
+
+GetSingleNameOk returns a tuple with the SingleName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSingleName
+
+`func (o *DnsRecord) SetSingleName(v string)`
+
+SetSingleName sets SingleName field to given value.
+
+### HasSingleName
+
+`func (o *DnsRecord) HasSingleName() bool`
+
+HasSingleName returns a boolean if a field has been set.
 
 ### GetAddress
 
@@ -291,20 +395,20 @@ HasAdmin returns a boolean if a field has been set.
 
 ### GetSerial
 
-`func (o *DnsRecord) GetSerial() int32`
+`func (o *DnsRecord) GetSerial() int64`
 
 GetSerial returns the Serial field if non-nil, zero value otherwise.
 
 ### GetSerialOk
 
-`func (o *DnsRecord) GetSerialOk() (*int32, bool)`
+`func (o *DnsRecord) GetSerialOk() (*int64, bool)`
 
 GetSerialOk returns a tuple with the Serial field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSerial
 
-`func (o *DnsRecord) SetSerial(v int32)`
+`func (o *DnsRecord) SetSerial(v int64)`
 
 SetSerial sets Serial field to given value.
 

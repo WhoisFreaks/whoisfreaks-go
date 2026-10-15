@@ -29,8 +29,8 @@ import (
 )
 
 func main() {
-	keyword := "keyword_example" // string |  (optional)
-	pattern := "pattern_example" // string |  (optional)
+	keyword := "whoisfreaks" // string |  (optional)
+	pattern := "whois*" // string |  (optional)
 	pageToken := "pageToken_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()

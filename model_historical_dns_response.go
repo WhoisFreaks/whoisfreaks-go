@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -18,12 +18,12 @@ import (
 // checks if the HistoricalDnsResponse type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &HistoricalDnsResponse{}
 
-// HistoricalDnsResponse Note: 'currenPage' spelling matches the API.
+// HistoricalDnsResponse struct for HistoricalDnsResponse
 type HistoricalDnsResponse struct {
 	TotalPages *int32 `json:"totalPages,omitempty"`
-	CurrenPage *int32 `json:"currenPage,omitempty"`
+	CurrentPage *int32 `json:"currentPage,omitempty"`
 	TotalRecords *int32 `json:"totalRecords,omitempty"`
-	HistoricalDns []DnsResponse `json:"historicalDns,omitempty"`
+	HistoricalDnsRecords []DnsResponse `json:"historicalDnsRecords,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -78,36 +78,36 @@ func (o *HistoricalDnsResponse) SetTotalPages(v int32) {
 	o.TotalPages = &v
 }
 
-// GetCurrenPage returns the CurrenPage field value if set, zero value otherwise.
-func (o *HistoricalDnsResponse) GetCurrenPage() int32 {
-	if o == nil || IsNil(o.CurrenPage) {
+// GetCurrentPage returns the CurrentPage field value if set, zero value otherwise.
+func (o *HistoricalDnsResponse) GetCurrentPage() int32 {
+	if o == nil || IsNil(o.CurrentPage) {
 		var ret int32
 		return ret
 	}
-	return *o.CurrenPage
+	return *o.CurrentPage
 }
 
-// GetCurrenPageOk returns a tuple with the CurrenPage field value if set, nil otherwise
+// GetCurrentPageOk returns a tuple with the CurrentPage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistoricalDnsResponse) GetCurrenPageOk() (*int32, bool) {
-	if o == nil || IsNil(o.CurrenPage) {
+func (o *HistoricalDnsResponse) GetCurrentPageOk() (*int32, bool) {
+	if o == nil || IsNil(o.CurrentPage) {
 		return nil, false
 	}
-	return o.CurrenPage, true
+	return o.CurrentPage, true
 }
 
-// HasCurrenPage returns a boolean if a field has been set.
-func (o *HistoricalDnsResponse) HasCurrenPage() bool {
-	if o != nil && !IsNil(o.CurrenPage) {
+// HasCurrentPage returns a boolean if a field has been set.
+func (o *HistoricalDnsResponse) HasCurrentPage() bool {
+	if o != nil && !IsNil(o.CurrentPage) {
 		return true
 	}
 
 	return false
 }
 
-// SetCurrenPage gets a reference to the given int32 and assigns it to the CurrenPage field.
-func (o *HistoricalDnsResponse) SetCurrenPage(v int32) {
-	o.CurrenPage = &v
+// SetCurrentPage gets a reference to the given int32 and assigns it to the CurrentPage field.
+func (o *HistoricalDnsResponse) SetCurrentPage(v int32) {
+	o.CurrentPage = &v
 }
 
 // GetTotalRecords returns the TotalRecords field value if set, zero value otherwise.
@@ -142,36 +142,36 @@ func (o *HistoricalDnsResponse) SetTotalRecords(v int32) {
 	o.TotalRecords = &v
 }
 
-// GetHistoricalDns returns the HistoricalDns field value if set, zero value otherwise.
-func (o *HistoricalDnsResponse) GetHistoricalDns() []DnsResponse {
-	if o == nil || IsNil(o.HistoricalDns) {
+// GetHistoricalDnsRecords returns the HistoricalDnsRecords field value if set, zero value otherwise.
+func (o *HistoricalDnsResponse) GetHistoricalDnsRecords() []DnsResponse {
+	if o == nil || IsNil(o.HistoricalDnsRecords) {
 		var ret []DnsResponse
 		return ret
 	}
-	return o.HistoricalDns
+	return o.HistoricalDnsRecords
 }
 
-// GetHistoricalDnsOk returns a tuple with the HistoricalDns field value if set, nil otherwise
+// GetHistoricalDnsRecordsOk returns a tuple with the HistoricalDnsRecords field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *HistoricalDnsResponse) GetHistoricalDnsOk() ([]DnsResponse, bool) {
-	if o == nil || IsNil(o.HistoricalDns) {
+func (o *HistoricalDnsResponse) GetHistoricalDnsRecordsOk() ([]DnsResponse, bool) {
+	if o == nil || IsNil(o.HistoricalDnsRecords) {
 		return nil, false
 	}
-	return o.HistoricalDns, true
+	return o.HistoricalDnsRecords, true
 }
 
-// HasHistoricalDns returns a boolean if a field has been set.
-func (o *HistoricalDnsResponse) HasHistoricalDns() bool {
-	if o != nil && !IsNil(o.HistoricalDns) {
+// HasHistoricalDnsRecords returns a boolean if a field has been set.
+func (o *HistoricalDnsResponse) HasHistoricalDnsRecords() bool {
+	if o != nil && !IsNil(o.HistoricalDnsRecords) {
 		return true
 	}
 
 	return false
 }
 
-// SetHistoricalDns gets a reference to the given []DnsResponse and assigns it to the HistoricalDns field.
-func (o *HistoricalDnsResponse) SetHistoricalDns(v []DnsResponse) {
-	o.HistoricalDns = v
+// SetHistoricalDnsRecords gets a reference to the given []DnsResponse and assigns it to the HistoricalDnsRecords field.
+func (o *HistoricalDnsResponse) SetHistoricalDnsRecords(v []DnsResponse) {
+	o.HistoricalDnsRecords = v
 }
 
 func (o HistoricalDnsResponse) MarshalJSON() ([]byte, error) {
@@ -187,14 +187,14 @@ func (o HistoricalDnsResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TotalPages) {
 		toSerialize["totalPages"] = o.TotalPages
 	}
-	if !IsNil(o.CurrenPage) {
-		toSerialize["currenPage"] = o.CurrenPage
+	if !IsNil(o.CurrentPage) {
+		toSerialize["currentPage"] = o.CurrentPage
 	}
 	if !IsNil(o.TotalRecords) {
 		toSerialize["totalRecords"] = o.TotalRecords
 	}
-	if !IsNil(o.HistoricalDns) {
-		toSerialize["historicalDns"] = o.HistoricalDns
+	if !IsNil(o.HistoricalDnsRecords) {
+		toSerialize["historicalDnsRecords"] = o.HistoricalDnsRecords
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -219,9 +219,9 @@ func (o *HistoricalDnsResponse) UnmarshalJSON(data []byte) (err error) {
 
 	if err = json.Unmarshal(data, &additionalProperties); err == nil {
 		delete(additionalProperties, "totalPages")
-		delete(additionalProperties, "currenPage")
+		delete(additionalProperties, "currentPage")
 		delete(additionalProperties, "totalRecords")
-		delete(additionalProperties, "historicalDns")
+		delete(additionalProperties, "historicalDnsRecords")
 		o.AdditionalProperties = additionalProperties
 	}
 

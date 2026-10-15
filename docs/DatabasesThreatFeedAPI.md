@@ -32,7 +32,7 @@ import (
 )
 
 func main() {
-	date := "date_example" // string | Feed date (yyyy-MM-dd); defaults to latest available (optional)
+	date := "2026-10-01" // string | Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -57,7 +57,7 @@ Other parameters are passed through a pointer to a apiDownloadThreatFeedMalwareR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **date** | **string** | Feed date (yyyy-MM-dd); defaults to latest available | 
+ **date** | **string** | Feed date (yyyy-MM-dd); omit for the full dump of the feed | 
 
 ### Return type
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -129,7 +129,7 @@ Other parameters are passed through a pointer to a apiDownloadThreatFeedMalwareS
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -155,7 +155,7 @@ import (
 )
 
 func main() {
-	date := "date_example" // string | Feed date (yyyy-MM-dd); defaults to latest available (optional)
+	date := "2026-10-01" // string | Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -180,7 +180,7 @@ Other parameters are passed through a pointer to a apiDownloadThreatFeedPhishing
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **date** | **string** | Feed date (yyyy-MM-dd); defaults to latest available | 
+ **date** | **string** | Feed date (yyyy-MM-dd); omit for the full dump of the feed | 
 
 ### Return type
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -252,7 +252,7 @@ Other parameters are passed through a pointer to a apiDownloadThreatFeedPhishing
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -278,7 +278,7 @@ import (
 )
 
 func main() {
-	date := "date_example" // string | Feed date (yyyy-MM-dd); defaults to latest available (optional)
+	date := "2026-10-01" // string | Feed date (yyyy-MM-dd); omit for the full dump of the feed (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -303,7 +303,7 @@ Other parameters are passed through a pointer to a apiDownloadThreatFeedSpamRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **date** | **string** | Feed date (yyyy-MM-dd); defaults to latest available | 
+ **date** | **string** | Feed date (yyyy-MM-dd); omit for the full dump of the feed | 
 
 ### Return type
 
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -375,7 +375,7 @@ Other parameters are passed through a pointer to a apiDownloadThreatFeedSpamSamp
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

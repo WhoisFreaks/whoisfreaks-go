@@ -30,11 +30,11 @@ import (
 )
 
 func main() {
-	domain := "domain_example" // string | 
+	domain := "whoisfreaks.com" // string | 
 	after := time.Now() // string |  (optional)
 	before := time.Now() // string |  (optional)
 	status := "status_example" // string |  (optional)
-	page := int32(56) // int32 |  (optional) (default to 1)
+	page := int32(1) // int32 |  (optional) (default to 1)
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()

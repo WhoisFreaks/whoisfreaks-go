@@ -81,9 +81,11 @@ Name | Type | Description  | Notes
 
 ## WhoisHistory
 
-> WhoisHistoricalResponse WhoisHistory(ctx).DomainName(domainName).Page(page).Format(format).Execute()
+> WhoisHistoricalResponse WhoisHistory(ctx).DomainName(domainName).Format(format).Execute()
 
 Historical WHOIS records for a domain
+
+
 
 ### Example
 
@@ -98,13 +100,12 @@ import (
 )
 
 func main() {
-	domainName := "domainName_example" // string | Domain to fetch historical WHOIS records for
-	page := int32(56) // int32 | Page number (optional)
+	domainName := "whoisfreaks.com" // string | Domain to fetch historical WHOIS records for
 	format := "format_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WHOISAPI.WhoisHistory(context.Background()).DomainName(domainName).Page(page).Format(format).Execute()
+	resp, r, err := apiClient.WHOISAPI.WhoisHistory(context.Background()).DomainName(domainName).Format(format).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WHOISAPI.WhoisHistory``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -126,7 +127,6 @@ Other parameters are passed through a pointer to a apiWhoisHistoryRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **domainName** | **string** | Domain to fetch historical WHOIS records for | 
- **page** | **int32** | Page number | 
  **format** | **string** |  | 
 
 ### Return type
@@ -234,8 +234,8 @@ import (
 )
 
 func main() {
-	keyword := "keyword_example" // string | Keyword to search across WHOIS records
-	page := int32(56) // int32 | Page number (optional)
+	keyword := "whoisfreaks" // string | Keyword to search across WHOIS records
+	page := int32(1) // int32 | Page number (optional)
 	format := "format_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()

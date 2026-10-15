@@ -96,7 +96,7 @@ import (
 )
 
 func main() {
-	ip := "ip_example" // string | 
+	ip := "8.8.8.8" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

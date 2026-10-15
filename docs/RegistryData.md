@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **DomainRegistrar** | Pointer to [**RegistrarInformation**](RegistrarInformation.md) |  | [optional] 
 **NameServers** | Pointer to **[]string** |  | [optional] 
 **DomainStatus** | Pointer to **[]string** |  | [optional] 
-**WhoisRawDomain** | Pointer to **string** |  | [optional] 
+**WhoisRawRegistery** | Pointer to **string** | Raw registry WHOIS text (field name spelled as the API returns it) | [optional] 
 
 ## Methods
 
@@ -285,30 +285,30 @@ SetDomainStatus sets DomainStatus field to given value.
 
 HasDomainStatus returns a boolean if a field has been set.
 
-### GetWhoisRawDomain
+### GetWhoisRawRegistery
 
-`func (o *RegistryData) GetWhoisRawDomain() string`
+`func (o *RegistryData) GetWhoisRawRegistery() string`
 
-GetWhoisRawDomain returns the WhoisRawDomain field if non-nil, zero value otherwise.
+GetWhoisRawRegistery returns the WhoisRawRegistery field if non-nil, zero value otherwise.
 
-### GetWhoisRawDomainOk
+### GetWhoisRawRegisteryOk
 
-`func (o *RegistryData) GetWhoisRawDomainOk() (*string, bool)`
+`func (o *RegistryData) GetWhoisRawRegisteryOk() (*string, bool)`
 
-GetWhoisRawDomainOk returns a tuple with the WhoisRawDomain field if it's non-nil, zero value otherwise
+GetWhoisRawRegisteryOk returns a tuple with the WhoisRawRegistery field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWhoisRawDomain
+### SetWhoisRawRegistery
 
-`func (o *RegistryData) SetWhoisRawDomain(v string)`
+`func (o *RegistryData) SetWhoisRawRegistery(v string)`
 
-SetWhoisRawDomain sets WhoisRawDomain field to given value.
+SetWhoisRawRegistery sets WhoisRawRegistery field to given value.
 
-### HasWhoisRawDomain
+### HasWhoisRawRegistery
 
-`func (o *RegistryData) HasWhoisRawDomain() bool`
+`func (o *RegistryData) HasWhoisRawRegistery() bool`
 
-HasWhoisRawDomain returns a boolean if a field has been set.
+HasWhoisRawRegistery returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

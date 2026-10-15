@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -30,7 +30,8 @@ type RegistryData struct {
 	DomainRegistrar *RegistrarInformation `json:"domain_registrar,omitempty"`
 	NameServers []string `json:"name_servers,omitempty"`
 	DomainStatus []string `json:"domain_status,omitempty"`
-	WhoisRawDomain *string `json:"whois_raw_domain,omitempty"`
+	// Raw registry WHOIS text (field name spelled as the API returns it)
+	WhoisRawRegistery *string `json:"whois_raw_registery,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -373,36 +374,36 @@ func (o *RegistryData) SetDomainStatus(v []string) {
 	o.DomainStatus = v
 }
 
-// GetWhoisRawDomain returns the WhoisRawDomain field value if set, zero value otherwise.
-func (o *RegistryData) GetWhoisRawDomain() string {
-	if o == nil || IsNil(o.WhoisRawDomain) {
+// GetWhoisRawRegistery returns the WhoisRawRegistery field value if set, zero value otherwise.
+func (o *RegistryData) GetWhoisRawRegistery() string {
+	if o == nil || IsNil(o.WhoisRawRegistery) {
 		var ret string
 		return ret
 	}
-	return *o.WhoisRawDomain
+	return *o.WhoisRawRegistery
 }
 
-// GetWhoisRawDomainOk returns a tuple with the WhoisRawDomain field value if set, nil otherwise
+// GetWhoisRawRegisteryOk returns a tuple with the WhoisRawRegistery field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RegistryData) GetWhoisRawDomainOk() (*string, bool) {
-	if o == nil || IsNil(o.WhoisRawDomain) {
+func (o *RegistryData) GetWhoisRawRegisteryOk() (*string, bool) {
+	if o == nil || IsNil(o.WhoisRawRegistery) {
 		return nil, false
 	}
-	return o.WhoisRawDomain, true
+	return o.WhoisRawRegistery, true
 }
 
-// HasWhoisRawDomain returns a boolean if a field has been set.
-func (o *RegistryData) HasWhoisRawDomain() bool {
-	if o != nil && !IsNil(o.WhoisRawDomain) {
+// HasWhoisRawRegistery returns a boolean if a field has been set.
+func (o *RegistryData) HasWhoisRawRegistery() bool {
+	if o != nil && !IsNil(o.WhoisRawRegistery) {
 		return true
 	}
 
 	return false
 }
 
-// SetWhoisRawDomain gets a reference to the given string and assigns it to the WhoisRawDomain field.
-func (o *RegistryData) SetWhoisRawDomain(v string) {
-	o.WhoisRawDomain = &v
+// SetWhoisRawRegistery gets a reference to the given string and assigns it to the WhoisRawRegistery field.
+func (o *RegistryData) SetWhoisRawRegistery(v string) {
+	o.WhoisRawRegistery = &v
 }
 
 func (o RegistryData) MarshalJSON() ([]byte, error) {
@@ -445,8 +446,8 @@ func (o RegistryData) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.DomainStatus) {
 		toSerialize["domain_status"] = o.DomainStatus
 	}
-	if !IsNil(o.WhoisRawDomain) {
-		toSerialize["whois_raw_domain"] = o.WhoisRawDomain
+	if !IsNil(o.WhoisRawRegistery) {
+		toSerialize["whois_raw_registery"] = o.WhoisRawRegistery
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -480,7 +481,7 @@ func (o *RegistryData) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "domain_registrar")
 		delete(additionalProperties, "name_servers")
 		delete(additionalProperties, "domain_status")
-		delete(additionalProperties, "whois_raw_domain")
+		delete(additionalProperties, "whois_raw_registery")
 		o.AdditionalProperties = additionalProperties
 	}
 

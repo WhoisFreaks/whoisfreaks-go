@@ -29,7 +29,7 @@ import (
 )
 
 func main() {
-	ip := "ip_example" // string | 
+	ip := "8.8.8.8" // string | 
 	format := "format_example" // string |  (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()

@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -18,11 +18,31 @@ import (
 // checks if the BulkWhoisItem type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &BulkWhoisItem{}
 
-// BulkWhoisItem One bulk WHOIS result; success items also carry all WhoisResponse fields.
+// BulkWhoisItem One bulk WHOIS result. Successful items carry the same fields as a live WHOIS lookup.
 type BulkWhoisItem struct {
 	Status *bool `json:"status,omitempty"`
 	DomainName *string `json:"domain_name,omitempty"`
 	Error *string `json:"error,omitempty"`
+	QueryTime *string `json:"query_time,omitempty"`
+	WhoisServer *string `json:"whois_server,omitempty"`
+	DomainRegistered *string `json:"domain_registered,omitempty"`
+	SecureDns *bool `json:"secure_dns,omitempty"`
+	DomainHandle *string `json:"domain_handle,omitempty"`
+	CreateDate *string `json:"create_date,omitempty"`
+	UpdateDate *string `json:"update_date,omitempty"`
+	ExpiryDate *string `json:"expiry_date,omitempty"`
+	DomainRegistrar *RegistrarInformation `json:"domain_registrar,omitempty"`
+	ResellerContact *ResellerContact `json:"reseller_contact,omitempty"`
+	RegistrantContact *PersonalInformation `json:"registrant_contact,omitempty"`
+	AdministrativeContact *PersonalInformation `json:"administrative_contact,omitempty"`
+	TechnicalContact *PersonalInformation `json:"technical_contact,omitempty"`
+	BillingContact *PersonalInformation `json:"billing_contact,omitempty"`
+	EligibilityInfo *EligibilityInfo `json:"eligibility_info,omitempty"`
+	AbuseContact *RegistrarInformation `json:"abuse_contact,omitempty"`
+	NameServers []string `json:"name_servers,omitempty"`
+	DomainStatus []string `json:"domain_status,omitempty"`
+	WhoisRawDomain *string `json:"whois_raw_domain,omitempty"`
+	RegistryData *RegistryData `json:"registry_data,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -141,6 +161,646 @@ func (o *BulkWhoisItem) SetError(v string) {
 	o.Error = &v
 }
 
+// GetQueryTime returns the QueryTime field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetQueryTime() string {
+	if o == nil || IsNil(o.QueryTime) {
+		var ret string
+		return ret
+	}
+	return *o.QueryTime
+}
+
+// GetQueryTimeOk returns a tuple with the QueryTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetQueryTimeOk() (*string, bool) {
+	if o == nil || IsNil(o.QueryTime) {
+		return nil, false
+	}
+	return o.QueryTime, true
+}
+
+// HasQueryTime returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasQueryTime() bool {
+	if o != nil && !IsNil(o.QueryTime) {
+		return true
+	}
+
+	return false
+}
+
+// SetQueryTime gets a reference to the given string and assigns it to the QueryTime field.
+func (o *BulkWhoisItem) SetQueryTime(v string) {
+	o.QueryTime = &v
+}
+
+// GetWhoisServer returns the WhoisServer field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetWhoisServer() string {
+	if o == nil || IsNil(o.WhoisServer) {
+		var ret string
+		return ret
+	}
+	return *o.WhoisServer
+}
+
+// GetWhoisServerOk returns a tuple with the WhoisServer field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetWhoisServerOk() (*string, bool) {
+	if o == nil || IsNil(o.WhoisServer) {
+		return nil, false
+	}
+	return o.WhoisServer, true
+}
+
+// HasWhoisServer returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasWhoisServer() bool {
+	if o != nil && !IsNil(o.WhoisServer) {
+		return true
+	}
+
+	return false
+}
+
+// SetWhoisServer gets a reference to the given string and assigns it to the WhoisServer field.
+func (o *BulkWhoisItem) SetWhoisServer(v string) {
+	o.WhoisServer = &v
+}
+
+// GetDomainRegistered returns the DomainRegistered field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetDomainRegistered() string {
+	if o == nil || IsNil(o.DomainRegistered) {
+		var ret string
+		return ret
+	}
+	return *o.DomainRegistered
+}
+
+// GetDomainRegisteredOk returns a tuple with the DomainRegistered field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetDomainRegisteredOk() (*string, bool) {
+	if o == nil || IsNil(o.DomainRegistered) {
+		return nil, false
+	}
+	return o.DomainRegistered, true
+}
+
+// HasDomainRegistered returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasDomainRegistered() bool {
+	if o != nil && !IsNil(o.DomainRegistered) {
+		return true
+	}
+
+	return false
+}
+
+// SetDomainRegistered gets a reference to the given string and assigns it to the DomainRegistered field.
+func (o *BulkWhoisItem) SetDomainRegistered(v string) {
+	o.DomainRegistered = &v
+}
+
+// GetSecureDns returns the SecureDns field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetSecureDns() bool {
+	if o == nil || IsNil(o.SecureDns) {
+		var ret bool
+		return ret
+	}
+	return *o.SecureDns
+}
+
+// GetSecureDnsOk returns a tuple with the SecureDns field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetSecureDnsOk() (*bool, bool) {
+	if o == nil || IsNil(o.SecureDns) {
+		return nil, false
+	}
+	return o.SecureDns, true
+}
+
+// HasSecureDns returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasSecureDns() bool {
+	if o != nil && !IsNil(o.SecureDns) {
+		return true
+	}
+
+	return false
+}
+
+// SetSecureDns gets a reference to the given bool and assigns it to the SecureDns field.
+func (o *BulkWhoisItem) SetSecureDns(v bool) {
+	o.SecureDns = &v
+}
+
+// GetDomainHandle returns the DomainHandle field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetDomainHandle() string {
+	if o == nil || IsNil(o.DomainHandle) {
+		var ret string
+		return ret
+	}
+	return *o.DomainHandle
+}
+
+// GetDomainHandleOk returns a tuple with the DomainHandle field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetDomainHandleOk() (*string, bool) {
+	if o == nil || IsNil(o.DomainHandle) {
+		return nil, false
+	}
+	return o.DomainHandle, true
+}
+
+// HasDomainHandle returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasDomainHandle() bool {
+	if o != nil && !IsNil(o.DomainHandle) {
+		return true
+	}
+
+	return false
+}
+
+// SetDomainHandle gets a reference to the given string and assigns it to the DomainHandle field.
+func (o *BulkWhoisItem) SetDomainHandle(v string) {
+	o.DomainHandle = &v
+}
+
+// GetCreateDate returns the CreateDate field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetCreateDate() string {
+	if o == nil || IsNil(o.CreateDate) {
+		var ret string
+		return ret
+	}
+	return *o.CreateDate
+}
+
+// GetCreateDateOk returns a tuple with the CreateDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetCreateDateOk() (*string, bool) {
+	if o == nil || IsNil(o.CreateDate) {
+		return nil, false
+	}
+	return o.CreateDate, true
+}
+
+// HasCreateDate returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasCreateDate() bool {
+	if o != nil && !IsNil(o.CreateDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetCreateDate gets a reference to the given string and assigns it to the CreateDate field.
+func (o *BulkWhoisItem) SetCreateDate(v string) {
+	o.CreateDate = &v
+}
+
+// GetUpdateDate returns the UpdateDate field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetUpdateDate() string {
+	if o == nil || IsNil(o.UpdateDate) {
+		var ret string
+		return ret
+	}
+	return *o.UpdateDate
+}
+
+// GetUpdateDateOk returns a tuple with the UpdateDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetUpdateDateOk() (*string, bool) {
+	if o == nil || IsNil(o.UpdateDate) {
+		return nil, false
+	}
+	return o.UpdateDate, true
+}
+
+// HasUpdateDate returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasUpdateDate() bool {
+	if o != nil && !IsNil(o.UpdateDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdateDate gets a reference to the given string and assigns it to the UpdateDate field.
+func (o *BulkWhoisItem) SetUpdateDate(v string) {
+	o.UpdateDate = &v
+}
+
+// GetExpiryDate returns the ExpiryDate field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetExpiryDate() string {
+	if o == nil || IsNil(o.ExpiryDate) {
+		var ret string
+		return ret
+	}
+	return *o.ExpiryDate
+}
+
+// GetExpiryDateOk returns a tuple with the ExpiryDate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetExpiryDateOk() (*string, bool) {
+	if o == nil || IsNil(o.ExpiryDate) {
+		return nil, false
+	}
+	return o.ExpiryDate, true
+}
+
+// HasExpiryDate returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasExpiryDate() bool {
+	if o != nil && !IsNil(o.ExpiryDate) {
+		return true
+	}
+
+	return false
+}
+
+// SetExpiryDate gets a reference to the given string and assigns it to the ExpiryDate field.
+func (o *BulkWhoisItem) SetExpiryDate(v string) {
+	o.ExpiryDate = &v
+}
+
+// GetDomainRegistrar returns the DomainRegistrar field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetDomainRegistrar() RegistrarInformation {
+	if o == nil || IsNil(o.DomainRegistrar) {
+		var ret RegistrarInformation
+		return ret
+	}
+	return *o.DomainRegistrar
+}
+
+// GetDomainRegistrarOk returns a tuple with the DomainRegistrar field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetDomainRegistrarOk() (*RegistrarInformation, bool) {
+	if o == nil || IsNil(o.DomainRegistrar) {
+		return nil, false
+	}
+	return o.DomainRegistrar, true
+}
+
+// HasDomainRegistrar returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasDomainRegistrar() bool {
+	if o != nil && !IsNil(o.DomainRegistrar) {
+		return true
+	}
+
+	return false
+}
+
+// SetDomainRegistrar gets a reference to the given RegistrarInformation and assigns it to the DomainRegistrar field.
+func (o *BulkWhoisItem) SetDomainRegistrar(v RegistrarInformation) {
+	o.DomainRegistrar = &v
+}
+
+// GetResellerContact returns the ResellerContact field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetResellerContact() ResellerContact {
+	if o == nil || IsNil(o.ResellerContact) {
+		var ret ResellerContact
+		return ret
+	}
+	return *o.ResellerContact
+}
+
+// GetResellerContactOk returns a tuple with the ResellerContact field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetResellerContactOk() (*ResellerContact, bool) {
+	if o == nil || IsNil(o.ResellerContact) {
+		return nil, false
+	}
+	return o.ResellerContact, true
+}
+
+// HasResellerContact returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasResellerContact() bool {
+	if o != nil && !IsNil(o.ResellerContact) {
+		return true
+	}
+
+	return false
+}
+
+// SetResellerContact gets a reference to the given ResellerContact and assigns it to the ResellerContact field.
+func (o *BulkWhoisItem) SetResellerContact(v ResellerContact) {
+	o.ResellerContact = &v
+}
+
+// GetRegistrantContact returns the RegistrantContact field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetRegistrantContact() PersonalInformation {
+	if o == nil || IsNil(o.RegistrantContact) {
+		var ret PersonalInformation
+		return ret
+	}
+	return *o.RegistrantContact
+}
+
+// GetRegistrantContactOk returns a tuple with the RegistrantContact field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetRegistrantContactOk() (*PersonalInformation, bool) {
+	if o == nil || IsNil(o.RegistrantContact) {
+		return nil, false
+	}
+	return o.RegistrantContact, true
+}
+
+// HasRegistrantContact returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasRegistrantContact() bool {
+	if o != nil && !IsNil(o.RegistrantContact) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegistrantContact gets a reference to the given PersonalInformation and assigns it to the RegistrantContact field.
+func (o *BulkWhoisItem) SetRegistrantContact(v PersonalInformation) {
+	o.RegistrantContact = &v
+}
+
+// GetAdministrativeContact returns the AdministrativeContact field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetAdministrativeContact() PersonalInformation {
+	if o == nil || IsNil(o.AdministrativeContact) {
+		var ret PersonalInformation
+		return ret
+	}
+	return *o.AdministrativeContact
+}
+
+// GetAdministrativeContactOk returns a tuple with the AdministrativeContact field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetAdministrativeContactOk() (*PersonalInformation, bool) {
+	if o == nil || IsNil(o.AdministrativeContact) {
+		return nil, false
+	}
+	return o.AdministrativeContact, true
+}
+
+// HasAdministrativeContact returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasAdministrativeContact() bool {
+	if o != nil && !IsNil(o.AdministrativeContact) {
+		return true
+	}
+
+	return false
+}
+
+// SetAdministrativeContact gets a reference to the given PersonalInformation and assigns it to the AdministrativeContact field.
+func (o *BulkWhoisItem) SetAdministrativeContact(v PersonalInformation) {
+	o.AdministrativeContact = &v
+}
+
+// GetTechnicalContact returns the TechnicalContact field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetTechnicalContact() PersonalInformation {
+	if o == nil || IsNil(o.TechnicalContact) {
+		var ret PersonalInformation
+		return ret
+	}
+	return *o.TechnicalContact
+}
+
+// GetTechnicalContactOk returns a tuple with the TechnicalContact field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetTechnicalContactOk() (*PersonalInformation, bool) {
+	if o == nil || IsNil(o.TechnicalContact) {
+		return nil, false
+	}
+	return o.TechnicalContact, true
+}
+
+// HasTechnicalContact returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasTechnicalContact() bool {
+	if o != nil && !IsNil(o.TechnicalContact) {
+		return true
+	}
+
+	return false
+}
+
+// SetTechnicalContact gets a reference to the given PersonalInformation and assigns it to the TechnicalContact field.
+func (o *BulkWhoisItem) SetTechnicalContact(v PersonalInformation) {
+	o.TechnicalContact = &v
+}
+
+// GetBillingContact returns the BillingContact field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetBillingContact() PersonalInformation {
+	if o == nil || IsNil(o.BillingContact) {
+		var ret PersonalInformation
+		return ret
+	}
+	return *o.BillingContact
+}
+
+// GetBillingContactOk returns a tuple with the BillingContact field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetBillingContactOk() (*PersonalInformation, bool) {
+	if o == nil || IsNil(o.BillingContact) {
+		return nil, false
+	}
+	return o.BillingContact, true
+}
+
+// HasBillingContact returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasBillingContact() bool {
+	if o != nil && !IsNil(o.BillingContact) {
+		return true
+	}
+
+	return false
+}
+
+// SetBillingContact gets a reference to the given PersonalInformation and assigns it to the BillingContact field.
+func (o *BulkWhoisItem) SetBillingContact(v PersonalInformation) {
+	o.BillingContact = &v
+}
+
+// GetEligibilityInfo returns the EligibilityInfo field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetEligibilityInfo() EligibilityInfo {
+	if o == nil || IsNil(o.EligibilityInfo) {
+		var ret EligibilityInfo
+		return ret
+	}
+	return *o.EligibilityInfo
+}
+
+// GetEligibilityInfoOk returns a tuple with the EligibilityInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetEligibilityInfoOk() (*EligibilityInfo, bool) {
+	if o == nil || IsNil(o.EligibilityInfo) {
+		return nil, false
+	}
+	return o.EligibilityInfo, true
+}
+
+// HasEligibilityInfo returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasEligibilityInfo() bool {
+	if o != nil && !IsNil(o.EligibilityInfo) {
+		return true
+	}
+
+	return false
+}
+
+// SetEligibilityInfo gets a reference to the given EligibilityInfo and assigns it to the EligibilityInfo field.
+func (o *BulkWhoisItem) SetEligibilityInfo(v EligibilityInfo) {
+	o.EligibilityInfo = &v
+}
+
+// GetAbuseContact returns the AbuseContact field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetAbuseContact() RegistrarInformation {
+	if o == nil || IsNil(o.AbuseContact) {
+		var ret RegistrarInformation
+		return ret
+	}
+	return *o.AbuseContact
+}
+
+// GetAbuseContactOk returns a tuple with the AbuseContact field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetAbuseContactOk() (*RegistrarInformation, bool) {
+	if o == nil || IsNil(o.AbuseContact) {
+		return nil, false
+	}
+	return o.AbuseContact, true
+}
+
+// HasAbuseContact returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasAbuseContact() bool {
+	if o != nil && !IsNil(o.AbuseContact) {
+		return true
+	}
+
+	return false
+}
+
+// SetAbuseContact gets a reference to the given RegistrarInformation and assigns it to the AbuseContact field.
+func (o *BulkWhoisItem) SetAbuseContact(v RegistrarInformation) {
+	o.AbuseContact = &v
+}
+
+// GetNameServers returns the NameServers field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetNameServers() []string {
+	if o == nil || IsNil(o.NameServers) {
+		var ret []string
+		return ret
+	}
+	return o.NameServers
+}
+
+// GetNameServersOk returns a tuple with the NameServers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetNameServersOk() ([]string, bool) {
+	if o == nil || IsNil(o.NameServers) {
+		return nil, false
+	}
+	return o.NameServers, true
+}
+
+// HasNameServers returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasNameServers() bool {
+	if o != nil && !IsNil(o.NameServers) {
+		return true
+	}
+
+	return false
+}
+
+// SetNameServers gets a reference to the given []string and assigns it to the NameServers field.
+func (o *BulkWhoisItem) SetNameServers(v []string) {
+	o.NameServers = v
+}
+
+// GetDomainStatus returns the DomainStatus field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetDomainStatus() []string {
+	if o == nil || IsNil(o.DomainStatus) {
+		var ret []string
+		return ret
+	}
+	return o.DomainStatus
+}
+
+// GetDomainStatusOk returns a tuple with the DomainStatus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetDomainStatusOk() ([]string, bool) {
+	if o == nil || IsNil(o.DomainStatus) {
+		return nil, false
+	}
+	return o.DomainStatus, true
+}
+
+// HasDomainStatus returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasDomainStatus() bool {
+	if o != nil && !IsNil(o.DomainStatus) {
+		return true
+	}
+
+	return false
+}
+
+// SetDomainStatus gets a reference to the given []string and assigns it to the DomainStatus field.
+func (o *BulkWhoisItem) SetDomainStatus(v []string) {
+	o.DomainStatus = v
+}
+
+// GetWhoisRawDomain returns the WhoisRawDomain field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetWhoisRawDomain() string {
+	if o == nil || IsNil(o.WhoisRawDomain) {
+		var ret string
+		return ret
+	}
+	return *o.WhoisRawDomain
+}
+
+// GetWhoisRawDomainOk returns a tuple with the WhoisRawDomain field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetWhoisRawDomainOk() (*string, bool) {
+	if o == nil || IsNil(o.WhoisRawDomain) {
+		return nil, false
+	}
+	return o.WhoisRawDomain, true
+}
+
+// HasWhoisRawDomain returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasWhoisRawDomain() bool {
+	if o != nil && !IsNil(o.WhoisRawDomain) {
+		return true
+	}
+
+	return false
+}
+
+// SetWhoisRawDomain gets a reference to the given string and assigns it to the WhoisRawDomain field.
+func (o *BulkWhoisItem) SetWhoisRawDomain(v string) {
+	o.WhoisRawDomain = &v
+}
+
+// GetRegistryData returns the RegistryData field value if set, zero value otherwise.
+func (o *BulkWhoisItem) GetRegistryData() RegistryData {
+	if o == nil || IsNil(o.RegistryData) {
+		var ret RegistryData
+		return ret
+	}
+	return *o.RegistryData
+}
+
+// GetRegistryDataOk returns a tuple with the RegistryData field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BulkWhoisItem) GetRegistryDataOk() (*RegistryData, bool) {
+	if o == nil || IsNil(o.RegistryData) {
+		return nil, false
+	}
+	return o.RegistryData, true
+}
+
+// HasRegistryData returns a boolean if a field has been set.
+func (o *BulkWhoisItem) HasRegistryData() bool {
+	if o != nil && !IsNil(o.RegistryData) {
+		return true
+	}
+
+	return false
+}
+
+// SetRegistryData gets a reference to the given RegistryData and assigns it to the RegistryData field.
+func (o *BulkWhoisItem) SetRegistryData(v RegistryData) {
+	o.RegistryData = &v
+}
+
 func (o BulkWhoisItem) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -159,6 +819,66 @@ func (o BulkWhoisItem) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Error) {
 		toSerialize["error"] = o.Error
+	}
+	if !IsNil(o.QueryTime) {
+		toSerialize["query_time"] = o.QueryTime
+	}
+	if !IsNil(o.WhoisServer) {
+		toSerialize["whois_server"] = o.WhoisServer
+	}
+	if !IsNil(o.DomainRegistered) {
+		toSerialize["domain_registered"] = o.DomainRegistered
+	}
+	if !IsNil(o.SecureDns) {
+		toSerialize["secure_dns"] = o.SecureDns
+	}
+	if !IsNil(o.DomainHandle) {
+		toSerialize["domain_handle"] = o.DomainHandle
+	}
+	if !IsNil(o.CreateDate) {
+		toSerialize["create_date"] = o.CreateDate
+	}
+	if !IsNil(o.UpdateDate) {
+		toSerialize["update_date"] = o.UpdateDate
+	}
+	if !IsNil(o.ExpiryDate) {
+		toSerialize["expiry_date"] = o.ExpiryDate
+	}
+	if !IsNil(o.DomainRegistrar) {
+		toSerialize["domain_registrar"] = o.DomainRegistrar
+	}
+	if !IsNil(o.ResellerContact) {
+		toSerialize["reseller_contact"] = o.ResellerContact
+	}
+	if !IsNil(o.RegistrantContact) {
+		toSerialize["registrant_contact"] = o.RegistrantContact
+	}
+	if !IsNil(o.AdministrativeContact) {
+		toSerialize["administrative_contact"] = o.AdministrativeContact
+	}
+	if !IsNil(o.TechnicalContact) {
+		toSerialize["technical_contact"] = o.TechnicalContact
+	}
+	if !IsNil(o.BillingContact) {
+		toSerialize["billing_contact"] = o.BillingContact
+	}
+	if !IsNil(o.EligibilityInfo) {
+		toSerialize["eligibility_info"] = o.EligibilityInfo
+	}
+	if !IsNil(o.AbuseContact) {
+		toSerialize["abuse_contact"] = o.AbuseContact
+	}
+	if !IsNil(o.NameServers) {
+		toSerialize["name_servers"] = o.NameServers
+	}
+	if !IsNil(o.DomainStatus) {
+		toSerialize["domain_status"] = o.DomainStatus
+	}
+	if !IsNil(o.WhoisRawDomain) {
+		toSerialize["whois_raw_domain"] = o.WhoisRawDomain
+	}
+	if !IsNil(o.RegistryData) {
+		toSerialize["registry_data"] = o.RegistryData
 	}
 
 	for key, value := range o.AdditionalProperties {
@@ -185,6 +905,26 @@ func (o *BulkWhoisItem) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "status")
 		delete(additionalProperties, "domain_name")
 		delete(additionalProperties, "error")
+		delete(additionalProperties, "query_time")
+		delete(additionalProperties, "whois_server")
+		delete(additionalProperties, "domain_registered")
+		delete(additionalProperties, "secure_dns")
+		delete(additionalProperties, "domain_handle")
+		delete(additionalProperties, "create_date")
+		delete(additionalProperties, "update_date")
+		delete(additionalProperties, "expiry_date")
+		delete(additionalProperties, "domain_registrar")
+		delete(additionalProperties, "reseller_contact")
+		delete(additionalProperties, "registrant_contact")
+		delete(additionalProperties, "administrative_contact")
+		delete(additionalProperties, "technical_contact")
+		delete(additionalProperties, "billing_contact")
+		delete(additionalProperties, "eligibility_info")
+		delete(additionalProperties, "abuse_contact")
+		delete(additionalProperties, "name_servers")
+		delete(additionalProperties, "domain_status")
+		delete(additionalProperties, "whois_raw_domain")
+		delete(additionalProperties, "registry_data")
 		o.AdditionalProperties = additionalProperties
 	}
 

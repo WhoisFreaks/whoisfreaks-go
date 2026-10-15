@@ -1,7 +1,7 @@
 /*
 WhoisFreaks API
 
-Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
 
 API version: 1.0.0
 Contact: support@whoisfreaks.com
@@ -90,7 +90,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/0.21.0/go",
+		UserAgent:        "OpenAPI-Generator/0.23.2/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
@@ -272,6 +272,42 @@ func NewConfiguration() *Configuration {
 				},
 			},
 			"DatabasesSubdomainsAPIService.DbSubdomainsWeekly": {
+				{
+					URL: "https://files.whoisfreaks.com",
+					Description: "No description provided",
+				},
+			},
+			"DatabasesThreatFeedAPIService.DownloadThreatFeedMalware": {
+				{
+					URL: "https://files.whoisfreaks.com",
+					Description: "No description provided",
+				},
+			},
+			"DatabasesThreatFeedAPIService.DownloadThreatFeedMalwareSample": {
+				{
+					URL: "https://files.whoisfreaks.com",
+					Description: "No description provided",
+				},
+			},
+			"DatabasesThreatFeedAPIService.DownloadThreatFeedPhishing": {
+				{
+					URL: "https://files.whoisfreaks.com",
+					Description: "No description provided",
+				},
+			},
+			"DatabasesThreatFeedAPIService.DownloadThreatFeedPhishingSample": {
+				{
+					URL: "https://files.whoisfreaks.com",
+					Description: "No description provided",
+				},
+			},
+			"DatabasesThreatFeedAPIService.DownloadThreatFeedSpam": {
+				{
+					URL: "https://files.whoisfreaks.com",
+					Description: "No description provided",
+				},
+			},
+			"DatabasesThreatFeedAPIService.DownloadThreatFeedSpamSample": {
 				{
 					URL: "https://files.whoisfreaks.com",
 					Description: "No description provided",
